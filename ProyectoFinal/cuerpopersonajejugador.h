@@ -39,8 +39,9 @@ public:
     //derecha
     void  derecha();//Movimiento lineal
 
+public slots:
     void actualizar_sprite_derecha();   //funcion para actualizar el sprite para la derecha
-   // void actualizar_sprite_arriba();    //funcion para actualizar el sprite para arriba
+    //void actualizar_sprite_arriba();    //funcion para actualizar el sprite para arriba
     void actualizar_sprite_izquierda(); //funcion para actualizar el sprite para la izquierda
     //void actualizar_sprite_abajo();     //funcion para actualizar el sprite para abajo
 

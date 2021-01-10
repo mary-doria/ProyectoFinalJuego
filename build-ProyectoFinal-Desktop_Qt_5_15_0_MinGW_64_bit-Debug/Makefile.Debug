@@ -109,14 +109,14 @@ compiler_rcc_clean:
 debug/qrc_Imagenes.cpp: ../ProyectoFinal/Imagenes.qrc \
 		C:/Qt/5.15.0/mingw81_64/bin/rcc.exe \
 		../ProyectoFinal/Imagenes/Rick.png \
-		../ProyectoFinal/Imagenes/Summer.png \
+		../ProyectoFinal/Imagenes/Escenario2.png \
 		../ProyectoFinal/Imagenes/Morty.png
 	C:\Qt\5.15.0\mingw81_64\bin\rcc.exe -name Imagenes ..\ProyectoFinal\Imagenes.qrc -o debug\qrc_Imagenes.cpp
 
 debug/qrc_Imagenes.cpp: ../ProyectoFinal/Imagenes.qrc \
 		C:/Qt/5.15.0/mingw81_64/bin/rcc.exe \
 		../ProyectoFinal/Imagenes/Rick.png \
-		../ProyectoFinal/Imagenes/Summer.png \
+		../ProyectoFinal/Imagenes/Escenario2.png \
 		../ProyectoFinal/Imagenes/Morty.png
 	C:\Qt\5.15.0\mingw81_64\bin\rcc.exe -name Imagenes ..\ProyectoFinal\Imagenes.qrc -o debug\qrc_Imagenes.cpp
 

@@ -20,6 +20,7 @@ private:
     Ui::MainWindow *ui;
     CuerpoPersonajeJugador *PersonajePrincipal;
     QGraphicsScene *scene;
+    QTimer *timer;
     void keyPressEvent(QKeyEvent *evento);
 };
 #endif // MAINWINDOW_H

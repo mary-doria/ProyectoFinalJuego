@@ -7,11 +7,11 @@ CuerpoPersonajeJugador::CuerpoPersonajeJugador(int x, int y)
     posy=y;
     // dar posicion
     setPos(posx,posy);
-    pixmap = new QPixmap(":/Imagenes/Summer.png");
+    pixmap = new QPixmap(":/Imagenes/Morty.png");
     dx = 0;
     dy =0;
-    ancho = 30;
-    alto=39;
+    ancho = 66;
+    alto=100;
 }
 
 
@@ -59,13 +59,17 @@ void CuerpoPersonajeJugador::abajo()
     setPos(posx,posy);
 }*/
 
-void CuerpoPersonajeJugador::izquierda()
+void CuerpoPersonajeJugador::izquierda()//MovimientoLineal
 {
     posx -= 2*velocidad;
     setPos(posx,posy);
 }
-
-void CuerpoPersonajeJugador::derecha()
+/*void CuerpoPersonajeJugador::arriba()
+{
+    posx -= 2*velocidad;
+    setPos(posx,posy);
+}*/
+void CuerpoPersonajeJugador::derecha()//Movimiento Lineal
 {
     posx += 2*velocidad;
     setPos(posx,posy);
@@ -73,9 +77,9 @@ void CuerpoPersonajeJugador::derecha()
 
 void CuerpoPersonajeJugador::actualizar_sprite_derecha()
 {
-    dx = 30*2;
-    dy+=39;
-    if(dy >= 30*3)
+    dx=170;
+    dy+=100;
+    if(dy >=300)
     {
         dy=0;
     }
@@ -86,9 +90,9 @@ void CuerpoPersonajeJugador::actualizar_sprite_derecha()
 
 void CuerpoPersonajeJugador::actualizar_sprite_izquierda()
 {
-    dx = 60;
-    dy+=39;
-    if(dy >= 90)
+    dx=80;
+    dy+=100;
+    if(dy >= 300)
     {
         dy=0;
     }
