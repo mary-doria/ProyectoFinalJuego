@@ -11,10 +11,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     scene = new QGraphicsScene;
     ui->graphicsView->setScene(scene);
-    scene->setSceneRect(0,0,5000,5000);// 0 , 0 esquina superior
+    scene->setSceneRect(0,0,300,300);// 0 , 0 esquina superior
     PersonajePrincipal = new CuerpoPersonajeJugador(127,166);
     scene->addItem(PersonajePrincipal);
 
+}
+MainWindow::~MainWindow()
+{
+delete ui;
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *evento)
@@ -26,3 +30,4 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
         PersonajePrincipal->derecha();}
 
 }
+

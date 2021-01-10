@@ -6,16 +6,18 @@
 #include <QPixmap>
 #include <QGraphicsPixmapItem>
 #include <QPainter>
+#include <QGraphicsScene>
+#include <QKeyEvent>
 
 class CuerpoPersonajeJugador:public QObject ,public QGraphicsItem
 {   int r;
     int posx, posy;
     int velocidad = 5;// velocidad del jugador
-    int aceleracion;// aceleracion del personaje
+
 
     // variables para el pacman
     float dx, dy;  //variables para controlar las filas y las columnas del sprite
-    float ancho,alto,indX,indY;
+    float ancho,alto;
 
     QPixmap *pixmap; //variable pixap
 

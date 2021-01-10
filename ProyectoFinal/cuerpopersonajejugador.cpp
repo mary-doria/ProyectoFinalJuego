@@ -7,13 +7,11 @@ CuerpoPersonajeJugador::CuerpoPersonajeJugador(int x, int y)
     posy=y;
     // dar posicion
     setPos(posx,posy);
-    pixmap = new QPixmap(":/Imagenes/Rick.png");
+    pixmap = new QPixmap(":/Imagenes/Summer.png");
     dx = 0;
     dy =0;
-    indX=0;
-    indY=0;
-    ancho = 126.7;
-    alto=166;
+    ancho = 30;
+    alto=39;
 }
 
 
@@ -75,9 +73,9 @@ void CuerpoPersonajeJugador::derecha()
 
 void CuerpoPersonajeJugador::actualizar_sprite_derecha()
 {
-    dx = 126.7*2;
-    dy+=166;
-    if(dy >= 126*3)
+    dx = 30*2;
+    dy+=39;
+    if(dy >= 30*3)
     {
         dy=0;
     }
@@ -88,9 +86,9 @@ void CuerpoPersonajeJugador::actualizar_sprite_derecha()
 
 void CuerpoPersonajeJugador::actualizar_sprite_izquierda()
 {
-    dx = 126*6;
-    dy+=166;
-    if(dy >= 126*7)
+    dx = 60;
+    dy+=39;
+    if(dy >= 90)
     {
         dy=0;
     }
