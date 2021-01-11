@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->graphicsView->setScene(scene);
     PersonajePrincipal = new CuerpoPersonajeJugador(127,166);
     scene->addItem(PersonajePrincipal);
-    PersonajePrincipal->setScale(1);
+    PersonajePrincipal->setScale(0.5);
     scene->setSceneRect(0,0,960,519);
     scene->setBackgroundBrush(QPixmap(":/Imagenes/Escenario2.png"));
 

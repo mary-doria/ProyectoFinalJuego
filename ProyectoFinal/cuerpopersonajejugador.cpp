@@ -7,11 +7,11 @@ CuerpoPersonajeJugador::CuerpoPersonajeJugador(int x, int y)
     posy=y;
     // dar posicion
     setPos(posx,posy);
-    pixmap = new QPixmap(":/Imagenes/Morty.png");
-    dx = 0;
-    dy =0;
-    ancho = 66;
-    alto=100;
+    pixmap = new QPixmap(":/Imagenes/Rick.png");
+    dx = 4;
+    dy =4;
+    ancho = 124;
+    alto=160;
 }
 
 
@@ -75,26 +75,26 @@ void CuerpoPersonajeJugador::derecha()//Movimiento Lineal
     setPos(posx,posy);
 }
 
-void CuerpoPersonajeJugador::actualizar_sprite_derecha()
+void CuerpoPersonajeJugador::actualizar_sprite_izquierda()
 {
-    dx=170;
-    dy+=100;
-    if(dy >=300)
+    dx=168;
+    dy+=128;
+    if(dy >=128*4)
     {
-        dy=0;
+        dy=4;
     }
     this->update(-ancho/2,-alto/2,ancho,alto);
 
 
 }
 
-void CuerpoPersonajeJugador::actualizar_sprite_izquierda()
+void CuerpoPersonajeJugador::actualizar_sprite_derecha()
 {
-    dx=80;
-    dy+=100;
-    if(dy >= 300)
+    dx=333;
+    dy+=128;
+    if(dy >=128*4)
     {
-        dy=0;
+        dy=4;
     }
     this->update(-ancho/2,-alto/2,ancho,alto);
 
