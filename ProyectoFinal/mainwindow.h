@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 #include <QMainWindow>
 #include <cuerpopersonajejugador.h>
+#include <QList>
+#include "spritegusano.h"
+
 
 
 
@@ -22,5 +25,11 @@ private:
     QGraphicsScene *scene;
     QTimer *timer;
     void keyPressEvent(QKeyEvent *evento);
+    QList<spritegusano*> enemigos;// lista de enemigos gusanos
+    spritegusano *enemigo1; // crear el puntero para la clase gusano
+
+
+public slots:
+    void moveEnemy();
 };
 #endif // MAINWINDOW_H
