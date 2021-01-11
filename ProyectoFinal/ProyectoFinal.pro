@@ -11,11 +11,13 @@ CONFIG += c++11
 SOURCES += \
     cuerpopersonajejugador.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    spritegusano.cpp
 
 HEADERS += \
     cuerpopersonajejugador.h \
-    mainwindow.h
+    mainwindow.h \
+    spritegusano.h
 
 FORMS += \
     mainwindow.ui
