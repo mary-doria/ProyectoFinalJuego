@@ -3,6 +3,7 @@
 #include <QList>
 #include <vector>
 #include "cuerpopersonajejugador.h"
+#include "spritegusano.h" // libreria para los Enemigos Gusanos.
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -22,11 +23,14 @@ dado que depende de la gravedad ira mas rapido mientras caiga*/
     timercaida = new QTimer();
     connect(timercaida,SIGNAL(timeout()),this,SLOT(activaG()));
     timercaida->start(100);
+    enemigo1= new spritegusano(true, 700,400);// se crea un enemigo gusano utilizando memoria dinamica
+    scene->addItem(enemigo1);// se agrega a la escena
+    enemigo1->setScale(0.5);// se le realiza la escala
+    enemigos.push_back(enemigo1);// se agrega el enemigo a una Qlista
+    QTimer *timer1 = new QTimer();// se usa un timer para poder utilizar el slot de la funcion move enemy
+    connect(timer1,SIGNAL(timeout()),this,SLOT(moveEnemy()));// se conecta el timer con la funcion en esta clase
+    timer1->start(25);// inicializacion del reloj
     }
-
-
-
-
 
 MainWindow::~MainWindow()
 {
@@ -53,5 +57,24 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
 
 void MainWindow::activaG(){
     PersonajePrincipal->caidaLibre();//Actualizacion del personaje en todo instante de tiempo
+
+}
+
+void MainWindow::moveEnemy()
+{
+
+
+    if (enemigo1->bande==true){
+    if(enemigo1->x()>600){
+        enemigo1->left(7); }
+    else
+        enemigo1->bande=false;
+    }
+    else{
+        if(enemigo1->x()<800){ enemigo1->right(7); }
+        else
+            enemigo1->bande=true;
+
+ }
 
 }
