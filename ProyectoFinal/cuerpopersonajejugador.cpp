@@ -1,6 +1,24 @@
 #include "cuerpopersonajejugador.h"
 #include <QPixmap>
 #include <QTimer>
+#include <math.h>
+#include <cmath>
+
+
+
+/*CuerpoPersonajeJugador::CuerpoPersonajeJugador(QObject *parent)
+{   timer = new QTimer();
+    dx =4;
+    dy =4;
+    pixmap = new QPixmap(":/Imagenes/Morty.png");
+
+    // dimensiones de las imagenes
+    ancho =124;
+    alto =160;
+    timer->start(100);
+    connect(timer,&QTimer::timeout,this,&CuerpoPersonajeJugador::caidaLibre);
+}*/
+
 CuerpoPersonajeJugador::CuerpoPersonajeJugador(int x, int y)
 {
     posx=x;
@@ -12,7 +30,10 @@ CuerpoPersonajeJugador::CuerpoPersonajeJugador(int x, int y)
     dy =4;
     ancho = 124;
     alto=160;
+    tiempo=1;
+    G=5;
 }
+
 
 
 int CuerpoPersonajeJugador::getPosx() const
@@ -47,45 +68,24 @@ void CuerpoPersonajeJugador::paint(QPainter *painter, const QStyleOptionGraphics
 
 }
 
-/*void CuerpoPersonajeJugador::arriba()
+void CuerpoPersonajeJugador::caidaLibre()
 {
-    posy -= 2*velocidad;
+    posy+=(this->velocidad*this->tiempo+((G*(this->tiempo*this->tiempo))/2));//Ecuacion caida libre
+    tiempo+=0.1;
     setPos(posx,posy);
+    this->update(-ancho/2,-alto/2,ancho,alto);//Actualizacion de la posicion en todo instante de tiempo
 }
-
-void CuerpoPersonajeJugador::abajo()
-{
-    posy += 2*velocidad;
-    setPos(posx,posy);
-}*/
 
 void CuerpoPersonajeJugador::izquierda()//MovimientoLineal
 {
     posx -= 2*velocidad;
     setPos(posx,posy);
 }
-/*void CuerpoPersonajeJugador::arriba()
-{
-    posx -= 2*velocidad;
-    setPos(posx,posy);
-}*/
+
 void CuerpoPersonajeJugador::derecha()//Movimiento Lineal
 {
     posx += 2*velocidad;
     setPos(posx,posy);
-}
-
-void CuerpoPersonajeJugador::actualizar_sprite_izquierda()
-{
-    dx=168;
-    dy+=128;
-    if(dy >=128*4)
-    {
-        dy=4;
-    }
-    this->update(-ancho/2,-alto/2,ancho,alto);
-
-
 }
 
 void CuerpoPersonajeJugador::actualizar_sprite_derecha()
@@ -94,7 +94,21 @@ void CuerpoPersonajeJugador::actualizar_sprite_derecha()
     dy+=128;
     if(dy >=128*4)
     {
-        dy=4;
+        dy=0;
+    }
+    this->update(-ancho/2,-alto/2,ancho,alto);
+
+
+}
+
+
+void CuerpoPersonajeJugador::actualizar_sprite_izquierda()
+{
+    dx=168;
+    dy+=128;
+    if(dy >= 128*4)
+    {
+        dy=0;
     }
     this->update(-ancho/2,-alto/2,ancho,alto);
 

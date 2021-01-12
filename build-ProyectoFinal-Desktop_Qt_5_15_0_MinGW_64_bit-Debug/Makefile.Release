@@ -109,14 +109,18 @@ compiler_rcc_clean:
 release/qrc_Imagenes.cpp: ../ProyectoFinal/Imagenes.qrc \
 		C:/Qt/5.15.0/mingw81_64/bin/rcc.exe \
 		../ProyectoFinal/Imagenes/Rick.png \
+		../ProyectoFinal/Imagenes/PlataformaEscenario2.png \
 		../ProyectoFinal/Imagenes/Escenario2.png \
+		../ProyectoFinal/Imagenes/Frutas.png \
 		../ProyectoFinal/Imagenes/Morty.png
 	C:\Qt\5.15.0\mingw81_64\bin\rcc.exe -name Imagenes ..\ProyectoFinal\Imagenes.qrc -o release\qrc_Imagenes.cpp
 
 release/qrc_Imagenes.cpp: ../ProyectoFinal/Imagenes.qrc \
 		C:/Qt/5.15.0/mingw81_64/bin/rcc.exe \
 		../ProyectoFinal/Imagenes/Rick.png \
+		../ProyectoFinal/Imagenes/PlataformaEscenario2.png \
 		../ProyectoFinal/Imagenes/Escenario2.png \
+		../ProyectoFinal/Imagenes/Frutas.png \
 		../ProyectoFinal/Imagenes/Morty.png
 	C:\Qt\5.15.0\mingw81_64\bin\rcc.exe -name Imagenes ..\ProyectoFinal\Imagenes.qrc -o release\qrc_Imagenes.cpp
 
