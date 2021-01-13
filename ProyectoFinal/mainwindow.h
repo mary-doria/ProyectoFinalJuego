@@ -3,8 +3,13 @@
 #include <QMainWindow>
 #include <cuerpopersonajejugador.h>
 #include <QList>
+#include <QDebug>
 #include "spritegusano.h"
-
+//para el vector
+#include <QVector> // puedo guardar posciones, pos de  figuras etc
+//para los archivos
+#include <fstream> // flujo de entrada y salida para leer los archivos
+#include <iostream>// para mostrar en consola.
 
 
 
@@ -26,8 +31,12 @@ private:
     QTimer *timer;
     void keyPressEvent(QKeyEvent *evento);
     QList<spritegusano*> enemigos;// lista de enemigos gusanos
+    QVector < int > V_posgusanos; // vector con las posiciones de los gusanos
     spritegusano *enemigo1; // crear el puntero para la clase gusano
+    spritegusano *enemigo2; // crear el puntero para la clase gusano
 
+    // funcion para cargar los archivos
+     void cargarPosgusano();
 
 public slots:
     void moveEnemy();
