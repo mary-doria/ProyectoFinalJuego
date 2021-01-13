@@ -5,11 +5,13 @@
 #include <QList>
 #include <QDebug>
 #include "spritegusano.h"
-//para el vector
-#include <QVector> // puedo guardar posciones, pos de  figuras etc
-//para los archivos
-#include <fstream> // flujo de entrada y salida para leer los archivos
-#include <iostream>// para mostrar en consola.
+#include <QDesktopWidget>
+#include <QDebug>
+#include <QVector>
+#include <iostream>//Flujo de entrada y salida para leer los archivos
+#include <fstream>
+#include "plataforma.h"
+
 
 
 
@@ -21,24 +23,43 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    //QVector < Plataforma *> vectorPlataformas;
+
 private:
     Ui::MainWindow *ui;
     CuerpoPersonajeJugador *PersonajePrincipal;
     QGraphicsScene *scene;
-    QTimer *timer;
+    QTimer *timercaida;
+    Plataforma *plataformaPiso;
+    /*Plataforma *plataforma2;
+    Plataforma *plataforma3;
+    Plataforma *plataforma4;
+    Plataforma *plataforma5;
+    Plataforma *plataforma6;
+    Plataforma *plataforma7;
+
+
+
+    void cargaArchivos();*/
+
+
     void keyPressEvent(QKeyEvent *evento);
+
     QList<spritegusano*> enemigos;// lista de enemigos gusanos
     QVector < int > V_posgusanos; // vector con las posiciones de los gusanos
     spritegusano *enemigo1; // crear el puntero para la clase gusano
     spritegusano *enemigo2; // crear el puntero para la clase gusano
 
+     float x,y,ancho,alto;
     // funcion para cargar los archivos
      void cargarPosgusano();
 
 public slots:
     void moveEnemy();
+    void activaG();//Actualizacion caida libre personaje esta hara el slot
 };
 #endif // MAINWINDOW_H

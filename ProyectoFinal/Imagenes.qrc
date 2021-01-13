@@ -1,7 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file>Imagenes/Rick.png</file>
         <file>Imagenes/Morty.png</file>
+        <file>Imagenes/Rick.png</file>
+        <file>Imagenes/Frutas.png</file>
+        <file>Imagenes/PlataformaEscenario2.png</file>
         <file>Imagenes/Escenario2.png</file>
         <file>Imagenes/gusanos_loks_sinFondo_cuadrado.png</file>
         <file>Imagenes/moscas_loks_sinFondo_cuadrado.png</file>

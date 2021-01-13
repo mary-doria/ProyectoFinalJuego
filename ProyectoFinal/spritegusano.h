@@ -46,8 +46,6 @@ signals:
 public slots:
     void actualizacionGusano();// actualizacion del prite
 
-
-
 };
 
 #endif // SPRITEGUSANO_H
