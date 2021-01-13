@@ -4,7 +4,12 @@
 #include <cuerpopersonajejugador.h>
 #include <QList>
 #include "spritegusano.h"
-
+#include <QDesktopWidget>
+#include <QDebug>
+#include <QVector>
+#include <iostream>//Flujo de entrada y salida para leer los archivos
+#include <fstream>
+#include "plataforma.h"
 
 
 
@@ -20,19 +25,32 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    //QVector < Plataforma *> vectorPlataformas;
 
 private:
     Ui::MainWindow *ui;
     CuerpoPersonajeJugador *PersonajePrincipal;
     QGraphicsScene *scene;
     QTimer *timercaida;
+    Plataforma *plataformaPiso;
+    /*Plataforma *plataforma2;
+    Plataforma *plataforma3;
+    Plataforma *plataforma4;
+    Plataforma *plataforma5;
+    Plataforma *plataforma6;
+    Plataforma *plataforma7;
+
+
+
+    void cargaArchivos();*/
+
 
     void keyPressEvent(QKeyEvent *evento);
 
     QList<spritegusano*> enemigos;// lista de enemigos gusanos
     spritegusano *enemigo1; // crear el puntero para la clase gusano
 
-
+    float x,y,ancho,alto;
 public slots:
     void moveEnemy();
     void activaG();//Actualizacion caida libre personaje esta hara el slot

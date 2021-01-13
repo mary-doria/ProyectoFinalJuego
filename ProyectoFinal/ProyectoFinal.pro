@@ -12,11 +12,13 @@ SOURCES += \
     cuerpopersonajejugador.cpp \
     main.cpp \
     mainwindow.cpp \
+    plataforma.cpp \
     spritegusano.cpp
 
 HEADERS += \
     cuerpopersonajejugador.h \
     mainwindow.h \
+    plataforma.h \
     spritegusano.h
 
 FORMS += \

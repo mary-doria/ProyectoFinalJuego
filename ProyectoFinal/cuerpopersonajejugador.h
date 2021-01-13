@@ -36,7 +36,7 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);
     void izquierda();//Movimiento lineal
     void  derecha();//Movimiento lineal
-
+    void choque();
 
 signals:
 public slots:

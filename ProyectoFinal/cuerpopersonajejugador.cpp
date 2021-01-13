@@ -5,33 +5,19 @@
 #include <cmath>
 
 
-
-/*CuerpoPersonajeJugador::CuerpoPersonajeJugador(QObject *parent)
-{   timer = new QTimer();
-    dx =4;
-    dy =4;
-    pixmap = new QPixmap(":/Imagenes/Morty.png");
-
-    // dimensiones de las imagenes
-    ancho =124;
-    alto =160;
-    timer->start(100);
-    connect(timer,&QTimer::timeout,this,&CuerpoPersonajeJugador::caidaLibre);
-}*/
-
 CuerpoPersonajeJugador::CuerpoPersonajeJugador(int x, int y)
-{
-    posx=x;
-    posy=y;
+{ //Se usa this para indicar el objeto actual en el que se trabaj esto para evitar confusiones con las variables locales y dar seguridad que se esta trabajando en esta
+    this->posx=x;
+    this->posy=y;
     // dar posicion
     setPos(posx,posy);
-    pixmap = new QPixmap(":/Imagenes/Rick.png");
-    dx = 4;
-    dy =4;
-    ancho = 124;
-    alto=160;
-    tiempo=1;
-    G=5;
+    this->pixmap = new QPixmap(":/Imagenes/Morty.png");
+    this->dx = 4;
+    this->dy =4;
+    this->ancho = 124;
+    this->alto=160;
+    this->tiempo=0.01;
+    this->G=1;
 }
 
 
@@ -86,6 +72,13 @@ void CuerpoPersonajeJugador::derecha()//Movimiento Lineal
 {
     posx += 2*velocidad;
     setPos(posx,posy);
+}
+
+void CuerpoPersonajeJugador::choque()
+{
+    posy-=(this->velocidad*this->tiempo+((G*(this->tiempo*this->tiempo))/2));//Ecuacion caida libre
+    setPos(posx,posy);
+
 }
 
 void CuerpoPersonajeJugador::actualizar_sprite_derecha()
