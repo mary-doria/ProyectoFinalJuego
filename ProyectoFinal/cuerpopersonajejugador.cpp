@@ -5,19 +5,51 @@
 #include <cmath>
 
 
+bool CuerpoPersonajeJugador::getEnTierra() const
+{
+    return enTierra;
+}
+
+void CuerpoPersonajeJugador::setEnTierra(bool value)
+{
+    enTierra = value;
+}
+
+float CuerpoPersonajeJugador::getTiempo() const
+{
+    return tiempo;
+}
+
+void CuerpoPersonajeJugador::setTiempo(float value)
+{
+    tiempo = value;
+}
+
+bool CuerpoPersonajeJugador::getSaltando() const
+{
+    return saltando;
+}
+
+void CuerpoPersonajeJugador::setSaltando(bool value)
+{
+    saltando = value;
+}
+
 CuerpoPersonajeJugador::CuerpoPersonajeJugador(int x, int y)
 { //Se usa this para indicar el objeto actual en el que se trabaj esto para evitar confusiones con las variables locales y dar seguridad que se esta trabajando en esta
     this->posx=x;
     this->posy=y;
     // dar posicion
     setPos(posx,posy);
-    this->pixmap = new QPixmap(":/Imagenes/Morty.png");
+    this->pixmap = new QPixmap(":/Imagenes/Rick.png");
     this->dx = 4;
     this->dy =4;
     this->ancho = 124;
     this->alto=160;
-    this->tiempo=0.01;
+    this->tiempo=0;
     this->G=1;
+    this->enTierra=false;
+    this->saltando = false;
 }
 
 
@@ -56,28 +88,49 @@ void CuerpoPersonajeJugador::paint(QPainter *painter, const QStyleOptionGraphics
 
 void CuerpoPersonajeJugador::caidaLibre()
 {
-    posy+=(this->velocidad*this->tiempo+((G*(this->tiempo*this->tiempo))/2));//Ecuacion caida libre
-    tiempo+=0.1;
+    if (enTierra==false){
+        if (saltando == true){
+            posy+=(-(this->velocidad)+((G*(this->tiempo))));//Ecuacion caida libre
+        } else{
+            posy+=((G*(this->tiempo)));//Ecuacion caida libre
+        }
+        tiempo+=0.5; }
+    /*posy+=(this->velocidad*this->tiempo+((G*(this->tiempo*this->tiempo))/2));//Ecuacion caida libre
+    tiempo+=0.1;*/
     setPos(posx,posy);
     this->update(-ancho/2,-alto/2,ancho,alto);//Actualizacion de la posicion en todo instante de tiempo
 }
 
+void CuerpoPersonajeJugador::saltar()
+{   if (this->tiempo == 0){
+        this->tiempo = 1;
+        posy-= this->velocidad*this->tiempo;
+        this->saltando = true;
+    }
+    setPos(posx,posy);
+}
+
 void CuerpoPersonajeJugador::izquierda()//MovimientoLineal
 {
-    posx -= 2*velocidad;
+    posx -= velocidad/2;
     setPos(posx,posy);
 }
 
 void CuerpoPersonajeJugador::derecha()//Movimiento Lineal
 {
-    posx += 2*velocidad;
+    posx += velocidad/2;
     setPos(posx,posy);
 }
 
 void CuerpoPersonajeJugador::choque()
 {
-    posy-=(this->velocidad*this->tiempo+((G*(this->tiempo*this->tiempo))/2));//Ecuacion caida libre
-    setPos(posx,posy);
+    /*posy-=(this->velocidad*this->tiempo+((0*(this->tiempo*this->tiempo))/2));//Ecuacion caida libre
+    setPos(posx,posy);*/
+    enTierra=true;
+    this->saltando = false;
+
+    tiempo = 0;
+
 
 }
 

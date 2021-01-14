@@ -10,14 +10,18 @@ CONFIG += c++11
 
 SOURCES += \
     cuerpopersonajejugador.cpp \
+    fruta.cpp \
     main.cpp \
     mainwindow.cpp \
+    nave.cpp \
     plataforma.cpp \
     spritegusano.cpp
 
 HEADERS += \
     cuerpopersonajejugador.h \
+    fruta.h \
     mainwindow.h \
+    nave.h \
     plataforma.h \
     spritegusano.h
 

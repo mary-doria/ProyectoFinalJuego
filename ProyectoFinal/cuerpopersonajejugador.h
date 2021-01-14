@@ -15,9 +15,11 @@ class CuerpoPersonajeJugador:public QObject ,public QGraphicsItem
     float dx, dy;  //variables para controlar las filas y las columnas del sprite
     float ancho,alto;
 
-    int velocidad =1;//
+    int velocidad =10;//
     float tiempo;
     int G;
+    bool enTierra;
+    bool saltando;
 
     QPixmap *pixmap; //variable pixmap
     QTimer *timer;//tiempo
@@ -38,11 +40,21 @@ public:
     void  derecha();//Movimiento lineal
     void choque();
 
+    bool getEnTierra() const;
+    void setEnTierra(bool value);
+
+    float getTiempo() const;
+    void setTiempo(float value);
+
+    bool getSaltando() const;
+    void setSaltando(bool value);
+
 signals:
 public slots:
     void actualizar_sprite_derecha();   //funcion para actualizar el sprite para la derecha
     void actualizar_sprite_izquierda(); //funcion para actualizar el sprite para la izquierda
     void caidaLibre();//funcion para la caida libre de los personajes
+    void saltar();
 };
 
 #endif // CUERPOPERSONAJEJUGADOR_H

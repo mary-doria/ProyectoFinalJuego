@@ -33,8 +33,9 @@ Plataforma::Plataforma(int x, int y)
     this->pixmapPlataforma = new QPixmap(":/Imagenes/PlataformaEscenario2.png");
     this->dx = 0;
     this->dy =0;
-    this->ancho = 148;
+    this->ancho = 145;
     this->alto=40;
+
 
 }
 

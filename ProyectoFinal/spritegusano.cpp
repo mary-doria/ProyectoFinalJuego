@@ -1,4 +1,5 @@
 #include "spritegusano.h"
+#include <QPixmap>
 
 spritegusano::spritegusano(QObject *parent) : QObject(parent)
 {
@@ -34,7 +35,6 @@ spritegusano::spritegusano(bool _bande, int x, int y)
 
 
 }
-//fantasma
 int spritegusano::getPosx() const
 {
     return posx;

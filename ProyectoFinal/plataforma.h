@@ -9,6 +9,7 @@
 class Plataforma:public QObject, public QGraphicsItem
 {   int posx_, posy_;
     QPixmap *pixmapPlataforma; //variable pixmap
+
 private:
     float dx,dy,ancho,alto;
 public:
