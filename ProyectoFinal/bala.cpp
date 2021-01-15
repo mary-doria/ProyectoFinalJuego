@@ -24,15 +24,15 @@ setScale(0.5);
 void bala::move()
 {
 
-//    QList<QGraphicsItem *> colliding_items= collidingItems();
-//    for (int i=0; i < colliding_items.size();i++){
-//        if (typeid (*(colliding_items[i]))==typeid (spritegusano)){
-//            scene()->removeItem(colliding_items[i]);
-//            scene()->removeItem(this);
-//            //delete colliding_items[i];
-//            delete this;
+    QList<QGraphicsItem *> colliding_items= collidingItems();
+    for (int i=0; i < colliding_items.size();i++){
+        if (typeid (*(colliding_items[i]))==typeid (spritegusano)){
+            scene()->removeItem(colliding_items[i]);
+            scene()->removeItem(this);
+            //delete colliding_items[i];
+            delete this;
 
-//        }}
+        }}
 
     setPos(x()+10,y());
     if(pos().x()+50>1200)
