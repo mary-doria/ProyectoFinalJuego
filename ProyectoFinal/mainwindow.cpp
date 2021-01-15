@@ -7,7 +7,7 @@
 #include <QGraphicsItem>
 #include "spritegusano.h" // libreria para los Enemigos Gusanos.
 #include "nave.h"
-
+#include "bala.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -141,6 +141,16 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
         if(PersonajePrincipal->getEnTierra()==true){
             activaSalto();
                     }}
+
+    // tecla para disparar
+    else if (evento->key()==Qt::Key_Space){
+        //crear bala
+        bala * balaa = new bala();
+        balaa->setPos(PersonajePrincipal->x(),PersonajePrincipal->y());//posicion del retangulo
+        scene->addItem(balaa);
+        //qDebug()<<"bala creada";
+    }
+
 
         }
 

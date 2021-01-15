@@ -2,14 +2,21 @@
 #define BALA_H
 
 #include <QObject>
+#include <QGraphicsPixmapItem>
+#include <QTimer>
+#include <QPixmap>
 
-class bala : public QObject
+class bala : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    explicit bala(QObject *parent = nullptr);
+    bala();
+    QTimer *timer;
+    QPixmap *pixmap;
 
 signals:
+public slots:
+    void move();
 
 };
 
