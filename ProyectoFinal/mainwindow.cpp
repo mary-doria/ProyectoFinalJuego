@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    bandera=true;
     ui->setupUi(this);
     scene = new QGraphicsScene;
     ui->graphicsView->setScene(scene);
@@ -140,7 +141,10 @@ MainWindow::MainWindow(QWidget *parent)
     scene->addItem(plataforma11);
     scene->addItem(plataforma12);
     scene->addItem(plataforma13);
-    }
+
+    score = new Score();
+    scene->addItem(score);
+}
 
 MainWindow::~MainWindow()
 {
@@ -169,9 +173,11 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
 {
 
     if (evento->key()==Qt::Key_A){
+        bandera=false;
         PersonajePrincipal->izquierda();
         PersonajePrincipal->actualizar_sprite_izquierda();}
     if (evento->key()==Qt::Key_D){
+        bandera =true;
         PersonajePrincipal->derecha();
         PersonajePrincipal->actualizar_sprite_derecha();}
     //ddif (PersonajePrincipal->collidesWithItem(plataformaInicialPosicion)){PersonajePrincipal->izquierda();}
@@ -188,7 +194,7 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     // tecla para disparar
     else if (evento->key()==Qt::Key_Space){
         //crear bala
-        bala * balaa = new bala();
+        bala * balaa = new bala(bandera);
         balaa->setPos(PersonajePrincipal->x(),PersonajePrincipal->y());//posicion del retangulo
         scene->addItem(balaa);
         //qDebug()<<"bala creada";

@@ -10,7 +10,8 @@ class bala : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    bala();
+    bala(bool _bandera);
+    bool bandera;
     QTimer *timer;
     QPixmap *pixmap;
 

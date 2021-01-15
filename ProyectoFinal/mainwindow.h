@@ -11,7 +11,8 @@
 #include <fstream>
 #include "plataforma.h"
 #include "nave.h"
-
+//score
+#include <score.h>
 
 
 QT_BEGIN_NAMESPACE
@@ -29,6 +30,7 @@ public:
     //QVector < Plataforma *> vectorPlataformas;
 
 private:
+    bool bandera;
     Ui::MainWindow *ui;
     CuerpoPersonajeJugador *PersonajePrincipal;
     QGraphicsScene *scene;
@@ -67,6 +69,8 @@ private:
     spritegusano *enemigo8; // crear el puntero para la clase gusano
     spritegusano *enemigo9; // crear el puntero para la clase gusano
     spritegusano *enemigo10; // crear el puntero para la clase gusano
+
+    Score *score;
 
     //void DactivaG();
     float x,y,ancho,alto;
