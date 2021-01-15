@@ -7,8 +7,6 @@
 
 bala::bala()
 {
-    // dibuja la bala
- //setRect(200,170,10,10); // bala mas pequeña que el personaje aqui se controla la pos de la bala y su tamaño, pos mitad del personaje
     //connect
  QTimer *timer = new QTimer;
  connect(timer,SIGNAL(timeout()),this,SLOT(move()));
