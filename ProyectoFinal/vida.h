@@ -8,7 +8,7 @@ class Vida: public QGraphicsTextItem/* al hacer esta herencia no se ahorra memor
 {
 public:
     Vida(QGraphicsItem *parent = 0);
-    void increase();
+    void decrease();
     int getVida();
 private:
     int vida;

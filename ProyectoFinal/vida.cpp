@@ -4,15 +4,15 @@
 
 Vida::Vida(QGraphicsItem *parent): QGraphicsTextItem(parent)
 {
-    vida =0;
+    vida =3;
     setPlainText(QString("Vida: ")+ QString::number(vida));
-    setDefaultTextColor(Qt::blue);
+    setDefaultTextColor(Qt::red);
     setFont(QFont("times",16));
 }
 
-void Vida::increase()
+void Vida::decrease()
 {
-    vida++;
+    vida--;
     setPlainText(QString("Vida: ")+ QString::number(vida));
 }
 
