@@ -1,12 +1,11 @@
 #ifndef BALA_H
 #define BALA_H
-
 #include <QObject>
-#include <QGraphicsPixmapItem>
+#include <QGraphicsItem>
 #include <QTimer>
 #include <QPixmap>
 
-class bala : public QObject, public QGraphicsPixmapItem
+class bala : public QObject, public QGraphicsItem
 {
     Q_OBJECT
 public:

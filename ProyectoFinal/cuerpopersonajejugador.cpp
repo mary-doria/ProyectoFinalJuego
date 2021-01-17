@@ -50,6 +50,7 @@ CuerpoPersonajeJugador::CuerpoPersonajeJugador(int x, int y)
     this->G=1;
     this->enTierra=false;
     this->saltando = false;
+    this->friccion=0.7;
 }
 
 
@@ -112,13 +113,13 @@ void CuerpoPersonajeJugador::saltar()
 
 void CuerpoPersonajeJugador::izquierda()//MovimientoLineal
 {
-    posx -= velocidad/2;
+    posx -= (velocidad/2)-friccion;
     setPos(posx,posy);
 }
 
 void CuerpoPersonajeJugador::derecha()//Movimiento Lineal
 {
-    posx += velocidad/2;
+    posx += (velocidad/2)-friccion;
     setPos(posx,posy);
 }
 

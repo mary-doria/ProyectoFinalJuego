@@ -79,6 +79,7 @@ MainWindow::MainWindow(QWidget *parent)
     //inicializo enemigo 9
     enemigo9= new spritegusano(false, 960,475);
     scene->addItem(enemigo9);
+
     enemigo9->setScale(0.4);
     enemigos.push_back(enemigo9);
     //inicializo enemigo 10
@@ -129,7 +130,7 @@ MainWindow::MainWindow(QWidget *parent)
         fruta16= new frutaBurbuja(); scene->addItem(fruta16);fruta16->setPos(630,220);listaFrutaBurbuja.push_back(fruta16);
         QTimer *timerfrutaburbuja = new QTimer();
         connect(timerfrutaburbuja,SIGNAL(timeout()),this,SLOT(actualizar_frutaburbuja()));
-        timerfrutaburbuja->start(90);
+        timerfrutaburbuja->start(150);
 
         /*for(int i=0; i<listaFrutaBurbuja.count();i++){
             QTimer *timerfrutaburbuja = new QTimer();

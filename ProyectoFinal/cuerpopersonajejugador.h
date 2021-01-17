@@ -16,7 +16,7 @@ class CuerpoPersonajeJugador:public QObject ,public QGraphicsItem
     float ancho,alto;
 
     int velocidad =10;//
-    float tiempo;
+    float tiempo,friccion;
     int G;
     bool enTierra;
     bool saltando;

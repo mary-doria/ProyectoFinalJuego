@@ -39,7 +39,6 @@ private:
     CuerpoPersonajeJugador *PersonajePrincipal;
     QList<frutaBurbuja *> modificar(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion);
     QGraphicsScene *scene;
-    bala *rasholaser;
     QTimer *timercaida;
     QTimer *timersalto;
     QTimer *timerfrutaburbuja;

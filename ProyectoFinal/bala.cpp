@@ -17,7 +17,7 @@ bala::bala(bool _bandera)
  QTimer *timer = new QTimer;
  connect(timer,SIGNAL(timeout()),this,SLOT(move()));
  /* el connect solo funciona con los objetos macros esos que tiene el QObject y public QObject*/
- timer->start(50);// el tiempo en milisegundos
+ timer->start(30);// el tiempo en milisegundos
 pixmap = new QPixmap(":/Imagenes/bala_verde_12.png");
 
 setScale(0.5);
@@ -86,7 +86,7 @@ if(bandera == true){
 
 void bala::sprite_rasholaser()
 {
-        //dx=0;
+
         dy+=70;
         if(dy >=70*4)
         {
