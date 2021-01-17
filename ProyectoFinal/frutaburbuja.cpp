@@ -24,12 +24,6 @@ void frutaBurbuja::setPosy(int value)
 
 frutaBurbuja::frutaBurbuja( QObject *parent): QObject(parent)
 {
-    //timerfrutaburbuja=new QTimer();
-    //connect(timerfrutaburbuja,SIGNAL(timeout()),this,SLOT(actualizar_burbuja()));
-   // timerfrutaburbuja->start(50);
-
-    // dar posicion
-
     pixmap = new QPixmap(":/Imagenes/frutaburbuja.png");
     dy =0;
     ancho = 50;

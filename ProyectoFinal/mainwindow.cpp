@@ -93,6 +93,7 @@ MainWindow::MainWindow(QWidget *parent)
     timercaida = new QTimer();
     connect(timercaida,SIGNAL(timeout()),this,SLOT(activaG()));
     timercaida->start(30);
+
     //cargaArchivos();
     //PLATAFORMAS PRIMER NIVEL
         naverickmorty= new nave(850,100);scene->addItem(naverickmorty);
@@ -215,9 +216,6 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
 
 
 
-
-
-
 void MainWindow::activaG(){
     bool colisiono=false;
     for (int i = 0; i<listaPlataformas.size(); i++) {
@@ -244,6 +242,7 @@ void MainWindow::activaSalto()
     }
     PersonajePrincipal->saltar();
 }
+
 
 void MainWindow::actualizar_frutaburbuja()
 {

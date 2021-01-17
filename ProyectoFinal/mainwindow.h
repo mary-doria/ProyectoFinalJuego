@@ -15,6 +15,7 @@
 #include <QRectF>
 #include <iterator>
 #include <score.h>
+#include "bala.h"
 
 
 
@@ -38,6 +39,7 @@ private:
     CuerpoPersonajeJugador *PersonajePrincipal;
     QList<frutaBurbuja *> modificar(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion);
     QGraphicsScene *scene;
+    bala *rasholaser;
     QTimer *timercaida;
     QTimer *timersalto;
     QTimer *timerfrutaburbuja;
@@ -80,6 +82,7 @@ private:
 
     Score *score;
 
+
     int dx, dy;
     //void DactivaG();
     float x,y,ancho,alto;
@@ -89,7 +92,6 @@ public slots:
     void moveEnemy();
     void activaG();//Actualizacion caida libre personaje esta hara el slot
     void activaSalto();
-
     void actualizar_frutaburbuja();
 };
 #endif // MAINWINDOW_H
