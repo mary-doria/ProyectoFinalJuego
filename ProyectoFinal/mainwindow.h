@@ -31,13 +31,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     //QVector < Plataforma *> vectorPlataformas;
-
 private:
     bool bandera;
     Ui::MainWindow *ui;
-
+    QList<frutaBurbuja*> listaFrutaBurbuja;
     CuerpoPersonajeJugador *PersonajePrincipal;
-
+    QList<frutaBurbuja *> modificar(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion);
     QGraphicsScene *scene;
     QTimer *timercaida;
     QTimer *timersalto;
@@ -62,7 +61,7 @@ private:
     nave *naverickmorty;
 
     QList<Plataforma*> listaPlataformas;
-    QList<frutaBurbuja*> listaFrutaBurbuja;
+
 
     void keyPressEvent(QKeyEvent *evento);
 

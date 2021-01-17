@@ -147,6 +147,12 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+QList<frutaBurbuja *> MainWindow::modificar(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion)
+{
+    listaFrutaBurbuja.removeAt(posicion);
+    return listaFrutaBurbuja;
+}
 /*ORGANIZAR FUNCION CON 2 PARAMETROS DE ENTRADA
 void MainWindow::cargaArchivos()
 {
@@ -197,9 +203,16 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
         scene->addItem(balaa);
         //qDebug()<<"bala creada";
     }
+    for (int i = 0; i<listaFrutaBurbuja.size(); i++) {
+        if (PersonajePrincipal->collidesWithItem(listaFrutaBurbuja.at(i))){
+            scene->removeItem(listaFrutaBurbuja.at(i));
+            listaFrutaBurbuja=modificar(listaFrutaBurbuja,i);
 
-
+            }
         }
+    }
+
+
 
 
 
