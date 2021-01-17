@@ -11,6 +11,11 @@
 #include <fstream>
 #include "plataforma.h"
 #include "nave.h"
+#include "frutaburbuja.h"
+#include <QRectF>
+#include <iterator>
+
+
 
 
 
@@ -30,10 +35,14 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
     CuerpoPersonajeJugador *PersonajePrincipal;
+
     QGraphicsScene *scene;
     QTimer *timercaida;
     QTimer *timersalto;
+    QTimer *timerfrutaburbuja;
+    frutaBurbuja *fruta1,*fruta2,*fruta3,*fruta4,*fruta5,*fruta6,*fruta7,*fruta8,*fruta9,*fruta10,*fruta11,*fruta12,*fruta13,*fruta14,*fruta15,*fruta16;
     Plataforma *plataformaInicialPosicion;
     Plataforma *plataforma2;
     Plataforma *plataforma3;
@@ -47,11 +56,13 @@ private:
     Plataforma *plataforma11;
     Plataforma *plataforma12;
     Plataforma *plataforma13;
-    //Plataforma *plataforma8;
-    //Plataforma *plataforma8;
+
+
+
     nave *naverickmorty;
-    //void cargaArchivos();
+
     QList<Plataforma*> listaPlataformas;
+    QList<frutaBurbuja*> listaFrutaBurbuja;
 
     void keyPressEvent(QKeyEvent *evento);
 
@@ -60,13 +71,16 @@ private:
     spritegusano *enemigo1; // crear el puntero para la clase gusano
     spritegusano *enemigo2; // crear el puntero para la clase gusano
 
+    int dx, dy;
     //void DactivaG();
     float x,y,ancho,alto;
      void cargarPosgusano();
+     void sprite_burbuja();
 public slots:
     void moveEnemy();
-
     void activaG();//Actualizacion caida libre personaje esta hara el slot
     void activaSalto();
+
+    void actualizar_frutaburbuja();
 };
 #endif // MAINWINDOW_H
