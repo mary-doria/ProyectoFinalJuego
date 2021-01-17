@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    bandera=true;
     ui->setupUi(this);
     scene = new QGraphicsScene;
     ui->graphicsView->setScene(scene);
@@ -26,21 +27,66 @@ MainWindow::MainWindow(QWidget *parent)
 
     cargarPosgusano();// funcion para cargas las posiciones de los gusanos
     //inicializo enemigo 1
-    enemigo1= new spritegusano(true, 700,400);
+    enemigo1= new spritegusano(true, 800,360);
     scene->addItem(enemigo1);
     enemigo1->setScale(0.4);
     enemigos.push_back(enemigo1);
     QTimer *timer1 = new QTimer();
     connect(timer1,SIGNAL(timeout()),this,SLOT(moveEnemy()));
-    timer1->start(25);
+    timer1->start(250);
     //inicializo enemigo 2
-    enemigo2= new spritegusano(true, 790,200);
+    enemigo2= new spritegusano(true, 360,110);
     scene->addItem(enemigo2);
     enemigo2->setScale(0.4);
     enemigos.push_back(enemigo2);
     QTimer *timer2 = new QTimer();
     connect(timer2,SIGNAL(timeout()),this,SLOT(moveEnemy()));
-    timer2->start(25);
+
+    timer2->start(250);
+    //inicializo enemigo 3
+    enemigo3= new spritegusano(true, 635,240);
+    scene->addItem(enemigo3);
+    enemigo3->setScale(0.4);
+    enemigos.push_back(enemigo3);
+    QTimer *timer3 = new QTimer();
+    connect(timer3,SIGNAL(timeout()),this,SLOT(moveEnemy()));
+    timer3->start(250);
+    //inicializo enemigo 4
+    enemigo4= new spritegusano(true, 385,260);
+    scene->addItem(enemigo4);
+    enemigo4->setScale(0.4);
+    enemigos.push_back(enemigo4);
+    //inicializo enemigo 5
+    enemigo5= new spritegusano(false, 420,260);
+    scene->addItem(enemigo5);
+    enemigo5->setScale(0.4);
+    enemigos.push_back(enemigo5);
+    //inicializo enemigo 6
+    enemigo6= new spritegusano(true, 250,320);
+    scene->addItem(enemigo6);
+    enemigo6->setScale(0.4);
+    enemigos.push_back(enemigo6);
+    //inicializo enemigo 7
+    enemigo7= new spritegusano(false, 650,410);
+    scene->addItem(enemigo7);
+    enemigo7->setScale(0.4);
+    enemigos.push_back(enemigo7);
+    //inicializo enemigo 8
+    enemigo8= new spritegusano(false, 70,370);
+    scene->addItem(enemigo8);
+    enemigo8->setScale(0.4);
+    enemigos.push_back(enemigo8);
+    //inicializo enemigo 9
+    enemigo9= new spritegusano(false, 960,475);
+    scene->addItem(enemigo9);
+    enemigo9->setScale(0.4);
+    enemigos.push_back(enemigo9);
+    //inicializo enemigo 10
+    enemigo10= new spritegusano(true, 0,475);
+    scene->addItem(enemigo10);
+    enemigo10->setScale(0.4);
+    enemigos.push_back(enemigo10);
+
     /*Timer que indica la cada cuanto bajara el personaje
     dado que depende de la gravedad ira mas rapido mientras caiga*/
 
@@ -91,7 +137,11 @@ MainWindow::MainWindow(QWidget *parent)
         }*/
 
 
-    }
+
+    score = new Score();
+    scene->addItem(score);
+}
+
 
 MainWindow::~MainWindow()
 {
@@ -121,9 +171,11 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
 {
 
     if (evento->key()==Qt::Key_A){
+        bandera=false;
         PersonajePrincipal->izquierda();
         PersonajePrincipal->actualizar_sprite_izquierda();}
     if (evento->key()==Qt::Key_D){
+        bandera =true;
         PersonajePrincipal->derecha();
         PersonajePrincipal->actualizar_sprite_derecha();}
     //ddif (PersonajePrincipal->collidesWithItem(plataformaInicialPosicion)){PersonajePrincipal->izquierda();}
@@ -140,7 +192,7 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     // tecla para disparar
     else if (evento->key()==Qt::Key_Space){
         //crear bala
-        bala * balaa = new bala();
+        bala * balaa = new bala(bandera);
         balaa->setPos(PersonajePrincipal->x(),PersonajePrincipal->y());//posicion del retangulo
         scene->addItem(balaa);
         //qDebug()<<"bala creada";
@@ -214,13 +266,13 @@ void MainWindow::moveEnemy()
         if (enemigo->bande==true){
             if(enemigo->x()>V_posgusanos[j*2]){
             //qDebug()<<"V_posgusanos[j]*2"<<V_posgusanos[j*2];//imprimir posx1 del gusano n
-                enemigo->left(7); }
+                enemigo->left(3); }
             else
             enemigo->bande=false;}//if
         else{
             if(enemigo->x()<V_posgusanos[j*2+1]){
                 //qDebug()<<"V_posgusanos[j]*2+1"<<V_posgusanos[j*2+1];//imprimir posx2 del gusano n
-                enemigo->right(7); }
+                enemigo->right(3); }
             else
             enemigo->bande=true;}
 

@@ -16,7 +16,9 @@ SOURCES += \
     mainwindow.cpp \
     nave.cpp \
     plataforma.cpp \
-    spritegusano.cpp
+    score.cpp \
+    spritegusano.cpp \
+    vida.cpp
 
 HEADERS += \
     bala.h \
@@ -25,7 +27,9 @@ HEADERS += \
     mainwindow.h \
     nave.h \
     plataforma.h \
-    spritegusano.h
+    score.h \
+    spritegusano.h \
+    vida.h
 
 FORMS += \
     mainwindow.ui

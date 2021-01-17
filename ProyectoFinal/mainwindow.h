@@ -14,8 +14,7 @@
 #include "frutaburbuja.h"
 #include <QRectF>
 #include <iterator>
-
-
+#include <score.h>
 
 
 
@@ -34,6 +33,7 @@ public:
     //QVector < Plataforma *> vectorPlataformas;
 
 private:
+    bool bandera;
     Ui::MainWindow *ui;
 
     CuerpoPersonajeJugador *PersonajePrincipal;
@@ -70,6 +70,16 @@ private:
     QVector < int > V_posgusanos; // vector con las posiciones de los gusanos
     spritegusano *enemigo1; // crear el puntero para la clase gusano
     spritegusano *enemigo2; // crear el puntero para la clase gusano
+    spritegusano *enemigo3; // crear el puntero para la clase gusano
+    spritegusano *enemigo4; // crear el puntero para la clase gusano
+    spritegusano *enemigo5; // crear el puntero para la clase gusano
+    spritegusano *enemigo6; // crear el puntero para la clase gusano
+    spritegusano *enemigo7; // crear el puntero para la clase gusano
+    spritegusano *enemigo8; // crear el puntero para la clase gusano
+    spritegusano *enemigo9; // crear el puntero para la clase gusano
+    spritegusano *enemigo10; // crear el puntero para la clase gusano
+
+    Score *score;
 
     int dx, dy;
     //void DactivaG();
