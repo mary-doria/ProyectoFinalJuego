@@ -142,6 +142,7 @@ release/qrc_Imagenes.cpp: ../ProyectoFinal/Imagenes.qrc \
 		C:/Qt/5.15.0/mingw81_64/bin/rcc.exe \
 		../ProyectoFinal/Imagenes/Rick.png \
 		../ProyectoFinal/Imagenes/gusanos_loks_sinFondo_cuadrado.png \
+		../ProyectoFinal/Imagenes/CervezaVidaRickMorty.png \
 		../ProyectoFinal/Imagenes/PlataformaEscenario2.png \
 		../ProyectoFinal/Imagenes/Escenario2.png \
 		../ProyectoFinal/Imagenes/moscas_loks_sinFondo_cuadrado.png \
@@ -155,6 +156,7 @@ release/qrc_Imagenes.cpp: ../ProyectoFinal/Imagenes.qrc \
 		C:/Qt/5.15.0/mingw81_64/bin/rcc.exe \
 		../ProyectoFinal/Imagenes/Rick.png \
 		../ProyectoFinal/Imagenes/gusanos_loks_sinFondo_cuadrado.png \
+		../ProyectoFinal/Imagenes/CervezaVidaRickMorty.png \
 		../ProyectoFinal/Imagenes/PlataformaEscenario2.png \
 		../ProyectoFinal/Imagenes/Escenario2.png \
 		../ProyectoFinal/Imagenes/moscas_loks_sinFondo_cuadrado.png \
@@ -227,7 +229,7 @@ release/moc_bala.cpp: ../ProyectoFinal/bala.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qobject_impl.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsItem \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtguiglobal.h \
@@ -409,6 +411,7 @@ release/moc_mainwindow.cpp: ../ProyectoFinal/mainwindow.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QRectF \
 		../ProyectoFinal/score.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsTextItem \
+		../ProyectoFinal/bala.h \
 		release/moc_predefs.h \
 		C:/Qt/5.15.0/mingw81_64/bin/moc.exe
 	C:\Qt\5.15.0\mingw81_64\bin\moc.exe $(DEFINES) --include C:/Users/57316/Documents/GITHUB/ProyectoFinalJuego/build-ProyectoFinal-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/5.15.0/mingw81_64/mkspecs/win32-g++ -IC:/Users/57316/Documents/GITHUB/ProyectoFinalJuego/ProyectoFinal -IC:/Qt/5.15.0/mingw81_64/include -IC:/Qt/5.15.0/mingw81_64/include/QtWidgets -IC:/Qt/5.15.0/mingw81_64/include/QtGui -IC:/Qt/5.15.0/mingw81_64/include/QtANGLE -IC:/Qt/5.15.0/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\ProyectoFinal\mainwindow.h -o release\moc_mainwindow.cpp
@@ -600,7 +603,7 @@ release/bala.o: ../ProyectoFinal/bala.cpp ../ProyectoFinal/bala.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qobject_impl.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsItem \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtguiglobal.h \
@@ -648,7 +651,7 @@ release/bala.o: ../ProyectoFinal/bala.cpp ../ProyectoFinal/bala.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/qpen.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QDebug \
 		../ProyectoFinal/spritegusano.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsItem \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/QPainter \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/qpainter.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtextoption.h \
@@ -1065,6 +1068,7 @@ release/main.o: ../ProyectoFinal/main.cpp ../ProyectoFinal/mainwindow.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QRectF \
 		../ProyectoFinal/score.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsTextItem \
+		../ProyectoFinal/bala.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QApplication \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qapplication.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qcoreapplication.h \
@@ -1210,6 +1214,7 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QRectF \
 		../ProyectoFinal/score.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsTextItem \
+		../ProyectoFinal/bala.h \
 		ui_mainwindow.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QVariant \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QApplication \
@@ -1229,8 +1234,7 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qaction.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qactiongroup.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QStatusBar \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qstatusbar.h \
-		../ProyectoFinal/bala.h
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qstatusbar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\ProyectoFinal\mainwindow.cpp
 
 release/nave.o: ../ProyectoFinal/nave.cpp ../ProyectoFinal/nave.h \

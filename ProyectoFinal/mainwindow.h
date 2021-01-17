@@ -19,6 +19,7 @@
 
 
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -42,6 +43,7 @@ private:
     QTimer *timercaida;
     QTimer *timersalto;
     QTimer *timerfrutaburbuja;
+    //QList<vida*> vidaCerveza;
     frutaBurbuja *fruta1,*fruta2,*fruta3,*fruta4,*fruta5,*fruta6,*fruta7,*fruta8,*fruta9,*fruta10,*fruta11,*fruta12,*fruta13,*fruta14,*fruta15,*fruta16;
     Plataforma *plataformaInicialPosicion;
     Plataforma *plataforma2;

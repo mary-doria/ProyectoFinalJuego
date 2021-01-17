@@ -8,6 +8,7 @@
 #include <QPainter>
 #include <QGraphicsScene>
 #include <QKeyEvent>
+#include <QDebug>
 
 class CuerpoPersonajeJugador:public QObject ,public QGraphicsItem
 {    //Q_OBJECT

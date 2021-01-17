@@ -130,19 +130,12 @@ MainWindow::MainWindow(QWidget *parent)
         fruta16= new frutaBurbuja(); scene->addItem(fruta16);fruta16->setPos(630,220);listaFrutaBurbuja.push_back(fruta16);
         QTimer *timerfrutaburbuja = new QTimer();
         connect(timerfrutaburbuja,SIGNAL(timeout()),this,SLOT(actualizar_frutaburbuja()));
-        timerfrutaburbuja->start(150);
+        timerfrutaburbuja->start(150);}
 
-        /*for(int i=0; i<listaFrutaBurbuja.count();i++){
-            QTimer *timerfrutaburbuja = new QTimer();
-            connect(timerfrutaburbuja,SIGNAL(timeout()),this,SLOT(actualizar_frutaburbuja()));
-            timerfrutaburbuja->start(90);
-        }*/
-
-
-
+/*
     score = new Score();
-    scene->addItem(score);
-}
+    scene->addItem(score);*/
+
 
 
 MainWindow::~MainWindow()
@@ -186,12 +179,7 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
         bandera =true;
         PersonajePrincipal->derecha();
         PersonajePrincipal->actualizar_sprite_derecha();}
-    //ddif (PersonajePrincipal->collidesWithItem(plataformaInicialPosicion)){PersonajePrincipal->izquierda();}
-    //if (evento->key()==Qt::Key_S){
-      //  PersonajePrincipal->caidaLibre();//Para este movimiento se necesitan las plataformas
 
-    /*if (PersonajePrincipal->collidesWithItem(plataformaInicialPosicion)){PersonajePrincipal->choque();}*/
-//}
     if (evento->key()==Qt::Key_W){
         if(PersonajePrincipal->getEnTierra()==true){
             activaSalto();

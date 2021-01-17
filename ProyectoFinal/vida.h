@@ -1,15 +1,25 @@
 #ifndef VIDA_H
 #define VIDA_H
+#include <QObject>
+#include <QGraphicsItem>
+#include <QTimer>
+#include <QPixmap>
+#include <QPainter>
+#include <QGraphicsScene>
+#include <QMainWindow>
+#include <QObject>
+#include <QWidget>
 
-
-#include <QGraphicsTextItem>
-class Vida: public QGraphicsTextItem/* al hacer esta herencia no se ahorra memoria
-       debido aque se cargar las funciones de QGrapTExTitem pero permite la simplicidad*/
+class Vida: public QObject, public QGraphicsItem//se hace este cambio porque la vida sera un icono ,no un texto
 {
+
 public:
-    Vida(QGraphicsItem *parent = 0);
-    void decrease();
+    Vida(QObject *parent = nullptr);
+    void decremento();
     int getVida();
+    QPixmap *pixmapVidaCerveza;
+    QRectF boundingRect() const;// para dibujar el cuerpo
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);
 private:
     int vida;
 

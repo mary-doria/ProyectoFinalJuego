@@ -1,6 +1,6 @@
 #include "vida.h"
 #include <QFont>
-
+/*
 
 Vida::Vida(QGraphicsItem *parent): QGraphicsTextItem(parent)
 {
@@ -19,4 +19,4 @@ void Vida::decrease()
 int Vida::getVida()
 {
     return vida;
-}
+}*/
