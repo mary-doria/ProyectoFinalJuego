@@ -9,6 +9,7 @@
 #include "nave.h"
 #include "frutaburbuja.h"
 #include "bala.h"
+#include "vida.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -24,7 +25,6 @@ MainWindow::MainWindow(QWidget *parent)
     PersonajePrincipal->setScale(0.4);
     scene->setSceneRect(0,0,960,519);
     scene->setBackgroundBrush(QPixmap(":/Imagenes/Escenario2.png"));
-
     cargarPosgusano();// funcion para cargas las posiciones de los gusanos
     //inicializo enemigo 1
     enemigo1= new spritegusano(true, 800,360);
@@ -41,7 +41,6 @@ MainWindow::MainWindow(QWidget *parent)
     enemigos.push_back(enemigo2);
     QTimer *timer2 = new QTimer();
     connect(timer2,SIGNAL(timeout()),this,SLOT(moveEnemy()));
-
     timer2->start(250);
     //inicializo enemigo 3
     enemigo3= new spritegusano(true, 635,240);
@@ -77,13 +76,12 @@ MainWindow::MainWindow(QWidget *parent)
     enemigo8->setScale(0.4);
     enemigos.push_back(enemigo8);
     //inicializo enemigo 9
-    enemigo9= new spritegusano(false, 960,475);
+    enemigo9= new spritegusano(false, 960,460);
     scene->addItem(enemigo9);
-
     enemigo9->setScale(0.4);
     enemigos.push_back(enemigo9);
     //inicializo enemigo 10
-    enemigo10= new spritegusano(true, 0,475);
+    enemigo10= new spritegusano(true, 0,460);
     scene->addItem(enemigo10);
     enemigo10->setScale(0.4);
     enemigos.push_back(enemigo10);
@@ -94,7 +92,10 @@ MainWindow::MainWindow(QWidget *parent)
     timercaida = new QTimer();
     connect(timercaida,SIGNAL(timeout()),this,SLOT(activaG()));
     timercaida->start(30);
-
+    vida1=new Vida(420,30);listaVida.push_back(vida1);scene->addItem(vida1);
+    vida2=new Vida(450,30);listaVida.push_back(vida2);scene->addItem(vida2);
+    vida3=new Vida(480,30);listaVida.push_back(vida3);scene->addItem(vida3);
+    vida4=new Vida(510,30);listaVida.push_back(vida4);scene->addItem(vida4);
     //cargaArchivos();
     //PLATAFORMAS PRIMER NIVEL
         naverickmorty= new nave(850,100);scene->addItem(naverickmorty);
@@ -132,6 +133,7 @@ MainWindow::MainWindow(QWidget *parent)
         connect(timerfrutaburbuja,SIGNAL(timeout()),this,SLOT(actualizar_frutaburbuja()));
         timerfrutaburbuja->start(150);}
 
+
 /*
     score = new Score();
     scene->addItem(score);*/
@@ -148,6 +150,14 @@ QList<frutaBurbuja *> MainWindow::modificar(QList<frutaBurbuja *> listaFrutaBurb
     listaFrutaBurbuja.removeAt(posicion);
     return listaFrutaBurbuja;
 }
+
+QList<Vida *> MainWindow::modificarVida(QList<Vida *> listaVida, int posicion)
+{
+    listaVida.removeAt(posicion);
+    return listaVida;
+}
+
+
 /*ORGANIZAR FUNCION CON 2 PARAMETROS DE ENTRADA
 void MainWindow::cargaArchivos()
 {
@@ -174,12 +184,18 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     if (evento->key()==Qt::Key_A){
         bandera=false;
         PersonajePrincipal->izquierda();
-        PersonajePrincipal->actualizar_sprite_izquierda();}
+        PersonajePrincipal->actualizar_sprite_izquierda();
+        /*for (int i = 0; i<enemigos.count(); i++){
+           if (PersonajePrincipal->collidesWithItem(enemigos.at(i))){
+               PersonajePrincipal->derecha();}}*/
+           }
     if (evento->key()==Qt::Key_D){
         bandera =true;
         PersonajePrincipal->derecha();
-        PersonajePrincipal->actualizar_sprite_derecha();}
-
+        PersonajePrincipal->actualizar_sprite_derecha();
+        /*for (int i = 0; i<enemigos.count(); i++){
+           if (PersonajePrincipal->collidesWithItem(enemigos.at(i))){
+               PersonajePrincipal->izquierda();}}*/}
     if (evento->key()==Qt::Key_W){
         if(PersonajePrincipal->getEnTierra()==true){
             activaSalto();
@@ -199,10 +215,16 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
             listaFrutaBurbuja=modificar(listaFrutaBurbuja,i);
 
             }
-        }
-    }
+    }//Implementacion del for para eliminar objeto cuando un enemigo colisiona
+    for (int i = 0; i<enemigos.count(); i++){
+       if (PersonajePrincipal->collidesWithItem(enemigos.at(i))){
+           for(int j = 0; j<listaVida.count(); j++){scene->removeItem(listaVida.at(j));
+           listaVida=modificarVida(listaVida,j);
+           //scene->removeItem(enemigos.at(i));
 
+           }}}
 
+}
 
 
 void MainWindow::activaG(){
@@ -240,9 +262,6 @@ void MainWindow::actualizar_frutaburbuja()
     }
 
 }
-
-
-
 void MainWindow::cargarPosgusano()	{
     std::fstream archivo;
      archivo.open("posGusanos.txt",std::ios::in);//leer el archivo
@@ -257,6 +276,7 @@ void MainWindow::cargarPosgusano()	{
 
      }
 }
+
 
 void MainWindow::moveEnemy()
 {

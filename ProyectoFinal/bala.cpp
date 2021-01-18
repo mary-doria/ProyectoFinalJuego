@@ -55,13 +55,15 @@ void bala::setPosy(int value)
     posy = value;
 }
 
+
 void bala::move()
 { QList<QGraphicsItem *> colliding_items= collidingItems();
     for (int i=0; i < colliding_items.size();i++){
-        if (typeid (*(colliding_items[i]))==typeid (spritegusano)){
+        if (typeid (*(colliding_items.at(i)))==typeid (spritegusano)){
             //score->increase();
-            scene()->removeItem(colliding_items[i]);
+            scene()->removeItem(colliding_items.at(i));
             scene()->removeItem(this);
+
             //delete colliding_items[i];
             delete this;}}
 

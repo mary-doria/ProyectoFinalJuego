@@ -16,6 +16,7 @@
 #include <iterator>
 #include <score.h>
 #include "bala.h"
+#include "vida.h"
 
 
 
@@ -39,12 +40,17 @@ private:
     QList<frutaBurbuja*> listaFrutaBurbuja;
     CuerpoPersonajeJugador *PersonajePrincipal;
     QList<frutaBurbuja *> modificar(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion);
+    QList<Vida *> modificarVida(QList<Vida *> listaVida, int posicion);
+
     QGraphicsScene *scene;
+    QList<Vida*> listaVida;
     QTimer *timercaida;
-    QTimer *timersalto;
+    QTimer
+    *timersalto;
     QTimer *timerfrutaburbuja;
     //QList<vida*> vidaCerveza;
     frutaBurbuja *fruta1,*fruta2,*fruta3,*fruta4,*fruta5,*fruta6,*fruta7,*fruta8,*fruta9,*fruta10,*fruta11,*fruta12,*fruta13,*fruta14,*fruta15,*fruta16;
+    Vida *vida1,*vida2,*vida3,*vida4;
     Plataforma *plataformaInicialPosicion;
     Plataforma *plataforma2;
     Plataforma *plataforma3;
@@ -81,12 +87,15 @@ private:
     spritegusano *enemigo9; // crear el puntero para la clase gusano
     spritegusano *enemigo10; // crear el puntero para la clase gusano
 
-    Score *score;
 
 
-    int dx, dy;
+    //Score *score;
+
+
+    //int dx, dy;
     //void DactivaG();
     float x,y,ancho,alto;
+
      void cargarPosgusano();
      void sprite_burbuja();
 public slots:

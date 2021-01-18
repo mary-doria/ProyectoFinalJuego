@@ -1,22 +1,47 @@
 #include "vida.h"
-#include <QFont>
-/*
 
-Vida::Vida(QGraphicsItem *parent): QGraphicsTextItem(parent)
+
+
+int Vida::getPosy() const
 {
-    vida =3;
-    setPlainText(QString("Vida: ")+ QString::number(vida));
-    setDefaultTextColor(Qt::red);
-    setFont(QFont("times",16));
+    return posy;
 }
 
-void Vida::decrease()
+void Vida::setPosy(int value)
 {
-    vida--;
-    setPlainText(QString("Vida: ")+ QString::number(vida));
+    posy = value;
 }
 
-int Vida::getVida()
+QRectF Vida::boundingRect() const
 {
-    return vida;
-}*/
+    return QRectF(-ancho/2,-alto/2,ancho,alto);
+}
+
+void Vida::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    painter->drawPixmap(-ancho/2,-alto/2,*pixmapVidaCerveza,dx,dy,ancho,alto);
+}
+int Vida::getPosx() const
+{
+    return posx;
+}
+
+void Vida::setPosx(int value)
+{
+    posx = value;
+}
+
+
+Vida::Vida(int x, int y)
+{
+    this->posx=x;
+    this->posy=y;
+    this->dx = 0;
+    this->dy =0;
+    this->pixmapVidaCerveza=new QPixmap(":/Imagenes/CervezaVidaRickMorty.png");
+    this->ancho=60;
+    this->alto=60;
+    setPos(posx,posy);
+
+}
+

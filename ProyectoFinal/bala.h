@@ -4,6 +4,7 @@
 #include <QGraphicsItem>
 #include <QTimer>
 #include <QPixmap>
+#include "spritegusano.h"
 
 class bala : public QObject, public QGraphicsItem
 {
@@ -21,11 +22,11 @@ public:
     void setPosy(int value);
     QTimer *timerrasholaser;
 
+
 private:
     float dx, dy;  //variables para controlar las filas y las columnas del sprite
     float ancho,alto;
     int posx, posy;
-
 signals:
 public slots:
     void move();
