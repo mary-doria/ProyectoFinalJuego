@@ -5,7 +5,7 @@
 #include "spritegusano.h"
 #include <mainwindow.h>
 
-extern Score *score;
+
 bala::bala(bool _bandera)
 {
     bandera=_bandera;
@@ -23,13 +23,10 @@ void bala::move()
 { QList<QGraphicsItem *> colliding_items= collidingItems();
     for (int i=0; i < colliding_items.size();i++){
         if (typeid (*(colliding_items[i]))==typeid (spritegusano)){
-            score->increase();
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
             //delete colliding_items[i];
             delete this;}}
-
-
 if(bandera == true){
     setPos(x()+10,y());
     if(pos().x()+50>1200)
