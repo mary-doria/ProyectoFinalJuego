@@ -98,21 +98,15 @@ void CuerpoPersonajeJugador::caidaLibre()
 
 
     if (enTierra==false){
-        // alguna condición sigue permitiendo que se ejecute la caida
-        // probaré algunas cosas
         if (saltando == true){
             posy+=(-(this->velocidad)+((G*(this->tiempo))));//Ecuacion caida libre
         } else{
             posy+=((G*(this->tiempo)));//Ecuacion caida libre
         }
-
-        qDebug()<< "current position Y :"<<posy;
         tiempo+=0.5; }
     /*posy+=(this->velocidad*this->tiempo+((G*(this->tiempo*this->tiempo))/2));//Ecuacion caida libre
     tiempo+=0.1;*/
         setPos(posx,posy);
-
-    // aquí es donde cae verdad? si :3 , ty
 
     this->update(-ancho/2,-alto/2,ancho,alto);//Actualizacion de la posicion en todo instante de tiempo
 
@@ -146,10 +140,7 @@ void CuerpoPersonajeJugador::choque()
     setPos(posx,posy);*/
     enTierra=true;
     this->saltando = false;
-
     tiempo = 0;
-
-
 }
 
 void CuerpoPersonajeJugador::actualizar_sprite_derecha()
@@ -161,10 +152,7 @@ void CuerpoPersonajeJugador::actualizar_sprite_derecha()
         dy=0;
     }
     this->update(-ancho/2,-alto/2,ancho,alto);
-
-
 }
-
 
 void CuerpoPersonajeJugador::actualizar_sprite_izquierda()
 {

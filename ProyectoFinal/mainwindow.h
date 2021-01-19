@@ -33,21 +33,23 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    //QVector < Plataforma *> vectorPlataformas;
+
+
 private:
     bool bandera;
     Ui::MainWindow *ui;
     QList<frutaBurbuja*> listaFrutaBurbuja;
     CuerpoPersonajeJugador *PersonajePrincipal;
-    QList<frutaBurbuja *> modificar(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion);
+    QList<frutaBurbuja *> modificarFrutaBurbuja(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion);
     QList<Vida *> modificarVida(QList<Vida *> listaVida, int posicion);
-
+    //QList<spritegusano *> modificarEnemigos(QList<spritegusano *> enemigos, QVector<spritegusano *> V_posgusanos,int posicion);
+   QVector<spritegusano*>vectorAuxGusanos;
     QGraphicsScene *scene;
     QList<Vida*> listaVida;
     QTimer *timercaida;
-    QTimer
-    *timersalto;
+    QTimer*timersalto;
     QTimer *timerfrutaburbuja;
+    QTimer *timerVida;
     //QList<vida*> vidaCerveza;
     frutaBurbuja *fruta1,*fruta2,*fruta3,*fruta4,*fruta5,*fruta6,*fruta7,*fruta8,*fruta9,*fruta10,*fruta11,*fruta12,*fruta13,*fruta14,*fruta15,*fruta16;
     Vida *vida1,*vida2,*vida3,*vida4;
@@ -90,10 +92,6 @@ private:
 
 
     //Score *score;
-
-
-    //int dx, dy;
-    //void DactivaG();
     float x,y,ancho,alto;
 
      void cargarPosgusano();
@@ -103,5 +101,6 @@ public slots:
     void activaG();//Actualizacion caida libre personaje esta hara el slot
     void activaSalto();
     void actualizar_frutaburbuja();
+    void actualizar_vida();
 };
 #endif // MAINWINDOW_H

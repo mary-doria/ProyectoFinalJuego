@@ -24,16 +24,14 @@ MainWindow::MainWindow(QWidget *parent)
     scene->addItem(PersonajePrincipal);
     PersonajePrincipal->setScale(0.4);
     scene->setSceneRect(0,0,960,519);
-    scene->setBackgroundBrush(QPixmap(":/Imagenes/Escenario2.png"));
+    scene->setBackgroundBrush(QPixmap(":/Imagenes/Escenario1.png"));
     cargarPosgusano();// funcion para cargas las posiciones de los gusanos
     //inicializo enemigo 1
     enemigo1= new spritegusano(true, 800,360);
     scene->addItem(enemigo1);
     enemigo1->setScale(0.4);
     enemigos.push_back(enemigo1);
-    QTimer *timer1 = new QTimer();
-    connect(timer1,SIGNAL(timeout()),this,SLOT(moveEnemy()));
-    timer1->start(250);
+
     //inicializo enemigo 2
     enemigo2= new spritegusano(true, 360,110);
     scene->addItem(enemigo2);
@@ -88,7 +86,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     /*Timer que indica la cada cuanto bajara el personaje
     dado que depende de la gravedad ira mas rapido mientras caiga*/
-
+    QTimer *timerVida = new QTimer();
+   connect(timerVida,SIGNAL(timeout()),this,SLOT(actualizar_vida()));
+   timerVida->start(1000);
     timercaida = new QTimer();
     connect(timercaida,SIGNAL(timeout()),this,SLOT(activaG()));
     timercaida->start(30);
@@ -145,7 +145,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-QList<frutaBurbuja *> MainWindow::modificar(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion)
+QList<frutaBurbuja *> MainWindow::modificarFrutaBurbuja(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion)
 {
     listaFrutaBurbuja.removeAt(posicion);
     return listaFrutaBurbuja;
@@ -155,27 +155,12 @@ QList<Vida *> MainWindow::modificarVida(QList<Vida *> listaVida, int posicion)
 {
     listaVida.removeAt(posicion);
     return listaVida;
+
 }
 
 
-/*ORGANIZAR FUNCION CON 2 PARAMETROS DE ENTRADA
-void MainWindow::cargaArchivos()
-{
-    std::fstream archivo;
-    archivo.open("C:\\Users\\57316\\Documents\\GITHUB\\ProyectoFinalJuego\\build-ProyectoFinal-Desktop_Qt_5_15_0_MinGW_64_bit-Debug\\plataformasPosiciones.txt",std::fstream::in);//recibe dos constructores
-    //(x,y) las posiciones de las plataformas y un ancho y un alto
-    float Posx,Posy,anchoP,altoP;
-    //while(!archivo.eof()){
-        // se extraera los cuatro parametros de las plataformas
-        archivo >> Posx >> Posy >> anchoP >> altoP ;
-        std::cout<< archivo;
 
-        Plataforma * plataformaNueva = new Plataforma (Posx,Posy,anchoP,altoP);
-        std::cout<< Posx << " " << Posy <<" "<< anchoP <<" " <<altoP<< std::endl;
-        vectorPlataformas.push_back(plataformaNueva);
-        scene->addItem(plataformaNueva);
-    //}
-}*/
+
 
 
 void MainWindow::keyPressEvent(QKeyEvent *evento)
@@ -212,19 +197,22 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     for (int i = 0; i<listaFrutaBurbuja.size(); i++) {
         if (PersonajePrincipal->collidesWithItem(listaFrutaBurbuja.at(i))){
             scene->removeItem(listaFrutaBurbuja.at(i));
-            listaFrutaBurbuja=modificar(listaFrutaBurbuja,i);
+            listaFrutaBurbuja=modificarFrutaBurbuja(listaFrutaBurbuja,i);
 
             }
     }//Implementacion del for para eliminar objeto cuando un enemigo colisiona
-    for (int i = 0; i<enemigos.count(); i++){
-       if (PersonajePrincipal->collidesWithItem(enemigos.at(i))){
-           for(int j = 0; j<listaVida.count(); j++){scene->removeItem(listaVida.at(j));
-           listaVida=modificarVida(listaVida,j);
-           //scene->removeItem(enemigos.at(i));
 
-           }}}
+    /*for (int i = 0; i<enemigos.count(); i++){
+       if (PersonajePrincipal->collidesWithItem(enemigos.at(i))){
+           for(int j = 0; j<listaVida.count(); j++){
+           scene->removeItem(listaVida.at(j));
+           listaVida=modificarVida(listaVida,j);
+
+           }}}*/
+
 
 }
+
 
 
 void MainWindow::activaG(){
@@ -262,6 +250,25 @@ void MainWindow::actualizar_frutaburbuja()
     }
 
 }
+
+void MainWindow::actualizar_vida()
+{   /*int vidas=4;
+    int vidas_=vidas;*/
+    for (int i = 0; i<enemigos.count(); i++){
+       if (PersonajePrincipal->collidesWithItem(enemigos.at(i))){
+           scene->removeItem(listaVida.at(0));
+               listaVida=modificarVida(listaVida,0);
+           /*SE CRASHEA PORQUE LISTA VIDA QUEDA VACIO,OSEA ME MORI :V*/
+       if(listaVida.count()==0){
+           //AQUI IRA LA FUNCION MORI PARA DEVOLVER AL MENU PRINCIPAL Y COLOCAR SONIDO DE BURRO
+
+       }
+
+       }}
+
+    }
+
+
 void MainWindow::cargarPosgusano()	{
     std::fstream archivo;
      archivo.open("posGusanos.txt",std::ios::in);//leer el archivo
@@ -283,7 +290,6 @@ void MainWindow::moveEnemy()
     for (int j = 0; j<enemigos.size(); j++){
         spritegusano *enemigo = enemigos.at(j);/* creo un enemigo de la clase gusado y le asigno su valor segun
                                                   la posicion j que recorre la Qlist de enemigo */
-
         if (enemigo->bande==true){
             if(enemigo->x()>V_posgusanos[j*2]){
             //qDebug()<<"V_posgusanos[j]*2"<<V_posgusanos[j*2];//imprimir posx1 del gusano n
@@ -296,6 +302,5 @@ void MainWindow::moveEnemy()
                 enemigo->right(3); }
             else
             enemigo->bande=true;}
-
-}//for
+}
     }

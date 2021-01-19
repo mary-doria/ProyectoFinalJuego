@@ -146,6 +146,7 @@ debug/qrc_Imagenes.cpp: ../ProyectoFinal/Imagenes.qrc \
 		../ProyectoFinal/Imagenes/PlataformaEscenario2.png \
 		../ProyectoFinal/Imagenes/Escenario2.png \
 		../ProyectoFinal/Imagenes/moscas_loks_sinFondo_cuadrado.png \
+		../ProyectoFinal/Imagenes/Escenario1.png \
 		../ProyectoFinal/Imagenes/frutaburbuja.png \
 		../ProyectoFinal/Imagenes/uforickandmorty.png \
 		../ProyectoFinal/Imagenes/Morty.png \
@@ -160,6 +161,7 @@ debug/qrc_Imagenes.cpp: ../ProyectoFinal/Imagenes.qrc \
 		../ProyectoFinal/Imagenes/PlataformaEscenario2.png \
 		../ProyectoFinal/Imagenes/Escenario2.png \
 		../ProyectoFinal/Imagenes/moscas_loks_sinFondo_cuadrado.png \
+		../ProyectoFinal/Imagenes/Escenario1.png \
 		../ProyectoFinal/Imagenes/frutaburbuja.png \
 		../ProyectoFinal/Imagenes/uforickandmorty.png \
 		../ProyectoFinal/Imagenes/Morty.png \
@@ -270,6 +272,18 @@ debug/moc_bala.cpp: ../ProyectoFinal/bala.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qtimer.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qbasictimer.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/QPixmap \
+		../ProyectoFinal/spritegusano.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/QPainter \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qpainter.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qpen.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qbrush.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qfontinfo.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qfont.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qfontmetrics.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.15.0/mingw81_64/bin/moc.exe
 	C:\Qt\5.15.0\mingw81_64\bin\moc.exe $(DEFINES) --include C:/Users/57316/Documents/GITHUB/ProyectoFinalJuego/build-ProyectoFinal-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.15.0/mingw81_64/mkspecs/win32-g++ -IC:/Users/57316/Documents/GITHUB/ProyectoFinalJuego/ProyectoFinal -IC:/Qt/5.15.0/mingw81_64/include -IC:/Qt/5.15.0/mingw81_64/include/QtWidgets -IC:/Qt/5.15.0/mingw81_64/include/QtGui -IC:/Qt/5.15.0/mingw81_64/include/QtANGLE -IC:/Qt/5.15.0/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\ProyectoFinal\bala.h -o debug\moc_bala.cpp
@@ -398,11 +412,11 @@ debug/moc_mainwindow.cpp: ../ProyectoFinal/mainwindow.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsScene \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/QKeyEvent \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/QDebug \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QList \
 		../ProyectoFinal/spritegusano.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QDesktopWidget \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtCore/QDebug \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QVector \
 		../ProyectoFinal/plataforma.h \
 		../ProyectoFinal/nave.h \
@@ -412,6 +426,7 @@ debug/moc_mainwindow.cpp: ../ProyectoFinal/mainwindow.h \
 		../ProyectoFinal/score.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsTextItem \
 		../ProyectoFinal/bala.h \
+		../ProyectoFinal/vida.h \
 		debug/moc_predefs.h \
 		C:/Qt/5.15.0/mingw81_64/bin/moc.exe
 	C:\Qt\5.15.0\mingw81_64\bin\moc.exe $(DEFINES) --include C:/Users/57316/Documents/GITHUB/ProyectoFinalJuego/build-ProyectoFinal-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/5.15.0/mingw81_64/mkspecs/win32-g++ -IC:/Users/57316/Documents/GITHUB/ProyectoFinalJuego/ProyectoFinal -IC:/Qt/5.15.0/mingw81_64/include -IC:/Qt/5.15.0/mingw81_64/include/QtWidgets -IC:/Qt/5.15.0/mingw81_64/include/QtGui -IC:/Qt/5.15.0/mingw81_64/include/QtANGLE -IC:/Qt/5.15.0/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\ProyectoFinal\mainwindow.h -o debug\moc_mainwindow.cpp
@@ -644,19 +659,19 @@ debug/bala.o: ../ProyectoFinal/bala.cpp ../ProyectoFinal/bala.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qtimer.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qbasictimer.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/QPixmap \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsScene \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtGui/qbrush.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtGui/qfont.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtGui/qpen.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtCore/QDebug \
 		../ProyectoFinal/spritegusano.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/QPainter \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/qpainter.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qpen.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qbrush.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/qfontinfo.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qfont.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/qfontmetrics.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/QDebug \
 		../ProyectoFinal/mainwindow.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QMainWindow \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qmainwindow.h \
@@ -686,7 +701,8 @@ debug/bala.o: ../ProyectoFinal/bala.cpp ../ProyectoFinal/bala.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QWidget \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QRectF \
 		../ProyectoFinal/score.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsTextItem
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsTextItem \
+		../ProyectoFinal/vida.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\bala.o ..\ProyectoFinal\bala.cpp
 
 debug/cuerpopersonajejugador.o: ../ProyectoFinal/cuerpopersonajejugador.cpp ../ProyectoFinal/cuerpopersonajejugador.h \
@@ -803,7 +819,8 @@ debug/cuerpopersonajejugador.o: ../ProyectoFinal/cuerpopersonajejugador.cpp ../P
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qfile.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qfiledevice.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/qvector2d.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtouchdevice.h
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtouchdevice.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\cuerpopersonajejugador.o ..\ProyectoFinal\cuerpopersonajejugador.cpp
 
 debug/frutaburbuja.o: ../ProyectoFinal/frutaburbuja.cpp ../ProyectoFinal/frutaburbuja.h \
@@ -1055,11 +1072,11 @@ debug/main.o: ../ProyectoFinal/main.cpp ../ProyectoFinal/mainwindow.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsScene \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/QKeyEvent \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/QDebug \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QList \
 		../ProyectoFinal/spritegusano.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QDesktopWidget \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtCore/QDebug \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QVector \
 		../ProyectoFinal/plataforma.h \
 		../ProyectoFinal/nave.h \
@@ -1069,6 +1086,7 @@ debug/main.o: ../ProyectoFinal/main.cpp ../ProyectoFinal/mainwindow.h \
 		../ProyectoFinal/score.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsTextItem \
 		../ProyectoFinal/bala.h \
+		../ProyectoFinal/vida.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QApplication \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qapplication.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qcoreapplication.h \
@@ -1201,11 +1219,11 @@ debug/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindow.
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsScene \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/QKeyEvent \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/QDebug \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QList \
 		../ProyectoFinal/spritegusano.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QDesktopWidget \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtCore/QDebug \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QVector \
 		../ProyectoFinal/plataforma.h \
 		../ProyectoFinal/nave.h \
@@ -1215,6 +1233,7 @@ debug/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindow.
 		../ProyectoFinal/score.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsTextItem \
 		../ProyectoFinal/bala.h \
+		../ProyectoFinal/vida.h \
 		ui_mainwindow.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QVariant \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QApplication \
@@ -1645,10 +1664,10 @@ debug/spritegusano.o: ../ProyectoFinal/spritegusano.cpp ../ProyectoFinal/spriteg
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\spritegusano.o ..\ProyectoFinal\spritegusano.cpp
 
 debug/vida.o: ../ProyectoFinal/vida.cpp ../ProyectoFinal/vida.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsTextItem \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qgraphicsitem.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtguiglobal.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/QObject \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qobject.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qnamespace.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qglobal.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qconfig-bootstrapped.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qconfig.h \
@@ -1670,11 +1689,6 @@ debug/vida.o: ../ProyectoFinal/vida.cpp ../ProyectoFinal/vida.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qmutex.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qnumeric.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qversiontagging.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtgui-config.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtCore/qobject.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtCore/qnamespace.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qobjectdefs_impl.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qstring.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qchar.h \
@@ -1703,6 +1717,12 @@ debug/vida.o: ../ProyectoFinal/vida.cpp ../ProyectoFinal/vida.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qobject_impl.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsItem \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qgraphicsitem.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtguiglobal.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtgui-config.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qtwidgets-config.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qvariant.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qmap.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qdebug.h \
@@ -1734,8 +1754,38 @@ debug/vida.o: ../ProyectoFinal/vida.cpp ../ProyectoFinal/vida.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/qrgba64.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/qimage.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/qpixelformat.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtGui/QFont \
-		C:/Qt/5.15.0/mingw81_64/include/QtGui/qfont.h
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/QTimer \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qtimer.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qbasictimer.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/QPixmap \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsPixmapItem \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/QPainter \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qpainter.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qpen.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qbrush.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qfontinfo.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qfont.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qfontmetrics.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QMainWindow \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qmainwindow.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qwidget.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qpalette.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qcursor.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qkeysequence.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qevent.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qurl.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qurlquery.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qfile.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qfiledevice.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qvector2d.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtouchdevice.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qicon.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\vida.o ..\ProyectoFinal\vida.cpp
 
 debug/qrc_Imagenes.o: debug/qrc_Imagenes.cpp 
