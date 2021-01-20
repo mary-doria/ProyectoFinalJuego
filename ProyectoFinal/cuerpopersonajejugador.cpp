@@ -35,6 +35,16 @@ void CuerpoPersonajeJugador::setSaltando(bool value)
     saltando = value;
 }
 
+bool CuerpoPersonajeJugador::getPlataformaNave() const
+{
+    return plataformaNave;
+}
+
+void CuerpoPersonajeJugador::setPlataformaNave(bool value)
+{
+    plataformaNave = value;
+}
+
 CuerpoPersonajeJugador::CuerpoPersonajeJugador(int x, int y,int rickMorty)
 { //Se usa this para indicar el objeto actual en el que se trabaj esto para evitar confusiones con las variables locales y dar seguridad que se esta trabajando en esta
     this->posx=x;
@@ -94,11 +104,12 @@ void CuerpoPersonajeJugador::paint(QPainter *painter, const QStyleOptionGraphics
 void CuerpoPersonajeJugador::caidaLibre()
 {
 
-    if(this->posy>450){
+    if(this->posy>450 ){
         enTierra=true;
         this->saltando = false;
         tiempo = 0;
     }
+
 
 
     if (enTierra==false){
@@ -142,6 +153,7 @@ void CuerpoPersonajeJugador::choque()
 {
     /*posy-=(this->velocidad*this->tiempo+((0*(this->tiempo*this->tiempo))/2));//Ecuacion caida libre
     setPos(posx,posy);*/
+
     enTierra=true;
     this->saltando = false;
     tiempo = 0;

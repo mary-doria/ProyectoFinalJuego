@@ -2,6 +2,17 @@
 #include "ui_mainwindow.h"
 #include <QList>
 #include <vector>
+#include <QString>
+#include <QMessageBox>
+#include <QDebug>
+#include <QtGui>
+#include <QImage>
+#include <stdlib.h>
+#include <QLabel>
+#include <QPixmap>
+#include <QtWidgets>
+#include <QtGui>
+#include <string.h>
 #include <QGraphicsScene>
 #include "cuerpopersonajejugador.h"
 #include <QGraphicsItem>
@@ -10,8 +21,9 @@
 #include "frutaburbuja.h"
 #include "bala.h"
 #include "vida.h"
-//#include "portal.h"
 
+//#include "portal.h"
+using namespace std;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -20,13 +32,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     scene = new QGraphicsScene;
     ui->graphicsView->setScene(scene);
-    PersonajePrincipal = new CuerpoPersonajeJugador(60,50,1);
+    PersonajePrincipal = new CuerpoPersonajeJugador(90,50,1);
     scene->addItem(PersonajePrincipal);
     PersonajePrincipal->setScale(0.4);
     scene->setSceneRect(0,0,960,519);
     scene->setBackgroundBrush(QPixmap(":/Imagenes/Escenario1.png"));
     cargarPosgusano();// funcion para cargas las posiciones de los gusanos
     //Inicializacion de enemigos
+
+
+
     enemigo1= new spritegusano(true, 800,360);scene->addItem(enemigo1);enemigo1->setScale(0.4);enemigos.push_back(enemigo1);
     enemigo2= new spritegusano(true, 360,110);scene->addItem(enemigo2);enemigo2->setScale(0.4);enemigos.push_back(enemigo2);
     enemigo3= new spritegusano(true, 635,240);scene->addItem(enemigo3);enemigo3->setScale(0.4);enemigos.push_back(enemigo3);
@@ -54,10 +69,8 @@ MainWindow::MainWindow(QWidget *parent)
     vida4=new Vida(510,30);listaVida.push_back(vida4);scene->addItem(vida4);
     vida5=new Vida(540,30);listaVida.push_back(vida5);scene->addItem(vida5);
 
-
-    //cargaArchivos();
     //PLATAFORMAS PRIMER NIVEL
-        naverickmorty= new nave(600,100);scene->addItem(naverickmorty);
+        naverickmorty= new nave(600,110);scene->addItem(naverickmorty);
         /*double r_temporal = sqrt(pow(naverickmorty->getPosx()-50,2) + pow(naverickmorty->getPosy()-100,2));
         portalRM=new  Portal(50,100,5,5,70,r_temporal/10);
         portalAux=new Portal(400,250,5,5,0,r_temporal/10);*/
@@ -65,7 +78,6 @@ MainWindow::MainWindow(QWidget *parent)
         /*timerportalRickMorty = new QTimer();
         connect(timerportalRickMorty,SIGNAL(timeout()),this,SLOT(actualizar_portal()));
         timerportalRickMorty->start(15);*/
-
         naverickmorty->setScale(0.5);
         plataformaInicialPosicion = new Plataforma(70,100);listaPlataformas.push_back(plataformaInicialPosicion);scene->addItem(plataformaInicialPosicion);
         plataforma2=new Plataforma(210,130);listaPlataformas.push_back(plataforma2);scene->addItem(plataforma2);
@@ -96,18 +108,25 @@ MainWindow::MainWindow(QWidget *parent)
         fruta14= new frutaBurbuja(); scene->addItem(fruta14);fruta14->setPos(760,340);listaFrutaBurbuja.push_back(fruta14);
         fruta15= new frutaBurbuja(); scene->addItem(fruta15);fruta15->setPos(840,340);listaFrutaBurbuja.push_back(fruta15);
         fruta16= new frutaBurbuja(); scene->addItem(fruta16);fruta16->setPos(630,220);listaFrutaBurbuja.push_back(fruta16);
+
+
         QTimer *timerfrutaburbuja = new QTimer();
         connect(timerfrutaburbuja,SIGNAL(timeout()),this,SLOT(actualizar_frutaburbuja()));
         timerfrutaburbuja->start(150);
 
 
+        Puntos = new Puntaje();
+        scene->addItem(Puntos);
 
-}
 
 
-/*
-    score = new Score();
-    scene->addItem(score);*/
+        }
+
+
+
+
+
+
 
 
 
@@ -165,6 +184,11 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
         if (PersonajePrincipal->collidesWithItem(listaFrutaBurbuja.at(i))){
             scene->removeItem(listaFrutaBurbuja.at(i));
             listaFrutaBurbuja=modificarFrutaBurbuja(listaFrutaBurbuja,i);
+            Puntos->incrementar();
+            if( Puntos->obtenerPuntos()>=2600 && PersonajePrincipal->collidesWithItem(plataforma8)){
+            //FUNCION PARA PASAR AL SEGUNDO NIVEL
+             QApplication::quit();}
+
 
             }
     }//Implementacion del for para eliminar objeto cuando un enemigo colisiona
@@ -317,6 +341,7 @@ void MainWindow::moveEnemy()
             qDebug()<<V_posgusanos;
             V_posgusanos.removeAt(i*2);
             qDebug()<<V_posgusanos;
+            Puntos->incrementar();
             break;
         }
     }

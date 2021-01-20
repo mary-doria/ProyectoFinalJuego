@@ -5,7 +5,7 @@
 #include "spritegusano.h"
 #include <mainwindow.h>
 
-Score *score;
+//Score *score;
 bala::bala(bool _bandera, QList<spritegusano*> listaGusanos)
 {//63x80
     this->gusanos = listaGusanos;

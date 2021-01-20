@@ -21,6 +21,7 @@ class CuerpoPersonajeJugador:public QObject ,public QGraphicsItem
     int G;
     bool enTierra;
     bool saltando;
+    bool plataformaNave;
 
     QPixmap *pixmap; //variable pixmap
     QTimer *timer;//tiempo
@@ -49,6 +50,9 @@ public:
 
     bool getSaltando() const;
     void setSaltando(bool value);
+
+    bool getPlataformaNave() const;
+    void setPlataformaNave(bool value);
 
 signals:
 public slots:

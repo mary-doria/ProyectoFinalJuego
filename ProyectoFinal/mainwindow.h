@@ -14,11 +14,12 @@
 #include "plataforma.h"
 #include "nave.h"
 #include "frutaburbuja.h"
-#include <score.h>
 #include "bala.h"
 #include "vida.h"
-#include "portal.h"
+//#include "portal.h"
 #include "spritegusano.h"
+#include "puntaje.h"
+#include <QMessageBox>
 
 
 using namespace std;
@@ -44,10 +45,10 @@ private:
     CuerpoPersonajeJugador *PersonajePrincipal;
     QList<frutaBurbuja *> modificarFrutaBurbuja(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion);
     QList<Vida *> modificarVida(QList<Vida *> listaVida, int posicion);
-    //QList<spritegusano *> modificarEnemigos(QList<spritegusano *> enemigos, QVector<spritegusano *> V_posgusanos,int posicion);
     QVector<spritegusano*>vectorAuxGusanos;
     QGraphicsScene *scene;
     QList<Vida*> listaVida;
+    Puntaje * Puntos;
     QTimer *timercaida,*timersalto,*timerfrutaburbuja,*timerVida;
     frutaBurbuja *fruta1,*fruta2,*fruta3,*fruta4,*fruta5,*fruta6,*fruta7,*fruta8,*fruta9,*fruta10,*fruta11,*fruta12,*fruta13,*fruta14,*fruta15,*fruta16;
     Vida *vida1,*vida2,*vida3,*vida4,*vida5;
@@ -64,6 +65,7 @@ private:
     Plataforma *plataforma11;
     Plataforma *plataforma12;
     Plataforma *plataforma13;
+    QMessageBox *mensaje;
     nave *naverickmorty;
     QList<Plataforma*> listaPlataformas;
     QList<spritegusano*> enemigos;// lista de enemigos gusanos
@@ -78,6 +80,7 @@ private:
     spritegusano *enemigo8; // crear el puntero para la clase gusano
     spritegusano *enemigo9; // crear el puntero para la clase gusano
     spritegusano *enemigo10; // crear el puntero para la clase gusano
+
     /*Portal *portalRM,*portalAux;
     QTimer *timerportalRickMorty;*/
     //Score *score;

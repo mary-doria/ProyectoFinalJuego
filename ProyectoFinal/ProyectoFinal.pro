@@ -17,7 +17,7 @@ SOURCES += \
     nave.cpp \
     plataforma.cpp \
     portal.cpp \
-    score.cpp \
+    puntaje.cpp \
     spritegusano.cpp \
     vida.cpp
 
@@ -29,7 +29,7 @@ HEADERS += \
     nave.h \
     plataforma.h \
     portal.h \
-    score.h \
+    puntaje.h \
     spritegusano.h \
     vida.h
 
