@@ -35,13 +35,17 @@ void CuerpoPersonajeJugador::setSaltando(bool value)
     saltando = value;
 }
 
-CuerpoPersonajeJugador::CuerpoPersonajeJugador(int x, int y)
+CuerpoPersonajeJugador::CuerpoPersonajeJugador(int x, int y,int rickMorty)
 { //Se usa this para indicar el objeto actual en el que se trabaj esto para evitar confusiones con las variables locales y dar seguridad que se esta trabajando en esta
     this->posx=x;
     this->posy=y;
     // dar posicion
     setPos(posx,posy);
-    this->pixmap = new QPixmap(":/Imagenes/Rick.png");
+    //opcion 1 es Rick ,Opcion 2 es Morty
+    if (rickMorty==1){
+    this->pixmap = new QPixmap(":/Imagenes/Rick.png");}
+    else if(rickMorty==2)
+    this->pixmap = new QPixmap(":/Imagenes/Morty.png");
     this->dx = 4;
     this->dy =4;
     this->ancho = 124;
@@ -99,9 +103,9 @@ void CuerpoPersonajeJugador::caidaLibre()
 
     if (enTierra==false){
         if (saltando == true){
-            posy+=(-(this->velocidad)+((G*(this->tiempo))));//Ecuacion caida libre
+            posy+=(-(this->velocidad)+((G*(this->tiempo)))-friccion);//Ecuacion caida libre
         } else{
-            posy+=((G*(this->tiempo)));//Ecuacion caida libre
+            posy+=((G*(this->tiempo))-friccion);//Ecuacion caida libre
         }
         tiempo+=0.5; }
     /*posy+=(this->velocidad*this->tiempo+((G*(this->tiempo*this->tiempo))/2));//Ecuacion caida libre

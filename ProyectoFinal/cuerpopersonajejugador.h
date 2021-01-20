@@ -29,7 +29,7 @@ class CuerpoPersonajeJugador:public QObject ,public QGraphicsItem
 
 public:
     //explicit CuerpoPersonajeJugador(QObject *parent = nullptr);
-    CuerpoPersonajeJugador(int x, int y);
+    CuerpoPersonajeJugador(int x, int y,int rickMorty);
     // posicion x y y
     int getPosx() const;
     void setPosx(int px);

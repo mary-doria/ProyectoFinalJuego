@@ -1,25 +1,27 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <QMainWindow>
-#include <cuerpopersonajejugador.h>
 #include <QList>
-#include "spritegusano.h"
 #include <QDesktopWidget>
 #include <QDebug>
 #include <QVector>
 #include <iostream>//Flujo de entrada y salida para leer los archivos
 #include <fstream>
+#include <QRectF>
+#include <iterator>
+//Clases creadas
+#include <cuerpopersonajejugador.h>
 #include "plataforma.h"
 #include "nave.h"
 #include "frutaburbuja.h"
-#include <QRectF>
-#include <iterator>
 #include <score.h>
 #include "bala.h"
 #include "vida.h"
+#include "portal.h"
+#include "spritegusano.h"
 
 
-
+using namespace std;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -43,16 +45,12 @@ private:
     QList<frutaBurbuja *> modificarFrutaBurbuja(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion);
     QList<Vida *> modificarVida(QList<Vida *> listaVida, int posicion);
     //QList<spritegusano *> modificarEnemigos(QList<spritegusano *> enemigos, QVector<spritegusano *> V_posgusanos,int posicion);
-   QVector<spritegusano*>vectorAuxGusanos;
+    QVector<spritegusano*>vectorAuxGusanos;
     QGraphicsScene *scene;
     QList<Vida*> listaVida;
-    QTimer *timercaida;
-    QTimer*timersalto;
-    QTimer *timerfrutaburbuja;
-    QTimer *timerVida;
-    //QList<vida*> vidaCerveza;
+    QTimer *timercaida,*timersalto,*timerfrutaburbuja,*timerVida;
     frutaBurbuja *fruta1,*fruta2,*fruta3,*fruta4,*fruta5,*fruta6,*fruta7,*fruta8,*fruta9,*fruta10,*fruta11,*fruta12,*fruta13,*fruta14,*fruta15,*fruta16;
-    Vida *vida1,*vida2,*vida3,*vida4;
+    Vida *vida1,*vida2,*vida3,*vida4,*vida5;
     Plataforma *plataformaInicialPosicion;
     Plataforma *plataforma2;
     Plataforma *plataforma3;
@@ -66,16 +64,8 @@ private:
     Plataforma *plataforma11;
     Plataforma *plataforma12;
     Plataforma *plataforma13;
-
-
-
     nave *naverickmorty;
-
     QList<Plataforma*> listaPlataformas;
-
-
-    void keyPressEvent(QKeyEvent *evento);
-
     QList<spritegusano*> enemigos;// lista de enemigos gusanos
     QVector < int > V_posgusanos; // vector con las posiciones de los gusanos
     spritegusano *enemigo1; // crear el puntero para la clase gusano
@@ -88,12 +78,11 @@ private:
     spritegusano *enemigo8; // crear el puntero para la clase gusano
     spritegusano *enemigo9; // crear el puntero para la clase gusano
     spritegusano *enemigo10; // crear el puntero para la clase gusano
-
-
-
+    /*Portal *portalRM,*portalAux;
+    QTimer *timerportalRickMorty;*/
     //Score *score;
     float x,y,ancho,alto;
-
+     void keyPressEvent(QKeyEvent *evento);
      void cargarPosgusano();
      void sprite_burbuja();
 public slots:
@@ -102,5 +91,6 @@ public slots:
     void activaSalto();
     void actualizar_frutaburbuja();
     void actualizar_vida();
+    //void actualizar_portal();
 };
 #endif // MAINWINDOW_H

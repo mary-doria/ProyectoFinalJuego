@@ -6,9 +6,9 @@
 #include <mainwindow.h>
 
 Score *score;
-bala::bala(bool _bandera)
+bala::bala(bool _bandera, QList<spritegusano*> listaGusanos)
 {//63x80
-
+    this->gusanos = listaGusanos;
     dy =0;
     ancho = 64;
     alto=70;
@@ -63,6 +63,11 @@ void bala::move()
             //score->increase();
             scene()->removeItem(colliding_items.at(i));
             scene()->removeItem(this);
+            /*for(int j=0; j < gusanos.size(); j++){
+                if (colliding_items.at(i) == gusanos.at(j)){
+                    gusanos.removeAt(j);
+                }
+            }*/
 
             //delete colliding_items[i];
             delete this;}}

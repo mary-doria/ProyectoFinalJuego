@@ -10,7 +10,7 @@ class bala : public QObject, public QGraphicsItem
 {
     Q_OBJECT
 public:
-    bala(bool _bandera);
+    bala(bool _bandera, QList<spritegusano*> listaGusanos);
     bool bandera;
     QTimer *timer;
     QPixmap *pixmap;
@@ -21,6 +21,7 @@ public:
     int getPosy() const;
     void setPosy(int value);
     QTimer *timerrasholaser;
+    QList<spritegusano*> gusanos;
 
 
 private:
