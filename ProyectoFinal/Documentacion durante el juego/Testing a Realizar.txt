@@ -1,7 +1,0 @@
-Testing:
-first level:
-1.Verificar si despues de una cantidad de tiempo 5 minutos o mas el primer nivel se crashea
-2.Resolver todo el juego para ver si se crashea 
-3.Primero matar los gusanos que tienen frutasBurbujas en su plataforma
-4.Comerse la fruta mientras esta en la superficie 
-5.Agregarle a mas objetos de las diferentes clases  setScale
