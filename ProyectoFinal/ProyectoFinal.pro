@@ -11,7 +11,7 @@ CONFIG += c++11
 SOURCES += \
     bala.cpp \
     cuerpopersonajejugador.cpp \
-    fruta.cpp \
+    frutaburbuja.cpp \
     main.cpp \
     mainwindow.cpp \
     nave.cpp \
@@ -23,7 +23,7 @@ SOURCES += \
 HEADERS += \
     bala.h \
     cuerpopersonajejugador.h \
-    fruta.h \
+    frutaburbuja.h \
     mainwindow.h \
     nave.h \
     plataforma.h \

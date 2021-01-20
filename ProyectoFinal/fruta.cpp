@@ -4,9 +4,15 @@
 fruta::fruta(int x, int y)
 {
 
-    this->pixmapfruta1 = new QPixmap(":/Imagenes/Morty.png");
+ this->pixmapfruta1 = new QPixmap(":/Imagenes/Frutas.png");
+ this->pixmapfruta2 = new QPixmap(":/Imagenes/Frutas.png");
+ this->pixmapfruta3 = new QPixmap(":/Imagenes/Frutas.png");
+ this->pixmapfruta4 = new QPixmap(":/Imagenes/Frutas.png");
     this->ancho =38;
     this->alto=40;
+    this->posx=x;
+    this->posy=y;
+    setPos(posx,posy);
 
 }
 
