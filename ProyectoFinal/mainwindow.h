@@ -16,7 +16,7 @@
 #include "frutaburbuja.h"
 #include "bala.h"
 #include "vida.h"
-//#include "portal.h"
+#include "portal.h"
 #include "spritegusano.h"
 #include "puntaje.h"
 #include <QMessageBox>
@@ -42,12 +42,13 @@ private:
     bool bandera;
     Ui::MainWindow *ui;
     QList<frutaBurbuja*> listaFrutaBurbuja;
-    CuerpoPersonajeJugador *PersonajePrincipal;
+    CuerpoPersonajeJugador *PersonajePrincipal,*PersonajePrincipal2;
     QList<frutaBurbuja *> modificarFrutaBurbuja(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion);
     QList<Vida *> modificarVida(QList<Vida *> listaVida, int posicion);
     QVector<spritegusano*>vectorAuxGusanos;
-    QGraphicsScene *scene;
+    QGraphicsScene *scene,*menu;
     QList<Vida*> listaVida;
+    bool Multijugador=false;
     Puntaje * Puntos;
     QTimer *timercaida,*timersalto,*timerfrutaburbuja,*timerVida;
     frutaBurbuja *fruta1,*fruta2,*fruta3,*fruta4,*fruta5,*fruta6,*fruta7,*fruta8,*fruta9,*fruta10,*fruta11,*fruta12,*fruta13,*fruta14,*fruta15,*fruta16;
@@ -81,9 +82,9 @@ private:
     spritegusano *enemigo9; // crear el puntero para la clase gusano
     spritegusano *enemigo10; // crear el puntero para la clase gusano
 
-    /*Portal *portalRM,*portalAux;
-    QTimer *timerportalRickMorty;*/
-    //Score *score;
+    Portal *portalRickMorty;
+    QTimer *timerportalRickMorty;
+
     float x,y,ancho,alto;
      void keyPressEvent(QKeyEvent *evento);
      void cargarPosgusano();
@@ -94,6 +95,14 @@ public slots:
     void activaSalto();
     void actualizar_frutaburbuja();
     void actualizar_vida();
-    //void actualizar_portal();
+    void actualizar_portal();
+private slots:
+
+    void on_bottonJugar_clicked();
+    void on_bottonInstrucciones_clicked();
+    void on_bottonUsuario_clicked();
+    void on_bottonMultijugador_clicked();
+    void on_radioButton_2_clicked();
+    void on_radioButton_clicked();
 };
 #endif // MAINWINDOW_H

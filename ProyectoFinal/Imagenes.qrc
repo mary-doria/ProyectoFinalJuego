@@ -12,5 +12,13 @@
         <file>Imagenes/Escenario1.png</file>
         <file>Imagenes/Escenario2.png</file>
         <file>Imagenes/portalrickandmorty.png</file>
+        <file>Imagenes/JugarRickMorty.png</file>
+        <file>Imagenes/Instrucciones.png</file>
+        <file>Imagenes/Multijugador.png</file>
+        <file>Imagenes/Usuario.png</file>
+        <file>Imagenes/Sonido.png</file>
+        <file>Imagenes/FondoMenu.png</file>
+        <file>Imagenes/IconMorty.png</file>
+        <file>Imagenes/IconRick.png</file>
     </qresource>
 </RCC>

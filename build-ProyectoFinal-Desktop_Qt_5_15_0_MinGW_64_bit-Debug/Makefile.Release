@@ -144,34 +144,50 @@ compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_Imagenes.cpp release\qrc_Imagenes.cpp
 release/qrc_Imagenes.cpp: ../ProyectoFinal/Imagenes.qrc \
 		C:/Qt/5.15.0/mingw81_64/bin/rcc.exe \
+		../ProyectoFinal/Imagenes/IconRick.png \
+		../ProyectoFinal/Imagenes/Morty.png \
 		../ProyectoFinal/Imagenes/Rick.png \
+		../ProyectoFinal/Imagenes/IconMorty.png \
 		../ProyectoFinal/Imagenes/gusanos_loks_sinFondo_cuadrado.png \
+		../ProyectoFinal/Imagenes/portalrickandmorty.png \
+		../ProyectoFinal/Imagenes/JugarRickMorty.png \
+		../ProyectoFinal/Imagenes/bala_verde_12.png \
+		../ProyectoFinal/Imagenes/moscas_loks_sinFondo_cuadrado.png \
+		../ProyectoFinal/Imagenes/Multijugador.png \
+		../ProyectoFinal/Imagenes/Usuario.png \
+		../ProyectoFinal/Imagenes/FondoMenu.png \
+		../ProyectoFinal/Imagenes/Escenario1.png \
+		../ProyectoFinal/Imagenes/Escenario2.png \
+		../ProyectoFinal/Imagenes/frutaburbuja.png \
 		../ProyectoFinal/Imagenes/CervezaVidaRickMorty.png \
 		../ProyectoFinal/Imagenes/PlataformaEscenario2.png \
-		../ProyectoFinal/Imagenes/Escenario2.png \
-		../ProyectoFinal/Imagenes/moscas_loks_sinFondo_cuadrado.png \
-		../ProyectoFinal/Imagenes/Escenario1.png \
-		../ProyectoFinal/Imagenes/frutaburbuja.png \
-		../ProyectoFinal/Imagenes/portalrickandmorty.png \
-		../ProyectoFinal/Imagenes/uforickandmorty.png \
-		../ProyectoFinal/Imagenes/Morty.png \
-		../ProyectoFinal/Imagenes/bala_verde_12.png
+		../ProyectoFinal/Imagenes/Instrucciones.png \
+		../ProyectoFinal/Imagenes/Sonido.png \
+		../ProyectoFinal/Imagenes/uforickandmorty.png
 	C:\Qt\5.15.0\mingw81_64\bin\rcc.exe -name Imagenes ..\ProyectoFinal\Imagenes.qrc -o release\qrc_Imagenes.cpp
 
 release/qrc_Imagenes.cpp: ../ProyectoFinal/Imagenes.qrc \
 		C:/Qt/5.15.0/mingw81_64/bin/rcc.exe \
+		../ProyectoFinal/Imagenes/IconRick.png \
+		../ProyectoFinal/Imagenes/Morty.png \
 		../ProyectoFinal/Imagenes/Rick.png \
+		../ProyectoFinal/Imagenes/IconMorty.png \
 		../ProyectoFinal/Imagenes/gusanos_loks_sinFondo_cuadrado.png \
+		../ProyectoFinal/Imagenes/portalrickandmorty.png \
+		../ProyectoFinal/Imagenes/JugarRickMorty.png \
+		../ProyectoFinal/Imagenes/bala_verde_12.png \
+		../ProyectoFinal/Imagenes/moscas_loks_sinFondo_cuadrado.png \
+		../ProyectoFinal/Imagenes/Multijugador.png \
+		../ProyectoFinal/Imagenes/Usuario.png \
+		../ProyectoFinal/Imagenes/FondoMenu.png \
+		../ProyectoFinal/Imagenes/Escenario1.png \
+		../ProyectoFinal/Imagenes/Escenario2.png \
+		../ProyectoFinal/Imagenes/frutaburbuja.png \
 		../ProyectoFinal/Imagenes/CervezaVidaRickMorty.png \
 		../ProyectoFinal/Imagenes/PlataformaEscenario2.png \
-		../ProyectoFinal/Imagenes/Escenario2.png \
-		../ProyectoFinal/Imagenes/moscas_loks_sinFondo_cuadrado.png \
-		../ProyectoFinal/Imagenes/Escenario1.png \
-		../ProyectoFinal/Imagenes/frutaburbuja.png \
-		../ProyectoFinal/Imagenes/portalrickandmorty.png \
-		../ProyectoFinal/Imagenes/uforickandmorty.png \
-		../ProyectoFinal/Imagenes/Morty.png \
-		../ProyectoFinal/Imagenes/bala_verde_12.png
+		../ProyectoFinal/Imagenes/Instrucciones.png \
+		../ProyectoFinal/Imagenes/Sonido.png \
+		../ProyectoFinal/Imagenes/uforickandmorty.png
 	C:\Qt\5.15.0\mingw81_64\bin\rcc.exe -name Imagenes ..\ProyectoFinal\Imagenes.qrc -o release\qrc_Imagenes.cpp
 
 compiler_moc_predefs_make_all: release/moc_predefs.h
@@ -431,7 +447,11 @@ release/moc_mainwindow.cpp: ../ProyectoFinal/mainwindow.h \
 		../ProyectoFinal/bala.h \
 		../ProyectoFinal/spritegusano.h \
 		../ProyectoFinal/vida.h \
+		../ProyectoFinal/portal.h \
 		../ProyectoFinal/puntaje.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qdialog.h \
 		release/moc_predefs.h \
 		C:/Qt/5.15.0/mingw81_64/bin/moc.exe
 	C:\Qt\5.15.0\mingw81_64\bin\moc.exe $(DEFINES) --include C:/Users/57316/Documents/GITHUB/ProyectoFinalJuego/build-ProyectoFinal-Desktop_Qt_5_15_0_MinGW_64_bit-Debug/release/moc_predefs.h -IC:/Qt/5.15.0/mingw81_64/mkspecs/win32-g++ -IC:/Users/57316/Documents/GITHUB/ProyectoFinalJuego/ProyectoFinal -IC:/Qt/5.15.0/mingw81_64/include -IC:/Qt/5.15.0/mingw81_64/include/QtWidgets -IC:/Qt/5.15.0/mingw81_64/include/QtGui -IC:/Qt/5.15.0/mingw81_64/include/QtANGLE -IC:/Qt/5.15.0/mingw81_64/include/QtCore -I. -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++ -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include -IC:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed -IC:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include ..\ProyectoFinal\mainwindow.h -o release\moc_mainwindow.cpp
@@ -706,7 +726,11 @@ release/bala.o: ../ProyectoFinal/bala.cpp ../ProyectoFinal/bala.h \
 		../ProyectoFinal/frutaburbuja.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QWidget \
 		../ProyectoFinal/vida.h \
-		../ProyectoFinal/puntaje.h
+		../ProyectoFinal/portal.h \
+		../ProyectoFinal/puntaje.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\bala.o ..\ProyectoFinal\bala.cpp
 
 release/cuerpopersonajejugador.o: ../ProyectoFinal/cuerpopersonajejugador.cpp ../ProyectoFinal/cuerpopersonajejugador.h \
@@ -1089,7 +1113,11 @@ release/main.o: ../ProyectoFinal/main.cpp ../ProyectoFinal/mainwindow.h \
 		../ProyectoFinal/bala.h \
 		../ProyectoFinal/spritegusano.h \
 		../ProyectoFinal/vida.h \
+		../ProyectoFinal/portal.h \
 		../ProyectoFinal/puntaje.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qdialog.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QApplication \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qapplication.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qcoreapplication.h \
@@ -1235,7 +1263,11 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		../ProyectoFinal/bala.h \
 		../ProyectoFinal/spritegusano.h \
 		../ProyectoFinal/vida.h \
+		../ProyectoFinal/portal.h \
 		../ProyectoFinal/puntaje.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qdialog.h \
 		ui_mainwindow.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QVariant \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QApplication \
@@ -1254,12 +1286,12 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qmenu.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qaction.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qactiongroup.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QPushButton \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QStatusBar \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qstatusbar.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QString \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QMessageBox \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qmessagebox.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qdialog.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/QtGui \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/QtGuiDepends \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QtCore \
@@ -1487,7 +1519,6 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlabel.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QtWidgets \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QtWidgetsDepends \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qstyleoption.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qabstractspinbox.h \
@@ -1510,7 +1541,6 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qcolumnview.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qcombobox.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qcommandlinkbutton.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qcommonstyle.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qcompleter.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qdatawidgetmapper.h \

@@ -28,99 +28,20 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    bandera=true;
     ui->setupUi(this);
-    scene = new QGraphicsScene;
-    ui->graphicsView->setScene(scene);
-    PersonajePrincipal = new CuerpoPersonajeJugador(90,50,1);
-    scene->addItem(PersonajePrincipal);
-    PersonajePrincipal->setScale(0.4);
-    scene->setSceneRect(0,0,960,519);
-    scene->setBackgroundBrush(QPixmap(":/Imagenes/Escenario1.png"));
-    cargarPosgusano();// funcion para cargas las posiciones de los gusanos
-    //Inicializacion de enemigos
 
 
 
-    enemigo1= new spritegusano(true, 800,360);scene->addItem(enemigo1);enemigo1->setScale(0.4);enemigos.push_back(enemigo1);
-    enemigo2= new spritegusano(true, 360,110);scene->addItem(enemigo2);enemigo2->setScale(0.4);enemigos.push_back(enemigo2);
-    enemigo3= new spritegusano(true, 635,240);scene->addItem(enemigo3);enemigo3->setScale(0.4);enemigos.push_back(enemigo3);
-    enemigo4= new spritegusano(true, 385,260);scene->addItem(enemigo4);enemigo4->setScale(0.4);enemigos.push_back(enemigo4);
-    enemigo5= new spritegusano(false, 420,260);scene->addItem(enemigo5);enemigo5->setScale(0.4);enemigos.push_back(enemigo5);
-    enemigo6= new spritegusano(true, 250,320);scene->addItem(enemigo6);enemigo6->setScale(0.4);enemigos.push_back(enemigo6);
-    enemigo7= new spritegusano(false, 650,410);scene->addItem(enemigo7);enemigo7->setScale(0.4);enemigos.push_back(enemigo7);
-    enemigo8= new spritegusano(false, 70,370);scene->addItem(enemigo8);enemigo8->setScale(0.4);enemigos.push_back(enemigo8);
-    enemigo9= new spritegusano(false, 960,460);scene->addItem(enemigo9);enemigo9->setScale(0.4);enemigos.push_back(enemigo9);
-    enemigo10= new spritegusano(true, 0,460);scene->addItem(enemigo10);enemigo10->setScale(0.4);enemigos.push_back(enemigo10);
-    QTimer *timerEnemigos = new QTimer();
-    connect(timerEnemigos,SIGNAL(timeout()),this,SLOT(moveEnemy()));
-    timerEnemigos->start(150);
-    /*Timer que indica la cada cuanto bajara el personaje
-    dado que depende de la gravedad ira mas rapido mientras caiga*/
-    QTimer *timerVida = new QTimer();
-    connect(timerVida,SIGNAL(timeout()),this,SLOT(actualizar_vida()));
-    timerVida->start(800);
-    timercaida = new QTimer();
-    connect(timercaida,SIGNAL(timeout()),this,SLOT(activaG()));
-    timercaida->start(30);
-    vida1=new Vida(420,30);listaVida.push_back(vida1);scene->addItem(vida1);
-    vida2=new Vida(450,30);listaVida.push_back(vida2);scene->addItem(vida2);
-    vida3=new Vida(480,30);listaVida.push_back(vida3);scene->addItem(vida3);
-    vida4=new Vida(510,30);listaVida.push_back(vida4);scene->addItem(vida4);
-    vida5=new Vida(540,30);listaVida.push_back(vida5);scene->addItem(vida5);
-
-    //PLATAFORMAS PRIMER NIVEL
-        naverickmorty= new nave(600,110);scene->addItem(naverickmorty);
-        /*double r_temporal = sqrt(pow(naverickmorty->getPosx()-50,2) + pow(naverickmorty->getPosy()-100,2));
-        portalRM=new  Portal(50,100,5,5,70,r_temporal/10);
-        portalAux=new Portal(400,250,5,5,0,r_temporal/10);*/
-        //scene->addItem(portalAux);
-        /*timerportalRickMorty = new QTimer();
-        connect(timerportalRickMorty,SIGNAL(timeout()),this,SLOT(actualizar_portal()));
-        timerportalRickMorty->start(15);*/
-        naverickmorty->setScale(0.5);
-        plataformaInicialPosicion = new Plataforma(70,100);listaPlataformas.push_back(plataformaInicialPosicion);scene->addItem(plataformaInicialPosicion);
-        plataforma2=new Plataforma(210,130);listaPlataformas.push_back(plataforma2);scene->addItem(plataforma2);
-        plataforma3 =new Plataforma(800,400);listaPlataformas.push_back(plataforma3);scene->addItem(plataforma3);
-        plataforma4 = new Plataforma(360,150);listaPlataformas.push_back(plataforma4);scene->addItem(plataforma4);
-        plataforma5= new Plataforma(525,380);listaPlataformas.push_back(plataforma5);scene->addItem(plataforma5);
-        plataforma6= new Plataforma(635,280);listaPlataformas.push_back(plataforma6);scene->addItem(plataforma6);
-        plataforma7 = new Plataforma(740,220);listaPlataformas.push_back(plataforma7);scene->addItem(plataforma7);
-        plataforma8 = new Plataforma(600,170);listaPlataformas.push_back(plataforma8);scene->addItem(plataforma8);//PLATAFORMA NAVE
-        plataforma9 = new Plataforma(385,300);listaPlataformas.push_back(plataforma9);scene->addItem(plataforma9);
-        plataforma10 = new Plataforma(70,410);listaPlataformas.push_back(plataforma10);scene->addItem(plataforma10);
-        plataforma11= new Plataforma(250,360);listaPlataformas.push_back(plataforma11);scene->addItem(plataforma11);
-        plataforma12= new Plataforma(650,450);listaPlataformas.push_back(plataforma12);scene->addItem(plataforma12);
-        plataforma13= new Plataforma(70,410);listaPlataformas.push_back(plataforma13);scene->addItem(plataforma13);
-        fruta1= new frutaBurbuja(); scene->addItem(fruta1);fruta1->setPos(210,70);listaFrutaBurbuja.push_back(fruta1);
-        fruta2= new frutaBurbuja(); scene->addItem(fruta2);fruta2->setPos(360,90);listaFrutaBurbuja.push_back(fruta2);
-        fruta3= new frutaBurbuja(); scene->addItem(fruta3);fruta3->setPos(75,380);listaFrutaBurbuja.push_back(fruta3);
-        fruta4= new frutaBurbuja(); scene->addItem(fruta4);fruta4->setPos(250,305);listaFrutaBurbuja.push_back(fruta4);
-        fruta5= new frutaBurbuja(); scene->addItem(fruta5);fruta5->setPos(385,230);listaFrutaBurbuja.push_back(fruta5);
-        fruta6= new frutaBurbuja(); scene->addItem(fruta6);fruta6->setPos(650,395);listaFrutaBurbuja.push_back(fruta6);
-        fruta7= new frutaBurbuja(); scene->addItem(fruta7);fruta7->setPos(740,170);listaFrutaBurbuja.push_back(fruta7);
-        fruta8= new frutaBurbuja(); scene->addItem(fruta8);fruta8->setPos(800,340);listaFrutaBurbuja.push_back(fruta8);
-        fruta9= new frutaBurbuja(); scene->addItem(fruta9);fruta9->setPos(530,320);listaFrutaBurbuja.push_back(fruta9);
-        fruta10= new frutaBurbuja(); scene->addItem(fruta10);fruta10->setPos(740,120);listaFrutaBurbuja.push_back(fruta10);
-        fruta11= new frutaBurbuja(); scene->addItem(fruta11);fruta11->setPos(75,260);listaFrutaBurbuja.push_back(fruta11);
-        fruta12= new frutaBurbuja(); scene->addItem(fruta12);fruta12->setPos(75,300);listaFrutaBurbuja.push_back(fruta12);
-        fruta13= new frutaBurbuja(); scene->addItem(fruta13);fruta13->setPos(75,340);listaFrutaBurbuja.push_back(fruta13);
-        fruta14= new frutaBurbuja(); scene->addItem(fruta14);fruta14->setPos(760,340);listaFrutaBurbuja.push_back(fruta14);
-        fruta15= new frutaBurbuja(); scene->addItem(fruta15);fruta15->setPos(840,340);listaFrutaBurbuja.push_back(fruta15);
-        fruta16= new frutaBurbuja(); scene->addItem(fruta16);fruta16->setPos(630,220);listaFrutaBurbuja.push_back(fruta16);
-
-
-        QTimer *timerfrutaburbuja = new QTimer();
-        connect(timerfrutaburbuja,SIGNAL(timeout()),this,SLOT(actualizar_frutaburbuja()));
-        timerfrutaburbuja->start(150);
-
-
-        Puntos = new Puntaje();
-        scene->addItem(Puntos);
+}
 
 
 
-        }
+
+
+
+
+
+
 
 
 
@@ -164,9 +85,9 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
         bandera =true;
         PersonajePrincipal->derecha();
         PersonajePrincipal->actualizar_sprite_derecha();
-        /*for (int i = 0; i<enemigos.count(); i++){
-           if (PersonajePrincipal->collidesWithItem(enemigos.at(i))){
-               PersonajePrincipal->izquierda();}}*/}
+
+    }
+
     if (evento->key()==Qt::Key_W){
         if(PersonajePrincipal->getEnTierra()==true){
             activaSalto();
@@ -180,12 +101,44 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
         scene->addItem(balaa);
         //qDebug()<<"bala creada";
     }
+    if(Multijugador==true){
+        if (evento->key()==Qt::Key_J){
+            bandera=false;
+            PersonajePrincipal2->izquierda();
+            PersonajePrincipal2->actualizar_sprite_izquierda();
+            /*for (int i = 0; i<enemigos.count(); i++){
+               if (PersonajePrincipal->collidesWithItem(enemigos.at(i))){
+                   PersonajePrincipal->derecha();}}*/
+               }
+        if (evento->key()==Qt::Key_L){
+            bandera =true;
+            PersonajePrincipal2->derecha();
+            PersonajePrincipal2->actualizar_sprite_derecha();
+
+        }
+
+        if (evento->key()==Qt::Key_I){
+            if(PersonajePrincipal2->getEnTierra()==true){
+                activaSalto();
+                        }}
+
+        // tecla para disparar
+        else if (evento->key()==Qt::Key_K){
+            //crear bala
+            bala * balaa = new bala(bandera, enemigos);
+            balaa->setPos(PersonajePrincipal2->x(),PersonajePrincipal2->y());//posicion del retangulo
+            scene->addItem(balaa);
+            //qDebug()<<"bala creada";
+        }
+
+    }
+
     for (int i = 0; i<listaFrutaBurbuja.size(); i++) {
         if (PersonajePrincipal->collidesWithItem(listaFrutaBurbuja.at(i))){
             scene->removeItem(listaFrutaBurbuja.at(i));
             listaFrutaBurbuja=modificarFrutaBurbuja(listaFrutaBurbuja,i);
             Puntos->incrementar();
-            if( Puntos->obtenerPuntos()>=2600 && PersonajePrincipal->collidesWithItem(plataforma8)){
+            if( Puntos->obtenerPuntos()>=2500 && PersonajePrincipal->collidesWithItem(plataforma8)){
             //FUNCION PARA PASAR AL SEGUNDO NIVEL
              QApplication::quit();}
 
@@ -250,44 +203,13 @@ void MainWindow::actualizar_vida()
        }}
 
 }
-/*
+
 void MainWindow::actualizar_portal()
 {
-    //scene->removeItem(portalAux);
 
-    double axPortal; //aceleracion en x del portal
-    double ayPortal; //aceleracion en y del portal
-    double rPortalNave; //distancia del portal a la nave
-    double tetaPortalNave; //angulo del portal a la nave
+  portalRickMorty->ActualizarPosicionPortal();
 
-
-    //calculo la distancia del portal a la nave
-    rPortalNave= sqrt(pow(naverickmorty->getPosx()-portalRM->getPosx(),2) + pow(naverickmorty->getPosy()-portalRM->getPosy(),2));
-
-
-    //calculo del angulo del portal con respecto a la nave
-    tetaPortalNave = atan2(naverickmorty->getPosy()-portalRM->getPosy(),naverickmorty->getPosx()-portalRM->getPosx());
-
-    axPortal=2;
-    ayPortal=2;
-    //calculo las aceleraciones del planeta 1 ejercido por el planeta 2
-    axPortal=(50000)*pow(rPortalNave,-2)*cos(tetaPortalNave);
-    //ayPortal=(50000)*pow(rPortalNave,-2)*sin(tetaPortalNave);
-
-    //cout<<rPortalNave<<" "<<tetaPortalNave<<" "<<axPortal<<" "<<ayPortal;
-
-
-    //portalRM->ActualizarPosicion(axPortal,ayPortal);
-
-    //portalAux->setPos(portalRM->getPosx()/10+480,portalRM->getPosy()/20+259.5);
-    //scene->addItem(portalAux);
-    //std::cout<<portalAux->getPosx()<<portalAux->getPosy();Zoito es mi pastora :3
-    //qDebug()<<portalAux;
-   // std::cout<<portalRM->getPosx()<<portalRM->getPosy();
-    //qDebug()<<portalRM; <
-
-
-}*/
+}
 
 
 void MainWindow::cargarPosgusano()	{
@@ -347,3 +269,127 @@ void MainWindow::moveEnemy()
     }
 
     }
+
+
+
+void MainWindow::on_bottonJugar_clicked()
+{   Multijugador=false;
+    bandera=true;
+    ui->setupUi(this);
+    scene = new QGraphicsScene;
+    ui->graphicsView->setScene(scene);
+    ui->bottonJugar->hide();
+    ui->bottonInstrucciones->hide();
+    ui->bottonMultijugador->hide();
+    ui->bottonUsuario->hide();
+    ui->radioButton->hide();
+    ui->radioButton_2->hide();
+    PersonajePrincipal = new CuerpoPersonajeJugador(90,50,2);
+
+    scene->addItem(PersonajePrincipal);
+    PersonajePrincipal->setScale(0.4);
+    scene->setSceneRect(0,0,960,519);
+    scene->setBackgroundBrush(QPixmap(":/Imagenes/Escenario1.png"));
+    cargarPosgusano();// funcion para cargas las posiciones de los gusanos
+    //Inicializacion de enemigos
+    enemigo1= new spritegusano(true, 800,360);scene->addItem(enemigo1);enemigo1->setScale(0.4);enemigos.push_back(enemigo1);
+    enemigo2= new spritegusano(true, 360,110);scene->addItem(enemigo2);enemigo2->setScale(0.4);enemigos.push_back(enemigo2);
+    enemigo3= new spritegusano(true, 635,240);scene->addItem(enemigo3);enemigo3->setScale(0.4);enemigos.push_back(enemigo3);
+    enemigo4= new spritegusano(true, 385,260);scene->addItem(enemigo4);enemigo4->setScale(0.4);enemigos.push_back(enemigo4);
+    enemigo5= new spritegusano(false, 420,260);scene->addItem(enemigo5);enemigo5->setScale(0.4);enemigos.push_back(enemigo5);
+    enemigo6= new spritegusano(true, 250,320);scene->addItem(enemigo6);enemigo6->setScale(0.4);enemigos.push_back(enemigo6);
+    enemigo7= new spritegusano(false, 650,410);scene->addItem(enemigo7);enemigo7->setScale(0.4);enemigos.push_back(enemigo7);
+    enemigo8= new spritegusano(false, 70,370);scene->addItem(enemigo8);enemigo8->setScale(0.4);enemigos.push_back(enemigo8);
+    enemigo9= new spritegusano(false, 960,460);scene->addItem(enemigo9);enemigo9->setScale(0.4);enemigos.push_back(enemigo9);
+    enemigo10= new spritegusano(true, 0,460);scene->addItem(enemigo10);enemigo10->setScale(0.4);enemigos.push_back(enemigo10);
+    QTimer *timerEnemigos = new QTimer();
+    connect(timerEnemigos,SIGNAL(timeout()),this,SLOT(moveEnemy()));
+    timerEnemigos->start(100);
+    /*Timer que indica la cada cuanto bajara el personaje
+    dado que depende de la gravedad ira mas rapido mientras caiga*/
+    QTimer *timerVida = new QTimer();
+    connect(timerVida,SIGNAL(timeout()),this,SLOT(actualizar_vida()));
+    timerVida->start(800);
+    timercaida = new QTimer();
+    connect(timercaida,SIGNAL(timeout()),this,SLOT(activaG()));
+    timercaida->start(30);
+    vida1=new Vida(420,30);listaVida.push_back(vida1);scene->addItem(vida1);
+    vida2=new Vida(450,30);listaVida.push_back(vida2);scene->addItem(vida2);
+    vida3=new Vida(480,30);listaVida.push_back(vida3);scene->addItem(vida3);
+    vida4=new Vida(510,30);listaVida.push_back(vida4);scene->addItem(vida4);
+    vida5=new Vida(540,30);listaVida.push_back(vida5);scene->addItem(vida5);
+
+    //PLATAFORMAS PRIMER NIVEL
+        naverickmorty= new nave(600,110);scene->addItem(naverickmorty);
+        portalRickMorty=new  Portal(960,130,20,1);scene->addItem(portalRickMorty);
+        timerportalRickMorty = new QTimer();
+        connect(timerportalRickMorty,SIGNAL(timeout()),this,SLOT(actualizar_portal()));
+        timerportalRickMorty->start(200);
+        naverickmorty->setScale(0.5);
+        plataformaInicialPosicion = new Plataforma(70,100);listaPlataformas.push_back(plataformaInicialPosicion);scene->addItem(plataformaInicialPosicion);
+        plataforma2=new Plataforma(210,130);listaPlataformas.push_back(plataforma2);scene->addItem(plataforma2);
+        plataforma3 =new Plataforma(800,400);listaPlataformas.push_back(plataforma3);scene->addItem(plataforma3);
+        plataforma4 = new Plataforma(360,150);listaPlataformas.push_back(plataforma4);scene->addItem(plataforma4);
+        plataforma5= new Plataforma(525,380);listaPlataformas.push_back(plataforma5);scene->addItem(plataforma5);
+        plataforma6= new Plataforma(635,280);listaPlataformas.push_back(plataforma6);scene->addItem(plataforma6);
+        plataforma7 = new Plataforma(740,220);listaPlataformas.push_back(plataforma7);scene->addItem(plataforma7);
+        plataforma8 = new Plataforma(600,170);listaPlataformas.push_back(plataforma8);scene->addItem(plataforma8);//PLATAFORMA NAVE
+        plataforma9 = new Plataforma(385,300);listaPlataformas.push_back(plataforma9);scene->addItem(plataforma9);
+        plataforma10 = new Plataforma(70,410);listaPlataformas.push_back(plataforma10);scene->addItem(plataforma10);
+        plataforma11= new Plataforma(250,360);listaPlataformas.push_back(plataforma11);scene->addItem(plataforma11);
+        plataforma12= new Plataforma(650,450);listaPlataformas.push_back(plataforma12);scene->addItem(plataforma12);
+        plataforma13= new Plataforma(70,410);listaPlataformas.push_back(plataforma13);scene->addItem(plataforma13);
+        fruta1= new frutaBurbuja(); scene->addItem(fruta1);fruta1->setPos(210,70);listaFrutaBurbuja.push_back(fruta1);
+        fruta2= new frutaBurbuja(); scene->addItem(fruta2);fruta2->setPos(360,90);listaFrutaBurbuja.push_back(fruta2);
+        fruta3= new frutaBurbuja(); scene->addItem(fruta3);fruta3->setPos(75,380);listaFrutaBurbuja.push_back(fruta3);
+        fruta4= new frutaBurbuja(); scene->addItem(fruta4);fruta4->setPos(250,305);listaFrutaBurbuja.push_back(fruta4);
+        fruta5= new frutaBurbuja(); scene->addItem(fruta5);fruta5->setPos(385,230);listaFrutaBurbuja.push_back(fruta5);
+        fruta6= new frutaBurbuja(); scene->addItem(fruta6);fruta6->setPos(650,395);listaFrutaBurbuja.push_back(fruta6);
+        fruta7= new frutaBurbuja(); scene->addItem(fruta7);fruta7->setPos(740,170);listaFrutaBurbuja.push_back(fruta7);
+        fruta8= new frutaBurbuja(); scene->addItem(fruta8);fruta8->setPos(800,340);listaFrutaBurbuja.push_back(fruta8);
+        fruta9= new frutaBurbuja(); scene->addItem(fruta9);fruta9->setPos(530,320);listaFrutaBurbuja.push_back(fruta9);
+        fruta10= new frutaBurbuja(); scene->addItem(fruta10);fruta10->setPos(740,120);listaFrutaBurbuja.push_back(fruta10);
+        //fruta11= new frutaBurbuja(); scene->addItem(fruta11);fruta11->setPos(75,260);listaFrutaBurbuja.push_back(fruta11);
+        fruta12= new frutaBurbuja(); scene->addItem(fruta12);fruta12->setPos(75,300);listaFrutaBurbuja.push_back(fruta12);
+        fruta13= new frutaBurbuja(); scene->addItem(fruta13);fruta13->setPos(75,340);listaFrutaBurbuja.push_back(fruta13);
+        fruta14= new frutaBurbuja(); scene->addItem(fruta14);fruta14->setPos(760,340);listaFrutaBurbuja.push_back(fruta14);
+        fruta15= new frutaBurbuja(); scene->addItem(fruta15);fruta15->setPos(840,340);listaFrutaBurbuja.push_back(fruta15);
+        fruta16= new frutaBurbuja(); scene->addItem(fruta16);fruta16->setPos(630,220);listaFrutaBurbuja.push_back(fruta16);
+
+
+        QTimer *timerfrutaburbuja = new QTimer();
+        connect(timerfrutaburbuja,SIGNAL(timeout()),this,SLOT(actualizar_frutaburbuja()));
+        timerfrutaburbuja->start(150);
+
+
+        Puntos = new Puntaje();
+        scene->addItem(Puntos);
+
+
+}
+
+void MainWindow::on_bottonInstrucciones_clicked()
+{
+
+}
+
+void MainWindow::on_bottonUsuario_clicked()
+{
+
+}
+
+void MainWindow::on_bottonMultijugador_clicked()
+{
+    Multijugador=true;
+
+}
+
+void MainWindow::on_radioButton_2_clicked()
+{
+
+}
+
+void MainWindow::on_radioButton_clicked()
+{
+
+}
