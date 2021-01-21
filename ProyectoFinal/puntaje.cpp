@@ -5,7 +5,7 @@ Puntaje::Puntaje(QGraphicsItem * padre): QGraphicsTextItem(padre)
 {
     puntos=0;
     setPlainText(QString("Puntaje: ")+ QString::number(puntos));
-    setDefaultTextColor(Qt::BlankCursor);
+    setDefaultTextColor(Qt::white);
     setFont(QFont("times new roman",18));
 }
 

@@ -12,29 +12,29 @@
 
 class Portal: public QGraphicsItem
 {
-    double posy, posx, velX, velY;
-    double delta = 1;
-    double masa;
-    int r;
-    QPixmap *pixmapportal; //variable pixap
+    float posy, posx, velX, velY;
+    float delta = 1;
+    float dx, dy;
+    float ancho,alto,contadorPos;
+
+    QPixmap *pixmapPortal; //variable pixap
 public:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    Portal(double x, double y, double vx, double vy, double m, int r_);
-    void ActualizarPosicion(double acel_x, double acel_y);
+    Portal(float x,float y,float vx,float vy );
+    void ActualizarPosicionPortal();
 
 
-    double getPosy() const;
-    void setPosy(double value);
-    double getPosx() const;
-    void setPosx(double value);
-    double getVelX() const;
-    void setVelX(double value);
-    double getVelY() const;
-    void setVelY(double value);
 
-    double getMasa() const;
-    void setMasa(double value);
+
+    float getPosy() const;
+    void setPosy(float value);
+    float getPosx() const;
+    void setPosx(float value);
+    float getVelX() const;
+    void setVelX(float value);
+    float getVelY() const;
+    void setVelY(float value);
 };
 
 #endif // PORTAL_H

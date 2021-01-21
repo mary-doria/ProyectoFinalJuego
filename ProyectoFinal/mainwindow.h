@@ -16,7 +16,7 @@
 #include "frutaburbuja.h"
 #include "bala.h"
 #include "vida.h"
-//#include "portal.h"
+#include "portal.h"
 #include "spritegusano.h"
 #include "puntaje.h"
 #include <QMessageBox>
@@ -46,7 +46,7 @@ private:
     QList<frutaBurbuja *> modificarFrutaBurbuja(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion);
     QList<Vida *> modificarVida(QList<Vida *> listaVida, int posicion);
     QVector<spritegusano*>vectorAuxGusanos;
-    QGraphicsScene *scene;
+    QGraphicsScene *scene,*menu;
     QList<Vida*> listaVida;
     Puntaje * Puntos;
     QTimer *timercaida,*timersalto,*timerfrutaburbuja,*timerVida;
@@ -81,9 +81,9 @@ private:
     spritegusano *enemigo9; // crear el puntero para la clase gusano
     spritegusano *enemigo10; // crear el puntero para la clase gusano
 
-    /*Portal *portalRM,*portalAux;
-    QTimer *timerportalRickMorty;*/
-    //Score *score;
+    Portal *portalRickMorty;
+    QTimer *timerportalRickMorty;
+
     float x,y,ancho,alto;
      void keyPressEvent(QKeyEvent *evento);
      void cargarPosgusano();
@@ -93,8 +93,7 @@ public slots:
     void activaG();//Actualizacion caida libre personaje esta hara el slot
     void activaSalto();
     void actualizar_frutaburbuja();
-
-    void colisionBala();
-
+    void actualizar_vida();
+    void actualizar_portal();
 };
 #endif // MAINWINDOW_H

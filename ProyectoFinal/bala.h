@@ -6,15 +6,11 @@
 #include <QPixmap>
 #include "spritegusano.h"
 
-
 class bala : public QObject, public QGraphicsItem
 {
     Q_OBJECT
 public:
-
-
-    bala(bool _bandera);
-
+    bala(bool _bandera, QList<spritegusano*> listaGusanos);
     bool bandera;
     QTimer *timer;
     QPixmap *pixmap;

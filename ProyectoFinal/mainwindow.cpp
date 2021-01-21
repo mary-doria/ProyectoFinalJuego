@@ -32,62 +32,30 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     scene = new QGraphicsScene;
     ui->graphicsView->setScene(scene);
-    PersonajePrincipal = new CuerpoPersonajeJugador(90,50,1);
+    PersonajePrincipal = new CuerpoPersonajeJugador(90,50,2);
     scene->addItem(PersonajePrincipal);
     PersonajePrincipal->setScale(0.4);
     scene->setSceneRect(0,0,960,519);
-    scene->setBackgroundBrush(QPixmap(":/Imagenes/Escenario1.png"));
+    scene->setBackgroundBrush(QPixmap(":/Imagenes/Escenario2.png"));
     cargarPosgusano();// funcion para cargas las posiciones de los gusanos
-
-    //inicializo enemigo 1
-    enemigo1= new spritegusano(true, 800,360);scene->addItem(enemigo1); enemigo1->setScale(0.4);
-    enemigos.push_back(enemigo1);
-    QTimer *timer1 = new QTimer();
-    connect(timer1,SIGNAL(timeout()),this,SLOT(moveEnemy()));
-    timer1->start(150);
-    //inicializo enemigo 2
-    enemigo2= new spritegusano(true, 360,110);scene->addItem(enemigo2);enemigo2->setScale(0.4);
-    enemigos.push_back(enemigo2);
-    //inicializo enemigo 3
-    enemigo3= new spritegusano(true, 635,240);scene->addItem(enemigo3);enemigo3->setScale(0.4);
-    enemigos.push_back(enemigo3);
-    //inicializo enemigo 4
-    enemigo4= new spritegusano(true, 385,260);
-    scene->addItem(enemigo4);
-    enemigo4->setScale(0.4);
-    enemigos.push_back(enemigo4);
-    //inicializo enemigo 5
-    enemigo5= new spritegusano(false, 420,260);
-    scene->addItem(enemigo5);
-    enemigo5->setScale(0.4);
-    enemigos.push_back(enemigo5);
-    //inicializo enemigo 6
-    enemigo6= new spritegusano(true, 250,320);
-    scene->addItem(enemigo6);
-    enemigo6->setScale(0.4);
-    enemigos.push_back(enemigo6);
-    //inicializo enemigo 7
-    enemigo7= new spritegusano(false, 650,410);
-    scene->addItem(enemigo7);
-    enemigo7->setScale(0.4);
-    enemigos.push_back(enemigo7);
-    //inicializo enemigo 8
-    enemigo8= new spritegusano(false, 70,370);
-    scene->addItem(enemigo8);
-    enemigo8->setScale(0.4);
-    enemigos.push_back(enemigo8);
-    //inicializo enemigo 9
-    enemigo9= new spritegusano(false, 960,460);
-    scene->addItem(enemigo9);
-    enemigo9->setScale(0.4);
-    enemigos.push_back(enemigo9);
-    //inicializo enemigo 10
-    enemigo10= new spritegusano(true, 0,460);
-    scene->addItem(enemigo10);
-    enemigo10->setScale(0.4);
-    enemigos.push_back(enemigo10);
+    //Inicializacion de enemigos
 
 
+
+
+    enemigo1= new spritegusano(true, 800,360);scene->addItem(enemigo1);enemigo1->setScale(0.4);enemigos.push_back(enemigo1);
+    enemigo2= new spritegusano(true, 360,110);scene->addItem(enemigo2);enemigo2->setScale(0.4);enemigos.push_back(enemigo2);
+    enemigo3= new spritegusano(true, 635,240);scene->addItem(enemigo3);enemigo3->setScale(0.4);enemigos.push_back(enemigo3);
+    enemigo4= new spritegusano(true, 385,260);scene->addItem(enemigo4);enemigo4->setScale(0.4);enemigos.push_back(enemigo4);
+    enemigo5= new spritegusano(false, 420,260);scene->addItem(enemigo5);enemigo5->setScale(0.4);enemigos.push_back(enemigo5);
+    enemigo6= new spritegusano(true, 250,320);scene->addItem(enemigo6);enemigo6->setScale(0.4);enemigos.push_back(enemigo6);
+    enemigo7= new spritegusano(false, 650,410);scene->addItem(enemigo7);enemigo7->setScale(0.4);enemigos.push_back(enemigo7);
+    enemigo8= new spritegusano(false, 70,370);scene->addItem(enemigo8);enemigo8->setScale(0.4);enemigos.push_back(enemigo8);
+    enemigo9= new spritegusano(false, 960,460);scene->addItem(enemigo9);enemigo9->setScale(0.4);enemigos.push_back(enemigo9);
+    enemigo10= new spritegusano(true, 0,460);scene->addItem(enemigo10);enemigo10->setScale(0.4);enemigos.push_back(enemigo10);
+    QTimer *timerEnemigos = new QTimer();
+    connect(timerEnemigos,SIGNAL(timeout()),this,SLOT(moveEnemy()));
+    timerEnemigos->start(100);
     /*Timer que indica la cada cuanto bajara el personaje
     dado que depende de la gravedad ira mas rapido mientras caiga*/
     QTimer *timerVida = new QTimer();
@@ -104,13 +72,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     //PLATAFORMAS PRIMER NIVEL
         naverickmorty= new nave(600,110);scene->addItem(naverickmorty);
+        portalRickMorty=new  Portal(960,130,1,1);scene->addItem(portalRickMorty);
         /*double r_temporal = sqrt(pow(naverickmorty->getPosx()-50,2) + pow(naverickmorty->getPosy()-100,2));
-        portalRM=new  Portal(50,100,5,5,70,r_temporal/10);
+
         portalAux=new Portal(400,250,5,5,0,r_temporal/10);*/
         //scene->addItem(portalAux);
-        /*timerportalRickMorty = new QTimer();
+        timerportalRickMorty = new QTimer();
         connect(timerportalRickMorty,SIGNAL(timeout()),this,SLOT(actualizar_portal()));
-        timerportalRickMorty->start(15);*/
+        timerportalRickMorty->start(50);
         naverickmorty->setScale(0.5);
         plataformaInicialPosicion = new Plataforma(70,100);listaPlataformas.push_back(plataformaInicialPosicion);scene->addItem(plataformaInicialPosicion);
         plataforma2=new Plataforma(210,130);listaPlataformas.push_back(plataforma2);scene->addItem(plataforma2);
@@ -135,7 +104,7 @@ MainWindow::MainWindow(QWidget *parent)
         fruta8= new frutaBurbuja(); scene->addItem(fruta8);fruta8->setPos(800,340);listaFrutaBurbuja.push_back(fruta8);
         fruta9= new frutaBurbuja(); scene->addItem(fruta9);fruta9->setPos(530,320);listaFrutaBurbuja.push_back(fruta9);
         fruta10= new frutaBurbuja(); scene->addItem(fruta10);fruta10->setPos(740,120);listaFrutaBurbuja.push_back(fruta10);
-        fruta11= new frutaBurbuja(); scene->addItem(fruta11);fruta11->setPos(75,260);listaFrutaBurbuja.push_back(fruta11);
+        //fruta11= new frutaBurbuja(); scene->addItem(fruta11);fruta11->setPos(75,260);listaFrutaBurbuja.push_back(fruta11);
         fruta12= new frutaBurbuja(); scene->addItem(fruta12);fruta12->setPos(75,300);listaFrutaBurbuja.push_back(fruta12);
         fruta13= new frutaBurbuja(); scene->addItem(fruta13);fruta13->setPos(75,340);listaFrutaBurbuja.push_back(fruta13);
         fruta14= new frutaBurbuja(); scene->addItem(fruta14);fruta14->setPos(760,340);listaFrutaBurbuja.push_back(fruta14);
@@ -154,6 +123,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 
         }
+
+
 
 
 
@@ -206,19 +177,10 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     // tecla para disparar
     else if (evento->key()==Qt::Key_Space){
         //crear bala
-        bala * balaa = new bala(bandera);
+        bala * balaa = new bala(bandera, enemigos);
         balaa->setPos(PersonajePrincipal->x(),PersonajePrincipal->y());//posicion del retangulo
         scene->addItem(balaa);
-        //qDebug()<<"bala creada";
-
-        for (int j = 0; j<enemigos.size(); j++){
-            if (enemigos.at(j)->collidesWithItem(balaa)){
-                qDebug()<<"aqui";
-            }
-
-            }
-
-
+        //qDebug()<<"bala creada"; aki toyyaaaaaaa
     }
     for (int i = 0; i<listaFrutaBurbuja.size(); i++) {
         if (PersonajePrincipal->collidesWithItem(listaFrutaBurbuja.at(i))){
@@ -232,10 +194,6 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
 
             }
     }//Implementacion del for para eliminar objeto cuando un enemigo colisiona
-
-
-
-
 
 
 }
@@ -278,8 +236,6 @@ void MainWindow::actualizar_frutaburbuja()
 
 }
 
-
-
 void MainWindow::actualizar_vida()
 {   /*int vidas=4;
     int vidas_=vidas;*/
@@ -296,44 +252,13 @@ void MainWindow::actualizar_vida()
        }}
 
 }
-/*
+
 void MainWindow::actualizar_portal()
 {
-    //scene->removeItem(portalAux);
 
-    double axPortal; //aceleracion en x del portal
-    double ayPortal; //aceleracion en y del portal
-    double rPortalNave; //distancia del portal a la nave
-    double tetaPortalNave; //angulo del portal a la nave
+  portalRickMorty->ActualizarPosicionPortal();
 
-
-    //calculo la distancia del portal a la nave
-    rPortalNave= sqrt(pow(naverickmorty->getPosx()-portalRM->getPosx(),2) + pow(naverickmorty->getPosy()-portalRM->getPosy(),2));
-
-
-    //calculo del angulo del portal con respecto a la nave
-    tetaPortalNave = atan2(naverickmorty->getPosy()-portalRM->getPosy(),naverickmorty->getPosx()-portalRM->getPosx());
-
-    axPortal=2;
-    ayPortal=2;
-    //calculo las aceleraciones del planeta 1 ejercido por el planeta 2
-    axPortal=(50000)*pow(rPortalNave,-2)*cos(tetaPortalNave);
-    //ayPortal=(50000)*pow(rPortalNave,-2)*sin(tetaPortalNave);
-
-    //cout<<rPortalNave<<" "<<tetaPortalNave<<" "<<axPortal<<" "<<ayPortal;
-
-
-    //portalRM->ActualizarPosicion(axPortal,ayPortal);
-
-    //portalAux->setPos(portalRM->getPosx()/10+480,portalRM->getPosy()/20+259.5);
-    //scene->addItem(portalAux);
-    //std::cout<<portalAux->getPosx()<<portalAux->getPosy();Zoito es mi pastora :3
-    //qDebug()<<portalAux;
-   // std::cout<<portalRM->getPosx()<<portalRM->getPosy();
-    //qDebug()<<portalRM; <
-
-
-}*/
+}
 
 
 void MainWindow::cargarPosgusano()	{
@@ -346,7 +271,7 @@ void MainWindow::cargarPosgusano()	{
          // guardar las posiciones en el Qvector
          V_posgusanos.push_back(posx1);
          V_posgusanos.push_back(posx2);
-      //qDebug()<<V_posgusanos;
+      qDebug()<<V_posgusanos;
 
 
      }

@@ -16,7 +16,7 @@ class CuerpoPersonajeJugador:public QObject ,public QGraphicsItem
     float dx, dy;  //variables para controlar las filas y las columnas del sprite
     float ancho,alto;
 
-    int velocidad =10;//
+    int velocidad =9;//
     float tiempo,friccion;
     int G;
     bool enTierra;
