@@ -136,5 +136,7 @@ private slots:
     void on_radioButton_clicked();
 
     void on_label_windowTitleChanged(const QString &title);
+    void on_label_2_windowTitleChanged(const QString &title);
+    void on_pushButton_clicked();
 };
 #endif // MAINWINDOW_H

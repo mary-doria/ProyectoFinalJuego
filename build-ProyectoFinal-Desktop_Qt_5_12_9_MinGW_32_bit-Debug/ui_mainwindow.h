@@ -33,6 +33,8 @@ public:
     QRadioButton *radioButton;
     QRadioButton *radioButton_2;
     QLabel *label;
+    QLabel *label_2;
+    QPushButton *pushButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -81,6 +83,18 @@ public:
         label->setGeometry(QRect(670, 90, 261, 281));
         label->setMaximumSize(QSize(360, 288));
         label->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/LlegamosCasa.gif);"));
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setEnabled(false);
+        label_2->setGeometry(QRect(0, 0, 960, 516));
+        label_2->setMinimumSize(QSize(960, 516));
+        label_2->setMaximumSize(QSize(960, 516));
+        label_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/instruccionesImagen.png);"));
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(10, 430, 40, 40));
+        pushButton->setMaximumSize(QSize(40, 40));
+        pushButton->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/Atras.png);"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -105,6 +119,8 @@ public:
         radioButton->setText(QString());
         radioButton_2->setText(QString());
         label->setText(QString());
+        label_2->setText(QString());
+        pushButton->setText(QString());
     } // retranslateUi
 
 };

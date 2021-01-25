@@ -22,5 +22,7 @@
         <file>Imagenes/moscas_Izq_Der.png</file>
         <file>Imagenes/LlegamosCasa.gif</file>
         <file>Imagenes/Tierra.png</file>
+        <file>Imagenes/instruccionesImagen.png</file>
+        <file>Imagenes/Atras.png</file>
     </qresource>
 </RCC>

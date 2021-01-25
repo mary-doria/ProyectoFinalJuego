@@ -30,7 +30,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->label->hide();
+    ui->label_2->hide();
+    ui->pushButton->hide();
+
     Puntos = new Puntaje();
+
 
 
 
@@ -333,6 +337,8 @@ void MainWindow::segundoNivel()
 {
 
     ui->label->hide();
+    ui->label_2->hide();
+    ui->pushButton->hide();
     scene = new QGraphicsScene;
     scene->setSceneRect(0,0,960,519);
     scene->setBackgroundBrush(QImage(":/Imagenes/Escenario2.png"));
@@ -388,6 +394,8 @@ void MainWindow::segundoNivel()
 void MainWindow::nivelCasa()
 {   ui->label->show();
     ui->bottonJugar->hide();
+    ui->pushButton->hide();
+    ui->label_2->hide();
     ui->bottonInstrucciones->hide();
     ui->bottonMultijugador->hide();
     //ui->bottonUsuario->hide();
@@ -473,8 +481,10 @@ void MainWindow::on_bottonJugar_clicked()
         ui->setupUi(this);
         scene = new QGraphicsScene;
         ui->graphicsView->setScene(scene);
+        ui->pushButton->hide();
         ui->bottonJugar->hide();
         ui->label->hide();
+        ui->label_2->hide();
         ui->bottonInstrucciones->hide();
         ui->bottonMultijugador->hide();
         //ui->bottonUsuario->hide();
@@ -565,9 +575,23 @@ void MainWindow::on_bottonJugar_clicked()
 void MainWindow::on_bottonInstrucciones_clicked()
 {
 
-
-    //scene->addItem(gif_anim);
+        ui->pushButton->show();
+        ui->bottonJugar->hide();
+        ui->bottonInstrucciones->hide();
+        ui->bottonMultijugador->hide();
+        //ui->bottonUsuario->hide();
+        ui->radioButton->hide();
+        ui->radioButton_2->hide();
+        ui->label_2->show();
 }
+
+
+
+
+
+
+
+
 
 /*void MainWindow::on_bottonUsuario_clicked()
 {
@@ -595,4 +619,21 @@ void MainWindow::on_radioButton_clicked()
 void MainWindow::on_label_windowTitleChanged(const QString &title)
 {
 
+}
+
+
+
+
+
+void MainWindow::on_label_2_windowTitleChanged(const QString &title)
+{
+
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->bottonJugar->show();
+    ui->bottonInstrucciones->show();
+    ui->bottonMultijugador->show();
+    ui->label_2->hide();
 }
