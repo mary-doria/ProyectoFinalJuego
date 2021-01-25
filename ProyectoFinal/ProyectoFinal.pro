@@ -19,6 +19,7 @@ SOURCES += \
     portal.cpp \
     puntaje.cpp \
     spritegusano.cpp \
+    spritemoscas.cpp \
     vida.cpp
 
 HEADERS += \
@@ -31,6 +32,7 @@ HEADERS += \
     portal.h \
     puntaje.h \
     spritegusano.h \
+    spritemoscas.h \
     vida.h
 
 FORMS += \

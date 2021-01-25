@@ -3,12 +3,14 @@
 #include <QGraphicsScene>
 #include <QDebug>
 #include "spritegusano.h"
+#include "spritemoscas.h"
 #include <mainwindow.h>
 
 //Score *score;
-bala::bala(bool _bandera, QList<spritegusano*> listaGusanos)
+bala::bala(bool _bandera, QList<spritegusano*> listaGusanos,QList<spritemoscas*> listaMoscas)
 {//63x80
     this->gusanos = listaGusanos;
+    this->moscas = listaMoscas;
     dy =0;
     ancho = 64;
     alto=70;
@@ -59,18 +61,14 @@ void bala::setPosy(int value)
 void bala::move()
 { QList<QGraphicsItem *> colliding_items= collidingItems();
     for (int i=0; i < colliding_items.size();i++){
-        if (typeid (*(colliding_items.at(i)))==typeid (spritegusano)){
-            //score->increase();
+        if (typeid (*(colliding_items.at(i)))==typeid (spritegusano) || typeid (*(colliding_items.at(i)))==typeid (spritemoscas)){
+            //score->increase();g
             scene()->removeItem(colliding_items.at(i));
             scene()->removeItem(this);
-            /*for(int j=0; j < gusanos.size(); j++){
-                if (colliding_items.at(i) == gusanos.at(j)){
-                    gusanos.removeAt(j);
-                }
-            }*/
 
-            //delete colliding_items[i];
-            delete this;}}
+            delete this;}
+    }
+
 
 
 if(bandera == true){
