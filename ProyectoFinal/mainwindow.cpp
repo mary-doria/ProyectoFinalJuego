@@ -29,6 +29,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->label->hide();
+    Puntos = new Puntaje();
+
 
 
 
@@ -56,7 +59,7 @@ QList<Vida *> MainWindow::modificarVida(QList<Vida *> listaVida, int posicion)
 
 void MainWindow::bordedelete(spritemoscas *b)
 {
-    if(b->getPX()<b->getR()){
+    if(b->getPX()<b->getR() ){
         scene->removeItem(b);
         for (int i = 0; i<moscas.size();i++){
             spritemoscas *enemigo = moscas.at(i);
@@ -76,7 +79,7 @@ void MainWindow::bordedelete(spritemoscas *b)
         }
         //qDebug() << "delete2";
     }
-    if(b->getPY()<b->getR()){
+    if(b->getPY()<b->getR() ){
         scene->removeItem(b);
         for (int i = 0; i<moscas.size();i++){
             spritemoscas *enemigo = moscas.at(i);
@@ -102,8 +105,8 @@ void MainWindow::bordedelete(spritemoscas *b)
 
 void MainWindow::keyPressEvent(QKeyEvent *evento)
 {
-
-    if (evento->key()==Qt::Key_A){
+    if (nivelActual!=0){
+        if (evento->key()==Qt::Key_A){
         bandera=false;
         PersonajePrincipal->izquierda();
         PersonajePrincipal->actualizar_sprite_izquierda();
@@ -179,8 +182,9 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     scene->addItem(portalRickMorty);
     }
     if (PersonajePrincipal->collidesWithItem(portalRickMorty)){
-        if(Puntos->obtenerPuntos()>=500){
+        if(Puntos->obtenerPuntos()>=200){
             nivelActual +=1;
+            scene->removeItem(portalRickMorty);
             segundoNivel();
         }
 
@@ -192,6 +196,8 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     }
     if (PersonajePrincipal->collidesWithItem(portalRickMorty)){
         if(Puntos->obtenerPuntos()>=500){
+         timerMoscas->stop();
+         timer2Moscas->stop();
             nivelCasa();
         }
 
@@ -199,7 +205,7 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     }
 
 
-}
+}}
 
 
 
@@ -240,19 +246,33 @@ void MainWindow::actualizar_frutaburbuja()
 }
 
 void MainWindow::actualizar_vida()
-{   /*int vidas=4;
-    int vidas_=vidas;*/
+{   if (nivelActual==1){
     for (int i = 0; i<enemigos.count(); i++){
        if (PersonajePrincipal->collidesWithItem(enemigos.at(i))){
            scene->removeItem(listaVida.at(0));
                listaVida=modificarVida(listaVida,0);
+
            /*SE CRASHEA PORQUE LISTA VIDA QUEDA VACIO,OSEA ME MORI :V*/
        if(listaVida.count()==0){
            //AQUI IRA LA FUNCION MORI PARA DEVOLVER AL MENU PRINCIPAL Y COLOCAR SONIDO DE BURRO
 
        }
 
-       }}
+       }}}
+    else if(nivelActual==2){
+        for (int i = 0; i<moscas.count(); i++){
+           if (PersonajePrincipal->collidesWithItem(moscas.at(i))){
+               scene->removeItem(listaVida.at(0));
+                   listaVida=modificarVida(listaVida,0);
+
+               /*SE CRASHEA PORQUE LISTA VIDA QUEDA VACIO,OSEA ME MORI :V*/
+           if(listaVida.count()==0){
+               //AQUI IRA LA FUNCION MORI PARA DEVOLVER AL MENU PRINCIPAL Y COLOCAR SONIDO DE BURRO
+
+           }
+
+           }}
+    }
 
 }
 
@@ -311,12 +331,8 @@ void MainWindow::cargarPosgusano(int nivel)	{
 
 void MainWindow::segundoNivel()
 {
-    //timercaida->stop();
-    //timersalto->stop();
-    //timerfrutaburbuja->stop();
-    //timerVida->stop();
-    //timerEnemigos->stop();
-    //timerportalRickMorty->stop();
+
+    ui->label->hide();
     scene = new QGraphicsScene;
     scene->setSceneRect(0,0,960,519);
     scene->setBackgroundBrush(QImage(":/Imagenes/Escenario2.png"));
@@ -327,7 +343,8 @@ void MainWindow::segundoNivel()
     PersonajePrincipal = new CuerpoPersonajeJugador(90,50,2);
     scene->addItem(PersonajePrincipal);
     PersonajePrincipal->setScale(0.4);
-
+    for (int i = 0; i<listaVida.count(); i++){
+        scene->addItem(listaVida.at(i));}
     plataformaInicialPosicion = new Plataforma(70,130);listaPlataformas.push_back(plataformaInicialPosicion);scene->addItem(plataformaInicialPosicion);
     plataforma2=new Plataforma(210,180);listaPlataformas.push_back(plataforma2);scene->addItem(plataforma2);
     plataforma3 =new Plataforma(350,230);listaPlataformas.push_back(plataforma3);scene->addItem(plataforma3);
@@ -347,8 +364,7 @@ void MainWindow::segundoNivel()
     enemigo5= new spritegusano(false, 650,460);scene->addItem(enemigo5);enemigo5->setScale(0.4);enemigos.push_back(enemigo5);
     enemigo6= new spritegusano(false, 150,460);scene->addItem(enemigo6);enemigo6->setScale(0.4);enemigos.push_back(enemigo6);
     naverickmorty= new nave(70,430);scene->addItem(naverickmorty);naverickmorty->setScale(0.5);
-    portalRickMorty=new  Portal(900,430,20,1);
-
+    portalRickMorty=new  Portal(800,420,20,1);
     h_limit=960;//limite de la pantalla horizontal
     v_limit=519;//limite vertical
     timerMoscas=new QTimer();
@@ -364,18 +380,34 @@ void MainWindow::segundoNivel()
     connect(timer2Moscas,SIGNAL(timeout()),this,SLOT(actualizarMoscas()));
     mosca=new spritemoscas(true);// crear la primera moscas para la lista asi se puede activar la de actualizar
     moscas.push_back(mosca);//agrego mosca en la lista
-
-
+    scene->addItem(Puntos);
 
 
 }
 
 void MainWindow::nivelCasa()
-{
+{   ui->label->show();
+    ui->bottonJugar->hide();
+    ui->bottonInstrucciones->hide();
+    ui->bottonMultijugador->hide();
+    //ui->bottonUsuario->hide();
+    ui->radioButton->hide();
+    ui->radioButton_2->hide();
+    listaVida.clear();
+    listaPlataformas.clear();
+    listaFrutaBurbuja.clear();
+    enemigos.clear();
     scene = new QGraphicsScene;
     scene->setSceneRect(0,0,960,519);
-    scene->setBackgroundBrush(QImage(":/Imagenes/LlegamosCasa.gif"));
+    scene->setBackgroundBrush(QImage(":/Imagenes/Tierra.png"));
+    //QImage image=QImage(":/Imagenes/LlegamosCasa.gif");
+
+
     ui->graphicsView->setScene(scene);
+    QMovie *movie=new QMovie(":/Imagenes/LlegamosCasa.gif");
+    ui->label->setMovie(movie);
+
+    movie->start();
 
 }
 
@@ -442,9 +474,10 @@ void MainWindow::on_bottonJugar_clicked()
         scene = new QGraphicsScene;
         ui->graphicsView->setScene(scene);
         ui->bottonJugar->hide();
+        ui->label->hide();
         ui->bottonInstrucciones->hide();
         ui->bottonMultijugador->hide();
-        ui->bottonUsuario->hide();
+        //ui->bottonUsuario->hide();
         ui->radioButton->hide();
         ui->radioButton_2->hide();
         PersonajePrincipal = new CuerpoPersonajeJugador(90,50,2);
@@ -470,12 +503,12 @@ void MainWindow::on_bottonJugar_clicked()
         timerEnemigos->start(100);
         /*Timer que indica la cada cuanto bajara el personaje
         dado que depende de la gravedad ira mas rapido mientras caiga*/
-        timerVida = new QTimer();
-        connect(timerVida,SIGNAL(timeout()),this,SLOT(actualizar_vida()));
-        timerVida->start(800);
         timercaida = new QTimer();
         connect(timercaida,SIGNAL(timeout()),this,SLOT(activaG()));
         timercaida->start(30);
+        timerVida = new QTimer();
+        connect(timerVida,SIGNAL(timeout()),this,SLOT(actualizar_vida()));
+        timerVida->start(800);
         vida1=new Vida(420,30);listaVida.push_back(vida1);scene->addItem(vida1);
         vida2=new Vida(450,30);listaVida.push_back(vida2);scene->addItem(vida2);
         vida3=new Vida(480,30);listaVida.push_back(vida3);scene->addItem(vida3);
@@ -525,31 +558,21 @@ void MainWindow::on_bottonJugar_clicked()
             timerfrutaburbuja->start(150);
 
 
-            Puntos = new Puntaje();
+
             scene->addItem(Puntos);
 }
 
 void MainWindow::on_bottonInstrucciones_clicked()
 {
-    scene = new QGraphicsScene;
-    scene->setSceneRect(0,0,960,519);
-    scene->setBackgroundBrush(QImage(":/Imagenes/LlegamosCasa.gif"));
-    //QImage image=QImage(":/Imagenes/LlegamosCasa.gif");
 
 
-    ui->graphicsView->setScene(scene);
-
-    QLabel *gif_anim=new QLabel();
-    QMovie *movie=new QMovie(":/Imagenes/LlegamosCasa.gif");
-    gif_anim->setMovie(movie);
-    movie->start();
     //scene->addItem(gif_anim);
 }
 
-void MainWindow::on_bottonUsuario_clicked()
+/*void MainWindow::on_bottonUsuario_clicked()
 {
 
-}
+}*/
 
 void MainWindow::on_bottonMultijugador_clicked()
 {
@@ -568,3 +591,8 @@ void MainWindow::on_radioButton_clicked()
 }
 
 
+
+void MainWindow::on_label_windowTitleChanged(const QString &title)
+{
+
+}

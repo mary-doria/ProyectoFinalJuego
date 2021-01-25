@@ -115,28 +115,6 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="bottonUsuario">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>220</y>
-      <width>140</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>140</width>
-      <height>61</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-image: url(:/Imagenes/Usuario.png);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QRadioButton" name="radioButton">
     <property name="geometry">
      <rect>
@@ -164,6 +142,28 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background-image: url(:/Imagenes/IconRick.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>90</y>
+      <width>261</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>360</width>
+      <height>288</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Imagenes/LlegamosCasa.gif);</string>
     </property>
     <property name="text">
      <string/>

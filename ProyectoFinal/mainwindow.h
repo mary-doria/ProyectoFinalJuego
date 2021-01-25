@@ -107,7 +107,7 @@ private:
     Portal *portalRickMorty;
     QTimer *timerportalRickMorty;
 
-    int nivelActual;
+    int nivelActual=0;
 
     float x,y,ancho,alto;
      void keyPressEvent(QKeyEvent *evento);
@@ -130,10 +130,11 @@ private slots:
 
     void on_bottonJugar_clicked();
     void on_bottonInstrucciones_clicked();
-    void on_bottonUsuario_clicked();
+    //void on_bottonUsuario_clicked();
     void on_bottonMultijugador_clicked();
     void on_radioButton_2_clicked();
     void on_radioButton_clicked();
 
+    void on_label_windowTitleChanged(const QString &title);
 };
 #endif // MAINWINDOW_H

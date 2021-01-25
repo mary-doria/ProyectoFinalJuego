@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[16];
-    char stringdata0[286];
+    QByteArrayData data[17];
+    char stringdata0[295];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -43,10 +43,11 @@ QT_MOC_LITERAL(8, 100, 11), // "crearMoscas"
 QT_MOC_LITERAL(9, 112, 16), // "actualizarMoscas"
 QT_MOC_LITERAL(10, 129, 22), // "on_bottonJugar_clicked"
 QT_MOC_LITERAL(11, 152, 30), // "on_bottonInstrucciones_clicked"
-QT_MOC_LITERAL(12, 183, 24), // "on_bottonUsuario_clicked"
-QT_MOC_LITERAL(13, 208, 29), // "on_bottonMultijugador_clicked"
-QT_MOC_LITERAL(14, 238, 24), // "on_radioButton_2_clicked"
-QT_MOC_LITERAL(15, 263, 22) // "on_radioButton_clicked"
+QT_MOC_LITERAL(12, 183, 29), // "on_bottonMultijugador_clicked"
+QT_MOC_LITERAL(13, 213, 24), // "on_radioButton_2_clicked"
+QT_MOC_LITERAL(14, 238, 22), // "on_radioButton_clicked"
+QT_MOC_LITERAL(15, 261, 27), // "on_label_windowTitleChanged"
+QT_MOC_LITERAL(16, 289, 5) // "title"
 
     },
     "MainWindow\0moveEnemy\0\0activaG\0activaSalto\0"
@@ -54,10 +55,10 @@ QT_MOC_LITERAL(15, 263, 22) // "on_radioButton_clicked"
     "actualizar_portal\0crearMoscas\0"
     "actualizarMoscas\0on_bottonJugar_clicked\0"
     "on_bottonInstrucciones_clicked\0"
-    "on_bottonUsuario_clicked\0"
     "on_bottonMultijugador_clicked\0"
     "on_radioButton_2_clicked\0"
-    "on_radioButton_clicked"
+    "on_radioButton_clicked\0"
+    "on_label_windowTitleChanged\0title"
 };
 #undef QT_MOC_LITERAL
 
@@ -88,7 +89,7 @@ static const uint qt_meta_data_MainWindow[] = {
       12,    0,   94,    2, 0x08 /* Private */,
       13,    0,   95,    2, 0x08 /* Private */,
       14,    0,   96,    2, 0x08 /* Private */,
-      15,    0,   97,    2, 0x08 /* Private */,
+      15,    1,   97,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -104,7 +105,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   16,
 
        0        // eod
 };
@@ -125,14 +126,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 7: _t->actualizarMoscas(); break;
         case 8: _t->on_bottonJugar_clicked(); break;
         case 9: _t->on_bottonInstrucciones_clicked(); break;
-        case 10: _t->on_bottonUsuario_clicked(); break;
-        case 11: _t->on_bottonMultijugador_clicked(); break;
-        case 12: _t->on_radioButton_2_clicked(); break;
-        case 13: _t->on_radioButton_clicked(); break;
+        case 10: _t->on_bottonMultijugador_clicked(); break;
+        case 11: _t->on_radioButton_2_clicked(); break;
+        case 12: _t->on_radioButton_clicked(); break;
+        case 13: _t->on_label_windowTitleChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject MainWindow::staticMetaObject = { {

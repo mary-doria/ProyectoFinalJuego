@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -29,9 +30,9 @@ public:
     QPushButton *bottonJugar;
     QPushButton *bottonInstrucciones;
     QPushButton *bottonMultijugador;
-    QPushButton *bottonUsuario;
     QRadioButton *radioButton;
     QRadioButton *radioButton_2;
+    QLabel *label;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -67,11 +68,6 @@ public:
         bottonMultijugador->setGeometry(QRect(500, 220, 191, 61));
         bottonMultijugador->setMaximumSize(QSize(16777215, 61));
         bottonMultijugador->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/Multijugador.png);"));
-        bottonUsuario = new QPushButton(centralwidget);
-        bottonUsuario->setObjectName(QString::fromUtf8("bottonUsuario"));
-        bottonUsuario->setGeometry(QRect(710, 220, 140, 61));
-        bottonUsuario->setMaximumSize(QSize(140, 61));
-        bottonUsuario->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/Usuario.png);"));
         radioButton = new QRadioButton(centralwidget);
         radioButton->setObjectName(QString::fromUtf8("radioButton"));
         radioButton->setGeometry(QRect(280, 290, 51, 61));
@@ -80,6 +76,11 @@ public:
         radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
         radioButton_2->setGeometry(QRect(200, 290, 51, 61));
         radioButton_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/IconRick.png);"));
+        label = new QLabel(centralwidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(670, 90, 261, 281));
+        label->setMaximumSize(QSize(360, 288));
+        label->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/LlegamosCasa.gif);"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -101,9 +102,9 @@ public:
         bottonJugar->setText(QString());
         bottonInstrucciones->setText(QString());
         bottonMultijugador->setText(QString());
-        bottonUsuario->setText(QString());
         radioButton->setText(QString());
         radioButton_2->setText(QString());
+        label->setText(QString());
     } // retranslateUi
 
 };

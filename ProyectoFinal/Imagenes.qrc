@@ -20,7 +20,7 @@
         <file>Imagenes/IconMorty.png</file>
         <file>Imagenes/IconRick.png</file>
         <file>Imagenes/moscas_Izq_Der.png</file>
-        <file>Imagenes/Tierra.png</file>
         <file>Imagenes/LlegamosCasa.gif</file>
+        <file>Imagenes/Tierra.png</file>
     </qresource>
 </RCC>
