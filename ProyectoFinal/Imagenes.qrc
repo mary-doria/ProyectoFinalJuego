@@ -17,8 +17,6 @@
         <file>Imagenes/Usuario.png</file>
         <file>Imagenes/Sonido.png</file>
         <file>Imagenes/FondoMenu.png</file>
-<<<<<<< HEAD
-=======
         <file>Imagenes/IconMorty.png</file>
         <file>Imagenes/IconRick.png</file>
         <file>Imagenes/moscas_Izq_Der.png</file>
@@ -26,13 +24,9 @@
         <file>Imagenes/Tierra.png</file>
         <file>Imagenes/instruccionesImagen.png</file>
         <file>Imagenes/Atras.png</file>
-<<<<<<< HEAD
->>>>>>> main
-=======
         <file>Imagenes/muerte.jpg</file>
         <file>Imagenes/mortyllorando.gif</file>
         <file>Imagenes/ReiniciarP.png</file>
         <file>Imagenes/Jugador.png</file>
->>>>>>> main
     </qresource>
 </RCC>

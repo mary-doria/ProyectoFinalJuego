@@ -48,9 +48,7 @@ private:
     QList<frutaBurbuja *> modificarFrutaBurbuja(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion);
     QList<Vida *> modificarVida(QList<Vida *> listaVida, int posicion);
     QVector<spritegusano*>vectorAuxGusanos;
-
     QGraphicsScene *scene,scene2;
-
     QList<Vida*> listaVida;
     bool Multijugador=false;
     Puntaje * Puntos;
@@ -80,6 +78,8 @@ private:
     Plataforma *plataforma18;
     Plataforma *plataforma19;
     QMessageBox *mensaje;
+    QMessageBox Mensaje;// Multijugador
+
     nave *naverickmorty;
     QList<Plataforma*> listaPlataformas;
     QTimer *timerMoscas;
@@ -106,9 +106,17 @@ private:
     spritegusano *enemigo9; // crear el puntero para la clase gusano
     spritegusano *enemigo10; // crear el puntero para la clase gusano
 
+    //Para el multijugador
+    //Moscas
+    spritemoscas *mosca1;
+    spritemoscas *mosca2;
+    int puntosJ1=0;
+    int puntosJ2=0;
+    bool banderaMulti;
+    int contadorMulti=0;
+
     Portal *portalRickMorty,*portalRickMorty2;
     QTimer *timerportalRickMorty;
-
 
     int nivelActual=0;
 
@@ -127,7 +135,6 @@ public slots:
     void actualizar_frutaburbuja();
     void actualizar_vida();
     void actualizar_portal();
-
     void crearMoscas();
     void actualizarMoscas();
 
@@ -144,7 +151,6 @@ private slots:
     void on_label_windowTitleChanged(const QString &title);
     void on_label_2_windowTitleChanged(const QString &title);
     void on_pushButton_clicked();
-
     void on_label_3_windowTitleChanged(const QString &title);
 
     void on_lineEdit_windowTitleChanged(const QString &title);
@@ -153,6 +159,5 @@ private slots:
 
     void on_bottonReiniciar_clicked();
     void on_pushButton_2_clicked();
-
 };
 #endif // MAINWINDOW_H

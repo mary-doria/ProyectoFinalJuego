@@ -32,7 +32,6 @@ spritemoscas::spritemoscas(bool bandera)
     //e=(0.5+(rand()%5)/10); // coeficiente de restitucion
     V=0; //vector de velocidad;
     dt=0.1; // delta de tiempo
-    qDebug()<<"aqui estoy";
     pixmap=new QPixmap(":/Imagenes/moscas_Izq_Der.png");
     setScale(0.5);
 

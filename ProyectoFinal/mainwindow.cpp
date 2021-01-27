@@ -29,20 +29,18 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
     ui->label->hide();
     ui->label_2->hide();
     ui->pushButton->hide();
-
     ui->label_3->hide();
     ui->lineEdit->hide();
-    ui->bottonMultijugador->hide();
+    ui->bottonMultijugador->show();
     ui->bottonUsurario->hide();
     ui->bottonReiniciar->hide();
     ui->bottonJugar->show();
-
     Puntos = new Puntaje();
     ui->pushButton_2->hide();
+
 
 
 
@@ -147,7 +145,7 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
         bala * balaa = new bala(bandera, enemigos, moscas);
         balaa->setPos(PersonajePrincipal->x(),PersonajePrincipal->y());//posicion del retangulo
         scene->addItem(balaa);
-        //qDebug()<<"bala creada"; aki toyyaaaaaaa
+        //qDebug()<<"bala creada";
     }
     if(Multijugador==true){
         if (evento->key()==Qt::Key_J){
@@ -273,7 +271,6 @@ void MainWindow::actualizar_vida()
 
        }
 
-
        }}}
     else if(nivelActual==2){
         for (int i = 0; i<moscas.count(); i++){
@@ -311,6 +308,63 @@ void MainWindow::actualizarMoscas()
 
     }
 
+
+
+    if(moscas.size()==0){
+
+        banderaMulti=true;
+        if(banderaMulti==true){
+            contadorMulti++;
+
+            if(contadorMulti==1){
+
+                puntosJ1=Puntos->obtenerPuntos();
+                qDebug() << puntosJ1;
+                listaPlataformas.clear();
+                listaFrutaBurbuja.clear();
+                timercaida->stop();
+                timerfrutaburbuja->stop();
+                timerMoscas->stop();
+                timer2Moscas->stop();
+                Puntos->reiniciarpuntos();
+                val=0;
+                Mensaje.setText("TURNO DEL JUGADOR 2");
+                Mensaje.setInformativeText("");
+                Mensaje.exec();
+                on_bottonMultijugador_clicked();
+             }
+
+            else if(contadorMulti==2){
+
+                puntosJ2=Puntos->obtenerPuntos();
+                qDebug() << puntosJ2;
+                listaPlataformas.clear();
+                listaFrutaBurbuja.clear();
+                timercaida->stop();
+                timerfrutaburbuja->stop();
+                timerMoscas->stop();
+                timer2Moscas->stop();
+                Puntos->reiniciarpuntos();
+                if(puntosJ1<puntosJ2){
+                    Mensaje.setText("EL GANADOS ES EL JUGADOR 2");
+                    Mensaje.setInformativeText("");
+                    Mensaje.exec();}
+                if(puntosJ1>puntosJ2){
+                    Mensaje.setText("EL GANADOS ES EL JUGADOR 1");
+                    Mensaje.setInformativeText("");
+                    Mensaje.exec();}
+                if(puntosJ1==puntosJ2){
+                    Mensaje.setText("EMPATADOS");
+                    Mensaje.setInformativeText("");
+                    Mensaje.exec();}
+                ui->setupUi(this);
+
+
+            }
+        }
+    }
+
+
 }
 
 void MainWindow::crearMoscas()
@@ -322,7 +376,6 @@ void MainWindow::crearMoscas()
     moscas.push_back(new spritemoscas(banderaMosca));
     scene->addItem(moscas.back());
  }
-
 }
 
 
@@ -364,6 +417,7 @@ void MainWindow::segundoNivel()
     listaFrutaBurbuja.clear();
     enemigos.clear();
     PersonajePrincipal = new CuerpoPersonajeJugador(90,50,2);
+
     scene->addItem(PersonajePrincipal);
     PersonajePrincipal->setScale(0.4);
     for (int i = 0; i<listaVida.count(); i++){
@@ -610,7 +664,6 @@ void MainWindow::moveEnemy()
         spritemoscas *enemigoMosca = moscas.at(i);
         if(!itemList.contains((QGraphicsItem*)enemigoMosca)){
             moscas.removeOne(enemigoMosca);
-
             Puntos->incrementar();
             break;
         }
@@ -660,19 +713,103 @@ void MainWindow::on_bottonInstrucciones_clicked()
 }*/
 
 void MainWindow::on_bottonMultijugador_clicked()
-{
+{   //para el keypress
+    nivelActual=3;
+    banderaMulti=false;
+    if (contadorMulti==0){
+        Mensaje.setText("TURNO DEL JUGADOR 1");
+        Mensaje.setInformativeText("");
+        Mensaje.exec();
+    }
     //Multijugador=true;
-    /*ui->label->hide();
+    //esconder botones
+    ui->label->hide();
     ui->label_2->hide();
     ui->label_3->hide();
     ui->lineEdit->hide();
     ui->bottonJugar->hide();
     ui->bottonMultijugador->hide();
     ui->bottonUsurario->hide();
-    ui->bottonInstrucciones->hide();*/
+    ui->bottonInstrucciones->hide();
+
+    //ui->setupUi(this);
+    //escena
+    scene = new QGraphicsScene;
+    scene->setSceneRect(0,0,960,519);
+    scene->setBackgroundBrush(QImage(":/Imagenes/Escenario2.png"));
+    ui->graphicsView->setScene(scene);
+    //limpear listas
+    listaPlataformas.clear();
+    listaFrutaBurbuja.clear();
+    enemigos.clear();
+    //personaje
+    PersonajePrincipal = new CuerpoPersonajeJugador(500,150,2);
+    scene->addItem(PersonajePrincipal);
+    PersonajePrincipal->setScale(0.4);
+
+    //plaformas
+    plataformaInicialPosicion = new Plataforma(300,420);listaPlataformas.push_back(plataformaInicialPosicion);scene->addItem(plataformaInicialPosicion);
+    plataforma2=new Plataforma(500,200);listaPlataformas.push_back(plataforma2);scene->addItem(plataforma2);
+    plataforma3 =new Plataforma(700,420);listaPlataformas.push_back(plataforma3);scene->addItem(plataforma3);
+    //frutas
+    fruta1= new frutaBurbuja(); scene->addItem(fruta1);fruta1->setPos(50,450);listaFrutaBurbuja.push_back(fruta1);
+    fruta2= new frutaBurbuja(); scene->addItem(fruta2);fruta2->setPos(150,450);listaFrutaBurbuja.push_back(fruta2);
+    fruta3= new frutaBurbuja(); scene->addItem(fruta3);fruta3->setPos(250,450);listaFrutaBurbuja.push_back(fruta3);
+    fruta4= new frutaBurbuja(); scene->addItem(fruta4);fruta4->setPos(350,450);listaFrutaBurbuja.push_back(fruta4);
+    fruta5= new frutaBurbuja(); scene->addItem(fruta5);fruta5->setPos(450,450);listaFrutaBurbuja.push_back(fruta5);
+    fruta6= new frutaBurbuja(); scene->addItem(fruta6);fruta6->setPos(550,450);listaFrutaBurbuja.push_back(fruta6);
+    fruta7= new frutaBurbuja(); scene->addItem(fruta7);fruta7->setPos(650,450);listaFrutaBurbuja.push_back(fruta7);
+    fruta8= new frutaBurbuja(); scene->addItem(fruta8);fruta8->setPos(750,450);listaFrutaBurbuja.push_back(fruta8);
+    fruta9= new frutaBurbuja(); scene->addItem(fruta9);fruta9->setPos(850,450);listaFrutaBurbuja.push_back(fruta9);
+    fruta10= new frutaBurbuja(); scene->addItem(fruta10);fruta10->setPos(920,450);listaFrutaBurbuja.push_back(fruta10);
+    //timer frutas
+    timerfrutaburbuja = new QTimer();
+    connect(timerfrutaburbuja,SIGNAL(timeout()),this,SLOT(actualizar_frutaburbuja()));
+    timerfrutaburbuja->start(150);
 
 
-}
+
+    //gravedad
+    timercaida = new QTimer();
+    connect(timercaida,SIGNAL(timeout()),this,SLOT(activaG()));
+    timercaida->start(30);
+
+    // limites de la pantalla
+    h_limit=960;//limite de la pantalla horizontal
+    v_limit=519;//limite vertical
+    //scene->setSceneRect(0,0,h_limit,v_limit);
+    ui->centralwidget->adjustSize();
+    scene->addRect(scene->sceneRect());
+    ui->graphicsView->resize(scene->width(),scene->height());
+    this->resize(ui->graphicsView->width()+100,ui->graphicsView->height()+100);
+
+    //timer de los enemigos  y enemigos (Moscas)
+    moscas.push_back(mosca1 = new spritemoscas(banderaMosca)); scene->addItem(moscas.back());
+    moscas.push_back(mosca2 = new spritemoscas(!banderaMosca)); scene->addItem(moscas.back());
+
+    timerMoscas=new QTimer();
+    timer2Moscas=new QTimer();
+    timerMoscas->start(1000);//timer de aparicion de las moscas
+    timer2Moscas->start(25);//mov de las moscas
+    connect(timerMoscas,SIGNAL(timeout()),this,SLOT(crearMoscas()));
+    connect(timer2Moscas,SIGNAL(timeout()),this,SLOT(actualizarMoscas()));
+    mosca=new spritemoscas(true);// crear la primera moscas para la lista asi se puede activar la de actualizar
+    moscas.push_back(mosca);//agrego mosca en la lista
+
+    //aqui esta el incremento de puntos para las moscas
+    timerEnemigos = new QTimer();
+    timerEnemigos->start(100);
+    connect(timerEnemigos,SIGNAL(timeout()),this,SLOT(moveEnemy()));
+
+    //puntos
+    scene->addItem(Puntos);
+
+
+    }
+
+
+
+
 
 void MainWindow::on_radioButton_2_clicked()
 {

@@ -146,11 +146,67 @@ compiler_rcc_make_all: release/qrc_Imagenes.cpp release/qrc_Imagenes.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_Imagenes.cpp release\qrc_Imagenes.cpp
 release/qrc_Imagenes.cpp: ../ProyectoFinal/Imagenes.qrc \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/bin/rcc.exe
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/bin/rcc.exe \
+		../ProyectoFinal/Imagenes/IconRick.png \
+		../ProyectoFinal/Imagenes/Morty.png \
+		../ProyectoFinal/Imagenes/Jugador.png \
+		../ProyectoFinal/Imagenes/instruccionesImagen.png \
+		../ProyectoFinal/Imagenes/Rick.png \
+		../ProyectoFinal/Imagenes/LlegamosCasa.gif \
+		../ProyectoFinal/Imagenes/Atras.png \
+		../ProyectoFinal/Imagenes/IconMorty.png \
+		../ProyectoFinal/Imagenes/gusanos_loks_sinFondo_cuadrado.png \
+		../ProyectoFinal/Imagenes/portalrickandmorty.png \
+		../ProyectoFinal/Imagenes/moscas_Izq_Der.png \
+		../ProyectoFinal/Imagenes/JugarRickMorty.png \
+		../ProyectoFinal/Imagenes/bala_verde_12.png \
+		../ProyectoFinal/Imagenes/Tierra.png \
+		../ProyectoFinal/Imagenes/Multijugador.png \
+		../ProyectoFinal/Imagenes/muerte.jpg \
+		../ProyectoFinal/Imagenes/FondoMenu.png \
+		../ProyectoFinal/Imagenes/Usuario.png \
+		../ProyectoFinal/Imagenes/Escenario1.png \
+		../ProyectoFinal/Imagenes/Escenario2.png \
+		../ProyectoFinal/Imagenes/frutaburbuja.png \
+		../ProyectoFinal/Imagenes/CervezaVidaRickMorty.png \
+		../ProyectoFinal/Imagenes/PlataformaEscenario2.png \
+		../ProyectoFinal/Imagenes/ReiniciarP.png \
+		../ProyectoFinal/Imagenes/mortyllorando.gif \
+		../ProyectoFinal/Imagenes/Instrucciones.png \
+		../ProyectoFinal/Imagenes/Sonido.png \
+		../ProyectoFinal/Imagenes/uforickandmorty.png
 	C:\Qt\Qt5.12.9\5.12.9\mingw73_32\bin\rcc.exe -name Imagenes ..\ProyectoFinal\Imagenes.qrc -o release\qrc_Imagenes.cpp
 
 release/qrc_Imagenes.cpp: ../ProyectoFinal/Imagenes.qrc \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/bin/rcc.exe
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/bin/rcc.exe \
+		../ProyectoFinal/Imagenes/IconRick.png \
+		../ProyectoFinal/Imagenes/Morty.png \
+		../ProyectoFinal/Imagenes/Jugador.png \
+		../ProyectoFinal/Imagenes/instruccionesImagen.png \
+		../ProyectoFinal/Imagenes/Rick.png \
+		../ProyectoFinal/Imagenes/LlegamosCasa.gif \
+		../ProyectoFinal/Imagenes/Atras.png \
+		../ProyectoFinal/Imagenes/IconMorty.png \
+		../ProyectoFinal/Imagenes/gusanos_loks_sinFondo_cuadrado.png \
+		../ProyectoFinal/Imagenes/portalrickandmorty.png \
+		../ProyectoFinal/Imagenes/moscas_Izq_Der.png \
+		../ProyectoFinal/Imagenes/JugarRickMorty.png \
+		../ProyectoFinal/Imagenes/bala_verde_12.png \
+		../ProyectoFinal/Imagenes/Tierra.png \
+		../ProyectoFinal/Imagenes/Multijugador.png \
+		../ProyectoFinal/Imagenes/muerte.jpg \
+		../ProyectoFinal/Imagenes/FondoMenu.png \
+		../ProyectoFinal/Imagenes/Usuario.png \
+		../ProyectoFinal/Imagenes/Escenario1.png \
+		../ProyectoFinal/Imagenes/Escenario2.png \
+		../ProyectoFinal/Imagenes/frutaburbuja.png \
+		../ProyectoFinal/Imagenes/CervezaVidaRickMorty.png \
+		../ProyectoFinal/Imagenes/PlataformaEscenario2.png \
+		../ProyectoFinal/Imagenes/ReiniciarP.png \
+		../ProyectoFinal/Imagenes/mortyllorando.gif \
+		../ProyectoFinal/Imagenes/Instrucciones.png \
+		../ProyectoFinal/Imagenes/Sonido.png \
+		../ProyectoFinal/Imagenes/uforickandmorty.png
 	C:\Qt\Qt5.12.9\5.12.9\mingw73_32\bin\rcc.exe -name Imagenes ..\ProyectoFinal\Imagenes.qrc -o release\qrc_Imagenes.cpp
 
 compiler_moc_predefs_make_all: release/moc_predefs.h
@@ -1410,34 +1466,6 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qtabbar.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qrubberband.h \
 		ui_mainwindow.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QVariant \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QApplication \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qapplication.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qeventloop.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qinputmethod.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QGraphicsView \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qgraphicsview.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qscrollarea.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QLabel \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QLineEdit \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlineedit.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtextcursor.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtextformat.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QMenuBar \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmenubar.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmenu.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qaction.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QPushButton \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QRadioButton \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qradiobutton.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QStatusBar \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qstatusbar.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QString \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/QtGui \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/QtGuiDepends \
@@ -1445,6 +1473,7 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QtCoreDepends \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qabstractanimation.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qabstracteventdispatcher.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qeventloop.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qabstractnativeeventfilter.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qabstractproxymodel.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qabstractstate.h \
@@ -1467,6 +1496,7 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcollator.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcommandlineoption.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcommandlineparser.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcoreapplication.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qcryptographichash.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qdeadlinetimer.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qelapsedtimer.h \
@@ -1556,9 +1586,11 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtcoreversion.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qabstracttextdocumentlayout.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtextlayout.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtextformat.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qglyphrun.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qrawfont.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qfontdatabase.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtextcursor.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtextdocument.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qaccessible.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qaccessiblebridge.h \
@@ -1578,6 +1610,8 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qgenericmatrix.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qgenericplugin.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qgenericpluginfactory.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qguiapplication.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qinputmethod.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qiconengine.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qiconengineplugin.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qimageiohandler.h \
@@ -1649,9 +1683,15 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtextlist.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtexttable.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtguiversion.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QLabel \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QtWidgets \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QtWidgetsDepends \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qaccessiblewidget.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qaction.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qactiongroup.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qapplication.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qboxlayout.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlayout.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlayoutitem.h \
@@ -1664,6 +1704,7 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qcolumnview.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qcombobox.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qcommandlinkbutton.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qpushbutton.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qcommonstyle.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qcompleter.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdatawidgetmapper.h \
@@ -1696,9 +1737,12 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qgraphicssceneevent.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qgraphicstransform.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/QVector3D \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qscrollarea.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qgroupbox.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qheaderview.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qinputdialog.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlineedit.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qitemdelegate.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qitemeditorfactory.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qkeyeventtransition.h \
@@ -1706,6 +1750,8 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlcdnumber.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmdiarea.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmdisubwindow.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmenu.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmenubar.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmouseeventtransition.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qopenglwidget.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qplaintextedit.h \
@@ -1714,12 +1760,14 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qprogressdialog.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qproxystyle.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QCommonStyle \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qradiobutton.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qscrollbar.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qscroller.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QPointF \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QScrollerProperties \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qscrollerproperties.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QMetaType \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QVariant \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qshortcut.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qsizegrip.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qspinbox.h \
@@ -1727,6 +1775,7 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qsplitter.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qstackedlayout.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qstackedwidget.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qstatusbar.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qstyleditemdelegate.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qstylefactory.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qstylepainter.h \

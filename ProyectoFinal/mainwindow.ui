@@ -54,11 +54,7 @@
      </size>
     </property>
     <property name="styleSheet">
-<<<<<<< HEAD
-     <string notr="true">background-image:url(:/Imagenes/FondoMenu.png);</string>
-=======
      <string notr="true">background-image: url(:/Imagenes/FondoMenu.png);</string>
->>>>>>> main
     </property>
     <property name="verticalScrollBarPolicy">
      <enum>Qt::ScrollBarAlwaysOff</enum>
