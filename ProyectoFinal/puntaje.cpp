@@ -19,3 +19,9 @@ int Puntaje::obtenerPuntos()
 {
     return puntos;
 }
+
+void Puntaje::reiniciarpuntos()
+{
+    puntos=0;
+
+}

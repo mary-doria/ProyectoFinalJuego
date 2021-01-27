@@ -1422,6 +1422,10 @@ debug/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindow.
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qscrollarea.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QLabel \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlabel.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QLineEdit \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtextcursor.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtextformat.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QMenuBar \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmenubar.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmenu.h \
@@ -1552,11 +1556,9 @@ debug/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindow.
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/qtcoreversion.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qabstracttextdocumentlayout.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtextlayout.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtextformat.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qglyphrun.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qrawfont.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qfontdatabase.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtextcursor.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qtextdocument.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qaccessible.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qaccessiblebridge.h \
@@ -1697,7 +1699,6 @@ debug/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindow.
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qgroupbox.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qheaderview.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qinputdialog.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlineedit.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qitemdelegate.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qitemeditorfactory.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qkeyeventtransition.h \

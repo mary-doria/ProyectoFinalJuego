@@ -8,6 +8,7 @@ public:
     Puntaje(QGraphicsItem *parent = nullptr);
     void incrementar();
     int obtenerPuntos();
+    void reiniciarpuntos();
 private:
     int puntos;
 };

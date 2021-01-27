@@ -34,8 +34,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_2->hide();
     ui->pushButton->hide();
 
+    ui->label_3->hide();
+    ui->lineEdit->hide();
+    ui->bottonMultijugador->hide();
+    ui->bottonUsurario->hide();
+    ui->bottonReiniciar->hide();
+    ui->bottonJugar->show();
 
     Puntos = new Puntaje();
+    ui->pushButton_2->hide();
+
+
 
 
 
@@ -197,9 +206,9 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     }
     }
     if(nivelActual == 2){
-    if (PersonajePrincipal->collidesWithItem(naverickmorty)){
-    scene->addItem(portalRickMorty);
-    }
+        if (PersonajePrincipal->collidesWithItem(naverickmorty)){
+        scene->addItem(portalRickMorty);
+        }
     if (PersonajePrincipal->collidesWithItem(portalRickMorty)){
         if(Puntos->obtenerPuntos()>=500){
          timerMoscas->stop();
@@ -260,7 +269,7 @@ void MainWindow::actualizar_vida()
 
            /*SE CRASHEA PORQUE LISTA VIDA QUEDA VACIO,OSEA ME MORI :V*/
        if(listaVida.count()==0){
-           //AQUI IRA LA FUNCION MORI PARA DEVOLVER AL MENU PRINCIPAL Y COLOCAR SONIDO DE BURRO
+          muerte();
 
        }
 
@@ -274,7 +283,8 @@ void MainWindow::actualizar_vida()
 
                /*SE CRASHEA PORQUE LISTA VIDA QUEDA VACIO,OSEA ME MORI :V*/
            if(listaVida.count()==0){
-               //AQUI IRA LA FUNCION MORI PARA DEVOLVER AL MENU PRINCIPAL Y COLOCAR SONIDO DE BURRO
+               muerte();
+
 
            }
 
@@ -339,10 +349,13 @@ void MainWindow::cargarPosgusano(int nivel)	{
 
 void MainWindow::segundoNivel()
 {
-
+    ui->bottonReiniciar->show();
     ui->label->hide();
     ui->label_2->hide();
     ui->pushButton->hide();
+    ui->bottonUsurario->hide();
+    ui->pushButton_2->hide();
+    ui->lineEdit->hide();
     scene = new QGraphicsScene;
     scene->setSceneRect(0,0,960,519);
     scene->setBackgroundBrush(QImage(":/Imagenes/Escenario2.png"));
@@ -423,74 +436,28 @@ void MainWindow::nivelCasa()
 
 }
 
-
-void MainWindow::moveEnemy()
-{
-    QList<QGraphicsItem*> itemList = scene->items();
-
-
-    for (int j = 0; j<enemigos.size(); j++){
-
-        spritegusano *enemigo = enemigos.at(j);/* creo un enemigo de la clase gusado y le asigno su valor segun
-                                                  la posicion j que recorre la Qlist de enemigo */
-
-        if (enemigo->bande==true){
-            if(enemigo->x()>V_posgusanos[j*2]){
-            //qDebug()<<"V_posgusanos[j]*2"<<V_posgusanos[j*2];//imprimir posx1 del gusano n
-                enemigo->left(3); }
-            else
-            enemigo->bande=false;}//if
-        else{
-            if(enemigo->x()<V_posgusanos[j*2+1]){
-                //qDebug()<<"V_posgusanos[j]*2+1"<<V_posgusanos[j*2+1];//imprimir posx2 del gusano n
-                enemigo->right(3); }
-            else
-            enemigo->bande=true;}
-
-}
-
-    for (int i = 0; i<enemigos.size();i++){
-        spritegusano *enemigo = enemigos.at(i);
-        if(!itemList.contains((QGraphicsItem*)enemigo)){
-            enemigos.removeOne(enemigo);
-            V_posgusanos.removeAt((i*2)+1);
-            qDebug()<<V_posgusanos;
-            V_posgusanos.removeAt(i*2);
-            qDebug()<<V_posgusanos;
-            Puntos->incrementar();
-            break;
-        }
-    }
-
-    for (int i = 0; i<moscas.size();i++){
-        spritemoscas *enemigoMosca = moscas.at(i);
-        if(!itemList.contains((QGraphicsItem*)enemigoMosca)){
-            moscas.removeOne(enemigoMosca);
-
-            Puntos->incrementar();
-            break;
-        }
-    }
-
-    }
-
-
-
-void MainWindow::on_bottonJugar_clicked()
+void MainWindow::primerNivel()
 {
     nivelActual = 1;
 
     Multijugador=false;
         bandera=true;
-        ui->setupUi(this);
+        //ui->setupUi(this);
         scene = new QGraphicsScene;
+        ui->label_2->hide();
+        ui->bottonReiniciar->show();
         ui->graphicsView->setScene(scene);
         ui->pushButton->hide();
         ui->bottonJugar->hide();
+        ui->label_3->hide();
         ui->label->hide();
-        ui->label_2->hide();
         ui->bottonInstrucciones->hide();
         ui->bottonMultijugador->hide();
+        ui->pushButton_2->hide();
+        ui->bottonUsurario->hide();
+        ui->lineEdit->hide();
+
+
         //ui->bottonUsuario->hide();
         ui->radioButton->hide();
         ui->radioButton_2->hide();
@@ -567,13 +534,108 @@ void MainWindow::on_bottonJugar_clicked()
             fruta16= new frutaBurbuja(); scene->addItem(fruta16);fruta16->setPos(630,220);listaFrutaBurbuja.push_back(fruta16);
 
 
-            QTimer *timerfrutaburbuja = new QTimer();
+            timerfrutaburbuja = new QTimer();
             connect(timerfrutaburbuja,SIGNAL(timeout()),this,SLOT(actualizar_frutaburbuja()));
             timerfrutaburbuja->start(150);
 
 
 
             scene->addItem(Puntos);
+}
+
+void MainWindow::muerte()
+{   ui->label_3->show();
+    ui->label->hide();
+    ui->bottonJugar->hide();
+    ui->label_2->hide();
+    ui->bottonInstrucciones->hide();
+    ui->bottonMultijugador->hide();
+    ui->bottonReiniciar->show();
+    //ui->bottonUsuario->hide();
+    ui->pushButton->show();
+    ui->radioButton->hide();
+    ui->radioButton_2->hide();
+    listaVida.clear();
+    listaPlataformas.clear();
+    listaFrutaBurbuja.clear();
+    enemigos.clear();
+    moscas.clear();
+
+
+
+
+
+}
+
+
+void MainWindow::moveEnemy()
+{
+    QList<QGraphicsItem*> itemList = scene->items();
+
+
+    for (int j = 0; j<enemigos.size(); j++){
+
+        spritegusano *enemigo = enemigos.at(j);/* creo un enemigo de la clase gusado y le asigno su valor segun
+                                                  la posicion j que recorre la Qlist de enemigo */
+
+        if (enemigo->bande==true){
+            if(enemigo->x()>V_posgusanos[j*2]){
+            //qDebug()<<"V_posgusanos[j]*2"<<V_posgusanos[j*2];//imprimir posx1 del gusano n
+                enemigo->left(3); }
+            else
+            enemigo->bande=false;}//if
+        else{
+            if(enemigo->x()<V_posgusanos[j*2+1]){
+                //qDebug()<<"V_posgusanos[j]*2+1"<<V_posgusanos[j*2+1];//imprimir posx2 del gusano n
+                enemigo->right(3); }
+            else
+            enemigo->bande=true;}
+
+}
+
+    for (int i = 0; i<enemigos.size();i++){
+        spritegusano *enemigo = enemigos.at(i);
+        if(!itemList.contains((QGraphicsItem*)enemigo)){
+            enemigos.removeOne(enemigo);
+            V_posgusanos.removeAt((i*2)+1);
+            qDebug()<<V_posgusanos;
+            V_posgusanos.removeAt(i*2);
+            qDebug()<<V_posgusanos;
+            Puntos->incrementar();
+            break;
+        }
+    }
+
+    for (int i = 0; i<moscas.size();i++){
+        spritemoscas *enemigoMosca = moscas.at(i);
+        if(!itemList.contains((QGraphicsItem*)enemigoMosca)){
+            moscas.removeOne(enemigoMosca);
+
+            Puntos->incrementar();
+            break;
+        }
+    }
+
+    }
+
+
+
+void MainWindow::on_bottonJugar_clicked()
+{
+    //ui->pushButton->show();
+    ui->bottonJugar->hide();
+    ui->bottonInstrucciones->show();
+    ui->bottonMultijugador->hide();
+    ui->radioButton->hide();
+    ui->label->hide();
+    ui->label_2->hide();
+    ui->label_3->hide();
+
+    ui->radioButton_2->hide();
+    //ui->label_2->show();
+    ui->lineEdit->show();
+    ui->bottonUsurario->show();
+
 }
 
 void MainWindow::on_bottonInstrucciones_clicked()
@@ -587,14 +649,9 @@ void MainWindow::on_bottonInstrucciones_clicked()
         ui->radioButton->hide();
         ui->radioButton_2->hide();
         ui->label_2->show();
+
+        ui->bottonMultijugador->hide();
 }
-
-
-
-
-
-
-
 
 
 /*void MainWindow::on_bottonUsuario_clicked()
@@ -604,7 +661,16 @@ void MainWindow::on_bottonInstrucciones_clicked()
 
 void MainWindow::on_bottonMultijugador_clicked()
 {
-    Multijugador=true;
+    //Multijugador=true;
+    /*ui->label->hide();
+    ui->label_2->hide();
+    ui->label_3->hide();
+    ui->lineEdit->hide();
+    ui->bottonJugar->hide();
+    ui->bottonMultijugador->hide();
+    ui->bottonUsurario->hide();
+    ui->bottonInstrucciones->hide();*/
+
 
 }
 
@@ -635,9 +701,68 @@ void MainWindow::on_label_2_windowTitleChanged(const QString &title)
 }
 
 void MainWindow::on_pushButton_clicked()
-{
+{   ui->bottonMultijugador->hide();
     ui->bottonJugar->show();
     ui->bottonInstrucciones->show();
-    ui->bottonMultijugador->show();
+    ui->bottonUsurario->hide();
+    ui->lineEdit->hide();
+    //ui->bottonMultijugador->show();
     ui->label_2->hide();
+    ui->pushButton->hide();
+
+
+}
+
+void MainWindow::on_label_3_windowTitleChanged(const QString &title)
+{
+
+}
+
+
+
+void MainWindow::on_lineEdit_windowTitleChanged(const QString &title)
+{
+
+}
+
+
+
+void MainWindow::on_bottonUsurario_clicked()
+{
+    ui->bottonMultijugador->hide();
+    ui->label_2->hide();
+    ui->bottonUsurario->hide();
+    ui->lineEdit->hide();
+    ui->pushButton_2->show();
+}
+
+void MainWindow::on_bottonReiniciar_clicked()
+{   //ui->setupUi(this);
+    //cout << "reinicia";
+    ui->bottonMultijugador->hide();
+    listaVida.clear();
+    listaPlataformas.clear();
+    listaFrutaBurbuja.clear();
+    enemigos.clear();
+    timerVida->stop();
+    timercaida->stop();
+    timerEnemigos->stop();
+    timerportalRickMorty->stop();
+    timerfrutaburbuja->stop();
+    Puntos->reiniciarpuntos();
+    if(nivelActual==2){
+      timerMoscas->stop();
+      timer2Moscas->stop();
+      Puntos->reiniciarpuntos();
+    }
+    primerNivel();
+
+}
+
+void MainWindow::on_pushButton_2_clicked()//un solo jugador
+{
+    ui->label_2->hide();
+    ui->bottonJugar->hide();
+    primerNivel();
+
 }
