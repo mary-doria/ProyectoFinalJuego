@@ -104,7 +104,7 @@ private:
     spritegusano *enemigo9; // crear el puntero para la clase gusano
     spritegusano *enemigo10; // crear el puntero para la clase gusano
 
-    Portal *portalRickMorty;
+    Portal *portalRickMorty,*portalRickMorty2;
     QTimer *timerportalRickMorty;
 
     int nivelActual=0;
@@ -115,6 +115,8 @@ private:
      void sprite_burbuja();
      void segundoNivel();
      void nivelCasa();
+     void primerNivel();
+     void muerte();
 public slots:
     void moveEnemy();
     void activaG();//Actualizacion caida libre personaje esta hara el slot
@@ -138,5 +140,13 @@ private slots:
     void on_label_windowTitleChanged(const QString &title);
     void on_label_2_windowTitleChanged(const QString &title);
     void on_pushButton_clicked();
+    void on_label_3_windowTitleChanged(const QString &title);
+
+    void on_lineEdit_windowTitleChanged(const QString &title);
+
+    void on_bottonUsurario_clicked();
+
+    void on_bottonReiniciar_clicked();
+    void on_pushButton_2_clicked();
 };
 #endif // MAINWINDOW_H

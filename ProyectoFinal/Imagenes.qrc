@@ -24,5 +24,9 @@
         <file>Imagenes/Tierra.png</file>
         <file>Imagenes/instruccionesImagen.png</file>
         <file>Imagenes/Atras.png</file>
+        <file>Imagenes/muerte.jpg</file>
+        <file>Imagenes/mortyllorando.gif</file>
+        <file>Imagenes/ReiniciarP.png</file>
+        <file>Imagenes/Jugador.png</file>
     </qresource>
 </RCC>
