@@ -5,12 +5,13 @@
 #include <QTimer>
 #include <QPixmap>
 #include "spritegusano.h"
+#include "spritemoscas.h"
 
 class bala : public QObject, public QGraphicsItem
 {
     Q_OBJECT
 public:
-    bala(bool _bandera, QList<spritegusano*> listaGusanos);
+    bala(bool _bandera, QList<spritegusano*> listaGusanos,QList<spritemoscas*> listaMoscas);
     bool bandera;
     QTimer *timer;
     QPixmap *pixmap;
@@ -22,6 +23,7 @@ public:
     void setPosy(int value);
     QTimer *timerrasholaser;
     QList<spritegusano*> gusanos;
+    QList<spritemoscas*> moscas;
 
 
 private:

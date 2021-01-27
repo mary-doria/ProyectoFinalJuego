@@ -13,9 +13,12 @@
 class Portal: public QGraphicsItem
 {
     float posy, posx, velX, velY;
-    float delta = 1;
+
+    float delta = 0.2;
     float dx, dy;
     float ancho,alto,contadorPos;
+    float posyInicial;
+
 
     QPixmap *pixmapPortal; //variable pixap
 public:

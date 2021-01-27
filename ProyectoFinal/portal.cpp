@@ -64,15 +64,23 @@ Portal::Portal(float x,float y,float vx ,float vy)
     this->contadorPos=0;
     this->velX = vx;
     this->velY = vy;
+
+    this->posyInicial=y;
+
     pixmapPortal = new QPixmap(":/Imagenes/portalrickandmorty.png");
     setPos(posx,posy);
 }
 
 void Portal::ActualizarPosicionPortal()
 {
+
+        if(this->posx>960 || this->posx<40){
+        velX=-velX;
+        }
         this->posx = (posx - velX*delta);
         this->contadorPos= contadorPos + delta;
-        this->posy=300*sin(2*3.1415*contadorPos/2)+posy;
+        this->posy=30*sin(2*3.1415*contadorPos/2)+posyInicial;
+
         setPos(posx,posy);
 
 }

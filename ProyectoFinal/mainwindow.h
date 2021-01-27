@@ -19,7 +19,9 @@
 #include "portal.h"
 #include "spritegusano.h"
 #include "puntaje.h"
+#include "spritemoscas.h"
 #include <QMessageBox>
+#include <QListWidget>
 
 
 using namespace std;
@@ -42,16 +44,20 @@ private:
     bool bandera;
     Ui::MainWindow *ui;
     QList<frutaBurbuja*> listaFrutaBurbuja;
-    CuerpoPersonajeJugador *PersonajePrincipal;
+    CuerpoPersonajeJugador *PersonajePrincipal,*PersonajePrincipal2;
     QList<frutaBurbuja *> modificarFrutaBurbuja(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion);
     QList<Vida *> modificarVida(QList<Vida *> listaVida, int posicion);
     QVector<spritegusano*>vectorAuxGusanos;
-    QGraphicsScene *scene,*menu;
+
+    QGraphicsScene *scene,scene2;
+
     QList<Vida*> listaVida;
+    bool Multijugador=false;
     Puntaje * Puntos;
-    QTimer *timercaida,*timersalto,*timerfrutaburbuja,*timerVida;
+    QTimer *timercaida,*timersalto,*timerfrutaburbuja,*timerVida,*timerEnemigos;
     frutaBurbuja *fruta1,*fruta2,*fruta3,*fruta4,*fruta5,*fruta6,*fruta7,*fruta8,*fruta9,*fruta10,*fruta11,*fruta12,*fruta13,*fruta14,*fruta15,*fruta16;
     Vida *vida1,*vida2,*vida3,*vida4,*vida5;
+    //PRIMER NIVEL PLATAFORMAS
     Plataforma *plataformaInicialPosicion;
     Plataforma *plataforma2;
     Plataforma *plataforma3;
@@ -65,9 +71,28 @@ private:
     Plataforma *plataforma11;
     Plataforma *plataforma12;
     Plataforma *plataforma13;
+    //SEGUNDO NIVEL PLATAFORMAS
+    Plataforma *plataformaInicialPosicion2;
+    Plataforma *plataforma14;
+    Plataforma *plataforma15;
+    Plataforma *plataforma16;
+    Plataforma *plataforma17;
+    Plataforma *plataforma18;
+    Plataforma *plataforma19;
     QMessageBox *mensaje;
     nave *naverickmorty;
     QList<Plataforma*> listaPlataformas;
+    QTimer *timerMoscas;
+    QTimer *timer2Moscas;
+    int val=0;
+    float dt;
+    float h_limit;
+    float v_limit;
+    void bordedelete(spritemoscas *b);
+    spritemoscas *mosca;
+    QList<spritemoscas *> moscas;
+    bool banderaMosca=true;
+
     QList<spritegusano*> enemigos;// lista de enemigos gusanos
     QVector < int > V_posgusanos; // vector con las posiciones de los gusanos
     spritegusano *enemigo1; // crear el puntero para la clase gusano
@@ -84,10 +109,15 @@ private:
     Portal *portalRickMorty;
     QTimer *timerportalRickMorty;
 
+
+    int nivelActual=0;
+
     float x,y,ancho,alto;
      void keyPressEvent(QKeyEvent *evento);
-     void cargarPosgusano();
+     void cargarPosgusano(int nivel);
      void sprite_burbuja();
+     void segundoNivel();
+     void nivelCasa();
 public slots:
     void moveEnemy();
     void activaG();//Actualizacion caida libre personaje esta hara el slot
@@ -95,5 +125,23 @@ public slots:
     void actualizar_frutaburbuja();
     void actualizar_vida();
     void actualizar_portal();
+
+    void crearMoscas();
+    void actualizarMoscas();
+
+
+private slots:
+
+    void on_bottonJugar_clicked();
+    void on_bottonInstrucciones_clicked();
+    //void on_bottonUsuario_clicked();
+    void on_bottonMultijugador_clicked();
+    void on_radioButton_2_clicked();
+    void on_radioButton_clicked();
+
+    void on_label_windowTitleChanged(const QString &title);
+    void on_label_2_windowTitleChanged(const QString &title);
+    void on_pushButton_clicked();
+
 };
 #endif // MAINWINDOW_H
