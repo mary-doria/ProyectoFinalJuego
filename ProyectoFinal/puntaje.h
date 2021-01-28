@@ -9,6 +9,7 @@ public:
     void incrementar();
     int obtenerPuntos();
     void reiniciarpuntos();
+    void asignarPuntos(int puntos);
 private:
     int puntos;
 };

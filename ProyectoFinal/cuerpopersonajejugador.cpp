@@ -64,7 +64,7 @@ CuerpoPersonajeJugador::CuerpoPersonajeJugador(int x, int y,int rickMorty)
     this->G=1;
     this->enTierra=false;
     this->saltando = false;
-    this->friccion=0.7;
+
 }
 
 
@@ -114,9 +114,9 @@ void CuerpoPersonajeJugador::caidaLibre()
 
     if (enTierra==false){
         if (saltando == true){
-            posy+=(-(this->velocidad)+((G*(this->tiempo)))-friccion);//Ecuacion caida libre
+            posy+=(-(this->velocidad)+((G*(this->tiempo))));//Ecuacion caida libre
         } else{
-            posy+=((G*(this->tiempo))-friccion);//Ecuacion caida libre
+            posy+=((G*(this->tiempo)));//Ecuacion caida libre
         }
         tiempo+=0.5; }
     /*posy+=(this->velocidad*this->tiempo+((G*(this->tiempo*this->tiempo))/2));//Ecuacion caida libre
@@ -139,13 +139,13 @@ void CuerpoPersonajeJugador::saltar()
 
 void CuerpoPersonajeJugador::izquierda()//MovimientoLineal
 {   if(posx>10){
-    posx -= (velocidad/2)-friccion;
+    posx -= (velocidad/2);
     setPos(posx,posy);}
 }
 
 void CuerpoPersonajeJugador::derecha()//Movimiento Lineal
 {   if(posx<940){
-    posx += (velocidad/2)-friccion;
+    posx += (velocidad/2);
     setPos(posx,posy);}
 }
 

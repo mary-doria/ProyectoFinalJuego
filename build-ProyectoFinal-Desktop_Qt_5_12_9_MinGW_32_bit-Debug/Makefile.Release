@@ -149,22 +149,31 @@ release/qrc_Imagenes.cpp: ../ProyectoFinal/Imagenes.qrc \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/bin/rcc.exe \
 		../ProyectoFinal/Imagenes/IconRick.png \
 		../ProyectoFinal/Imagenes/Morty.png \
+		../ProyectoFinal/Imagenes/instruccionesImagen.png \
 		../ProyectoFinal/Imagenes/Rick.png \
+		../ProyectoFinal/Imagenes/2jugadores.png \
+		../ProyectoFinal/Imagenes/LlegamosCasa.gif \
+		../ProyectoFinal/Imagenes/Atras.png \
+		../ProyectoFinal/Imagenes/instrucciones.png \
 		../ProyectoFinal/Imagenes/IconMorty.png \
 		../ProyectoFinal/Imagenes/gusanos_loks_sinFondo_cuadrado.png \
-		../ProyectoFinal/Imagenes/portalrickandmorty.png \
 		../ProyectoFinal/Imagenes/moscas_Izq_Der.png \
-		../ProyectoFinal/Imagenes/JugarRickMorty.png \
+		../ProyectoFinal/Imagenes/portalrickandmorty.png \
+		../ProyectoFinal/Imagenes/registrousuario.png \
 		../ProyectoFinal/Imagenes/bala_verde_12.png \
-		../ProyectoFinal/Imagenes/Multijugador.png \
+		../ProyectoFinal/Imagenes/JugarRickMorty.png \
+		../ProyectoFinal/Imagenes/Tierra.png \
 		../ProyectoFinal/Imagenes/FondoMenu.png \
-		../ProyectoFinal/Imagenes/Usuario.png \
 		../ProyectoFinal/Imagenes/Escenario1.png \
 		../ProyectoFinal/Imagenes/Escenario2.png \
 		../ProyectoFinal/Imagenes/frutaburbuja.png \
+		../ProyectoFinal/Imagenes/1jugador.png \
 		../ProyectoFinal/Imagenes/CervezaVidaRickMorty.png \
+		../ProyectoFinal/Imagenes/eliminarpartida.png \
+		../ProyectoFinal/Imagenes/cargarpartida.png \
 		../ProyectoFinal/Imagenes/PlataformaEscenario2.png \
-		../ProyectoFinal/Imagenes/Instrucciones.png \
+		../ProyectoFinal/Imagenes/ReiniciarP.png \
+		../ProyectoFinal/Imagenes/mortyllorando.gif \
 		../ProyectoFinal/Imagenes/Sonido.png \
 		../ProyectoFinal/Imagenes/uforickandmorty.png
 	C:\Qt\Qt5.12.9\5.12.9\mingw73_32\bin\rcc.exe -name Imagenes ..\ProyectoFinal\Imagenes.qrc -o release\qrc_Imagenes.cpp
@@ -173,22 +182,31 @@ release/qrc_Imagenes.cpp: ../ProyectoFinal/Imagenes.qrc \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/bin/rcc.exe \
 		../ProyectoFinal/Imagenes/IconRick.png \
 		../ProyectoFinal/Imagenes/Morty.png \
+		../ProyectoFinal/Imagenes/instruccionesImagen.png \
 		../ProyectoFinal/Imagenes/Rick.png \
+		../ProyectoFinal/Imagenes/2jugadores.png \
+		../ProyectoFinal/Imagenes/LlegamosCasa.gif \
+		../ProyectoFinal/Imagenes/Atras.png \
+		../ProyectoFinal/Imagenes/instrucciones.png \
 		../ProyectoFinal/Imagenes/IconMorty.png \
 		../ProyectoFinal/Imagenes/gusanos_loks_sinFondo_cuadrado.png \
-		../ProyectoFinal/Imagenes/portalrickandmorty.png \
 		../ProyectoFinal/Imagenes/moscas_Izq_Der.png \
-		../ProyectoFinal/Imagenes/JugarRickMorty.png \
+		../ProyectoFinal/Imagenes/portalrickandmorty.png \
+		../ProyectoFinal/Imagenes/registrousuario.png \
 		../ProyectoFinal/Imagenes/bala_verde_12.png \
-		../ProyectoFinal/Imagenes/Multijugador.png \
+		../ProyectoFinal/Imagenes/JugarRickMorty.png \
+		../ProyectoFinal/Imagenes/Tierra.png \
 		../ProyectoFinal/Imagenes/FondoMenu.png \
-		../ProyectoFinal/Imagenes/Usuario.png \
 		../ProyectoFinal/Imagenes/Escenario1.png \
 		../ProyectoFinal/Imagenes/Escenario2.png \
 		../ProyectoFinal/Imagenes/frutaburbuja.png \
+		../ProyectoFinal/Imagenes/1jugador.png \
 		../ProyectoFinal/Imagenes/CervezaVidaRickMorty.png \
+		../ProyectoFinal/Imagenes/eliminarpartida.png \
+		../ProyectoFinal/Imagenes/cargarpartida.png \
 		../ProyectoFinal/Imagenes/PlataformaEscenario2.png \
-		../ProyectoFinal/Imagenes/Instrucciones.png \
+		../ProyectoFinal/Imagenes/ReiniciarP.png \
+		../ProyectoFinal/Imagenes/mortyllorando.gif \
 		../ProyectoFinal/Imagenes/Sonido.png \
 		../ProyectoFinal/Imagenes/uforickandmorty.png
 	C:\Qt\Qt5.12.9\5.12.9\mingw73_32\bin\rcc.exe -name Imagenes ..\ProyectoFinal\Imagenes.qrc -o release\qrc_Imagenes.cpp
@@ -308,6 +326,7 @@ release/moc_bala.cpp: ../ProyectoFinal/bala.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QGraphicsScene \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qgraphicsscene.h \
+		../ProyectoFinal/spritemoscas.h \
 		release/moc_predefs.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/bin/moc.exe
 	C:\Qt\Qt5.12.9\5.12.9\mingw73_32\bin\moc.exe $(DEFINES) --include C:/Users/57316/Documents/GITHUB/ProyectoFinalJuego/build-ProyectoFinal-Desktop_Qt_5_12_9_MinGW_32_bit-Debug/release/moc_predefs.h -IC:/Qt/Qt5.12.9/5.12.9/mingw73_32/mkspecs/win32-g++ -IC:/Users/57316/Documents/GITHUB/ProyectoFinalJuego/ProyectoFinal -IC:/Qt/Qt5.12.9/5.12.9/mingw73_32/include -IC:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets -IC:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui -IC:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtANGLE -IC:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore -I. -IC:/Qt/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -IC:/Qt/Qt5.12.9/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Qt5.12.9/Tools/mingw730_32/i686-w64-mingw32/include ..\ProyectoFinal\bala.h -o release\moc_bala.cpp
@@ -423,6 +442,9 @@ release/moc_mainwindow.cpp: ../ProyectoFinal/mainwindow.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QDesktopWidget \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QDebug \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QVector \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QRectF \
 		../ProyectoFinal/cuerpopersonajejugador.h \
@@ -447,13 +469,10 @@ release/moc_mainwindow.cpp: ../ProyectoFinal/mainwindow.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QWidget \
 		../ProyectoFinal/bala.h \
 		../ProyectoFinal/spritegusano.h \
+		../ProyectoFinal/spritemoscas.h \
 		../ProyectoFinal/vida.h \
 		../ProyectoFinal/portal.h \
 		../ProyectoFinal/puntaje.h \
-		../ProyectoFinal/spritemoscas.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QListWidget \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlistwidget.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlistview.h \
@@ -823,6 +842,7 @@ release/bala.o: ../ProyectoFinal/bala.cpp ../ProyectoFinal/bala.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/qfontmetrics.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QGraphicsScene \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qgraphicsscene.h \
+		../ProyectoFinal/spritemoscas.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QDebug \
 		../ProyectoFinal/mainwindow.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QMainWindow \
@@ -844,6 +864,9 @@ release/bala.o: ../ProyectoFinal/bala.cpp ../ProyectoFinal/bala.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtGui/QList \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QDesktopWidget \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QVector \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QRectF \
 		../ProyectoFinal/cuerpopersonajejugador.h \
@@ -855,10 +878,6 @@ release/bala.o: ../ProyectoFinal/bala.cpp ../ProyectoFinal/bala.h \
 		../ProyectoFinal/vida.h \
 		../ProyectoFinal/portal.h \
 		../ProyectoFinal/puntaje.h \
-		../ProyectoFinal/spritemoscas.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QListWidget \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlistwidget.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlistview.h \
@@ -1231,6 +1250,9 @@ release/main.o: ../ProyectoFinal/main.cpp ../ProyectoFinal/mainwindow.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QDesktopWidget \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QDebug \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QVector \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QRectF \
 		../ProyectoFinal/cuerpopersonajejugador.h \
@@ -1255,13 +1277,10 @@ release/main.o: ../ProyectoFinal/main.cpp ../ProyectoFinal/mainwindow.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QWidget \
 		../ProyectoFinal/bala.h \
 		../ProyectoFinal/spritegusano.h \
+		../ProyectoFinal/spritemoscas.h \
 		../ProyectoFinal/vida.h \
 		../ProyectoFinal/portal.h \
 		../ProyectoFinal/puntaje.h \
-		../ProyectoFinal/spritemoscas.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QListWidget \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlistwidget.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlistview.h \
@@ -1399,6 +1418,9 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QDesktopWidget \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QDebug \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
+		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QVector \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtCore/QRectF \
 		../ProyectoFinal/cuerpopersonajejugador.h \
@@ -1423,13 +1445,10 @@ release/mainwindow.o: ../ProyectoFinal/mainwindow.cpp ../ProyectoFinal/mainwindo
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QWidget \
 		../ProyectoFinal/bala.h \
 		../ProyectoFinal/spritegusano.h \
+		../ProyectoFinal/spritemoscas.h \
 		../ProyectoFinal/vida.h \
 		../ProyectoFinal/portal.h \
 		../ProyectoFinal/puntaje.h \
-		../ProyectoFinal/spritemoscas.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QMessageBox \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qmessagebox.h \
-		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qdialog.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/QListWidget \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlistwidget.h \
 		C:/Qt/Qt5.12.9/5.12.9/mingw73_32/include/QtWidgets/qlistview.h \

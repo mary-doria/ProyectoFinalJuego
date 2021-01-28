@@ -25,3 +25,9 @@ void Puntaje::reiniciarpuntos()
     puntos=0;
 
 }
+
+void Puntaje::asignarPuntos(int puntos)
+{
+    this->puntos=puntos;
+
+}

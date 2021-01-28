@@ -4,6 +4,7 @@
 #include <QList>
 #include <QDesktopWidget>
 #include <QDebug>
+#include <QMessageBox>
 #include <QVector>
 #include <iostream>//Flujo de entrada y salida para leer los archivos
 #include <fstream>
@@ -43,15 +44,20 @@ public:
 private:
     bool bandera;
     Ui::MainWindow *ui;
+    QString nombre;
+    int puedoguardar=0;
+    QMessageBox msgBox;
     QList<frutaBurbuja*> listaFrutaBurbuja;
-    CuerpoPersonajeJugador *PersonajePrincipal,*PersonajePrincipal2;
+    CuerpoPersonajeJugador *PersonajePrincipal;
     QList<frutaBurbuja *> modificarFrutaBurbuja(QList<frutaBurbuja *> listaFrutaBurbuja, int posicion);
     QList<Vida *> modificarVida(QList<Vida *> listaVida, int posicion);
     QVector<spritegusano*>vectorAuxGusanos;
     QGraphicsScene *scene,scene2;
     QList<Vida*> listaVida;
     bool Multijugador=false;
+    int escogerPersonaje,escogerPersonaje2=1;
     Puntaje * Puntos;
+    int puntosAcumulados;
     QTimer *timercaida,*timersalto,*timerfrutaburbuja,*timerVida,*timerEnemigos;
     frutaBurbuja *fruta1,*fruta2,*fruta3,*fruta4,*fruta5,*fruta6,*fruta7,*fruta8,*fruta9,*fruta10,*fruta11,*fruta12,*fruta13,*fruta14,*fruta15,*fruta16;
     Vida *vida1,*vida2,*vida3,*vida4,*vida5;
@@ -78,6 +84,8 @@ private:
     Plataforma *plataforma18;
     Plataforma *plataforma19;
     QMessageBox *mensaje;
+    QMessageBox Mensaje;// Multijugador
+
     nave *naverickmorty;
     QList<Plataforma*> listaPlataformas;
     QTimer *timerMoscas;
@@ -90,6 +98,15 @@ private:
     spritemoscas *mosca;
     QList<spritemoscas *> moscas;
     bool banderaMosca=true;
+
+    //Para el multijugador
+    //Moscas
+    spritemoscas *mosca1;
+    spritemoscas *mosca2;
+    int puntosJ1=0;
+    int puntosJ2=0;
+    bool banderaMulti;
+    int contadorMulti=0;
 
     QList<spritegusano*> enemigos;// lista de enemigos gusanos
     QVector < int > V_posgusanos; // vector con las posiciones de los gusanos
@@ -148,5 +165,7 @@ private slots:
 
     void on_bottonReiniciar_clicked();
     void on_pushButton_2_clicked();
+    void on_cargarPartida_clicked();
+    void on_eliminarPartida_clicked();
 };
 #endif // MAINWINDOW_H

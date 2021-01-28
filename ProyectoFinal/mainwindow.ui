@@ -66,10 +66,10 @@
    <widget class="QPushButton" name="bottonJugar">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>230</y>
-      <width>121</width>
-      <height>61</height>
+      <x>260</x>
+      <y>240</y>
+      <width>111</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -83,14 +83,22 @@
     <property name="geometry">
      <rect>
       <x>440</x>
-      <y>230</y>
-      <width>201</width>
-      <height>61</height>
+      <y>240</y>
+      <width>191</width>
+      <height>55</height>
      </rect>
     </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>55</height>
+     </size>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/Imagenes/Instrucciones.png);
-</string>
+     <string notr="true">background-image: url(:/Imagenes/instrucciones.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -99,10 +107,10 @@
    <widget class="QPushButton" name="bottonMultijugador">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>230</y>
-      <width>191</width>
-      <height>61</height>
+      <x>320</x>
+      <y>170</y>
+      <width>171</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -112,7 +120,7 @@
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/Imagenes/Multijugador.png);</string>
+     <string notr="true">background-image: url(:/Imagenes/2jugadores.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -121,8 +129,8 @@
    <widget class="QRadioButton" name="radioButton">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>290</y>
+      <x>190</x>
+      <y>230</y>
       <width>51</width>
       <height>61</height>
      </rect>
@@ -137,8 +145,8 @@
    <widget class="QRadioButton" name="radioButton_2">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>290</y>
+      <x>130</x>
+      <y>230</y>
       <width>51</width>
       <height>61</height>
      </rect>
@@ -244,20 +252,20 @@
    <widget class="QPushButton" name="bottonUsurario">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>160</y>
-      <width>140</width>
-      <height>61</height>
+      <x>310</x>
+      <y>220</y>
+      <width>211</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="maximumSize">
      <size>
-      <width>140</width>
+      <width>220</width>
       <height>16777215</height>
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/Imagenes/Usuario.png);</string>
+     <string notr="true">background-image: url(:/Imagenes/registrousuario.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -266,8 +274,8 @@
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>450</x>
-      <y>179</y>
+      <x>530</x>
+      <y>230</y>
       <width>141</width>
       <height>21</height>
      </rect>
@@ -299,20 +307,57 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>150</y>
-      <width>161</width>
-      <height>71</height>
+      <y>170</y>
+      <width>147</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>147</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Imagenes/1jugador.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cargarPartida">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>170</y>
+      <width>191</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/Imagenes/Jugador.png);</string>
+     <string notr="true">background-image: url(:/Imagenes/cargarpartida.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="eliminarPartida">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>240</y>
+      <width>211</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Imagenes/eliminarpartida.png);</string>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
    <zorder>graphicsView</zorder>
-   <zorder>lineEdit</zorder>
    <zorder>label_2</zorder>
    <zorder>label_3</zorder>
    <zorder>label</zorder>
@@ -321,10 +366,13 @@
    <zorder>bottonJugar</zorder>
    <zorder>bottonInstrucciones</zorder>
    <zorder>radioButton_2</zorder>
-   <zorder>radioButton</zorder>
    <zorder>pushButton</zorder>
    <zorder>bottonMultijugador</zorder>
    <zorder>pushButton_2</zorder>
+   <zorder>cargarPartida</zorder>
+   <zorder>lineEdit</zorder>
+   <zorder>eliminarPartida</zorder>
+   <zorder>radioButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

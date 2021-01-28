@@ -41,6 +41,8 @@ public:
     QLineEdit *lineEdit;
     QPushButton *bottonReiniciar;
     QPushButton *pushButton_2;
+    QPushButton *cargarPartida;
+    QPushButton *eliminarPartida;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -65,25 +67,25 @@ public:
         graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         bottonJugar = new QPushButton(centralwidget);
         bottonJugar->setObjectName(QString::fromUtf8("bottonJugar"));
-        bottonJugar->setGeometry(QRect(290, 230, 121, 61));
+        bottonJugar->setGeometry(QRect(260, 240, 111, 51));
         bottonJugar->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/JugarRickMorty.png);"));
         bottonInstrucciones = new QPushButton(centralwidget);
         bottonInstrucciones->setObjectName(QString::fromUtf8("bottonInstrucciones"));
-        bottonInstrucciones->setGeometry(QRect(440, 230, 201, 61));
-        bottonInstrucciones->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/Instrucciones.png);\n"
-""));
+        bottonInstrucciones->setGeometry(QRect(440, 240, 191, 55));
+        bottonInstrucciones->setMaximumSize(QSize(16777215, 55));
+        bottonInstrucciones->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/instrucciones.png);"));
         bottonMultijugador = new QPushButton(centralwidget);
         bottonMultijugador->setObjectName(QString::fromUtf8("bottonMultijugador"));
-        bottonMultijugador->setGeometry(QRect(190, 230, 191, 61));
+        bottonMultijugador->setGeometry(QRect(320, 170, 171, 51));
         bottonMultijugador->setMaximumSize(QSize(16777215, 61));
-        bottonMultijugador->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/Multijugador.png);"));
+        bottonMultijugador->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/2jugadores.png);"));
         radioButton = new QRadioButton(centralwidget);
         radioButton->setObjectName(QString::fromUtf8("radioButton"));
-        radioButton->setGeometry(QRect(670, 290, 51, 61));
+        radioButton->setGeometry(QRect(190, 230, 51, 61));
         radioButton->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/IconMorty.png);"));
         radioButton_2 = new QRadioButton(centralwidget);
         radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
-        radioButton_2->setGeometry(QRect(580, 290, 51, 61));
+        radioButton_2->setGeometry(QRect(130, 230, 51, 61));
         radioButton_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/IconRick.png);"));
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
@@ -108,12 +110,12 @@ public:
         label_3->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/mortyllorando.gif);"));
         bottonUsurario = new QPushButton(centralwidget);
         bottonUsurario->setObjectName(QString::fromUtf8("bottonUsurario"));
-        bottonUsurario->setGeometry(QRect(300, 160, 140, 61));
-        bottonUsurario->setMaximumSize(QSize(140, 16777215));
-        bottonUsurario->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/Usuario.png);"));
+        bottonUsurario->setGeometry(QRect(310, 220, 211, 51));
+        bottonUsurario->setMaximumSize(QSize(220, 16777215));
+        bottonUsurario->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/registrousuario.png);"));
         lineEdit = new QLineEdit(centralwidget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(450, 179, 141, 21));
+        lineEdit->setGeometry(QRect(530, 230, 141, 21));
         bottonReiniciar = new QPushButton(centralwidget);
         bottonReiniciar->setObjectName(QString::fromUtf8("bottonReiniciar"));
         bottonReiniciar->setGeometry(QRect(800, 10, 24, 24));
@@ -121,11 +123,19 @@ public:
         bottonReiniciar->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/ReiniciarP.png);"));
         pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(130, 150, 161, 71));
-        pushButton_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/Jugador.png);"));
+        pushButton_2->setGeometry(QRect(130, 170, 147, 51));
+        pushButton_2->setMaximumSize(QSize(147, 16777215));
+        pushButton_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/1jugador.png);"));
+        cargarPartida = new QPushButton(centralwidget);
+        cargarPartida->setObjectName(QString::fromUtf8("cargarPartida"));
+        cargarPartida->setGeometry(QRect(540, 170, 191, 51));
+        cargarPartida->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/cargarpartida.png);"));
+        eliminarPartida = new QPushButton(centralwidget);
+        eliminarPartida->setObjectName(QString::fromUtf8("eliminarPartida"));
+        eliminarPartida->setGeometry(QRect(310, 240, 211, 51));
+        eliminarPartida->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/eliminarpartida.png);"));
         MainWindow->setCentralWidget(centralwidget);
         graphicsView->raise();
-        lineEdit->raise();
         label_2->raise();
         label_3->raise();
         label->raise();
@@ -134,10 +144,13 @@ public:
         bottonJugar->raise();
         bottonInstrucciones->raise();
         radioButton_2->raise();
-        radioButton->raise();
         pushButton->raise();
         bottonMultijugador->raise();
         pushButton_2->raise();
+        cargarPartida->raise();
+        lineEdit->raise();
+        eliminarPartida->raise();
+        radioButton->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 960, 21));
@@ -156,6 +169,9 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
         bottonJugar->setText(QString());
+#ifndef QT_NO_WHATSTHIS
+        bottonInstrucciones->setWhatsThis(QString());
+#endif // QT_NO_WHATSTHIS
         bottonInstrucciones->setText(QString());
         bottonMultijugador->setText(QString());
         radioButton->setText(QString());
@@ -167,6 +183,8 @@ public:
         bottonUsurario->setText(QString());
         bottonReiniciar->setText(QString());
         pushButton_2->setText(QString());
+        cargarPartida->setText(QString());
+        eliminarPartida->setText(QString());
     } // retranslateUi
 
 };

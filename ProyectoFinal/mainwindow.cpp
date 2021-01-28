@@ -12,6 +12,9 @@
 #include <QPixmap>
 #include <QtWidgets>
 #include <QtGui>
+#include <sstream>
+#include <fstream>
+#include <iostream>
 #include <string.h>
 #include <QGraphicsScene>
 #include "cuerpopersonajejugador.h"
@@ -31,15 +34,22 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->label->hide();
     ui->label_2->hide();
-    ui->pushButton->hide();
     ui->label_3->hide();
     ui->lineEdit->hide();
     ui->bottonMultijugador->hide();
     ui->bottonUsurario->hide();
     ui->bottonReiniciar->hide();
-    ui->bottonJugar->show();
-    Puntos = new Puntaje();
+    ui->eliminarPartida->hide();
+    ui->cargarPartida->hide();
+    ui->pushButton->hide();
     ui->pushButton_2->hide();
+    ui->bottonJugar->show();
+    ui->bottonInstrucciones->show();
+    ui->radioButton->hide();
+    ui->radioButton_2->hide();
+    Puntos = new Puntaje();
+
+
 
 
 
@@ -146,37 +156,7 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
         scene->addItem(balaa);
         //qDebug()<<"bala creada";
     }
-    if(Multijugador==true){
-        if (evento->key()==Qt::Key_J){
-            bandera=false;
-            PersonajePrincipal2->izquierda();
-            PersonajePrincipal2->actualizar_sprite_izquierda();
-            /*for (int i = 0; i<enemigos.count(); i++){
-               if (PersonajePrincipal->collidesWithItem(enemigos.at(i))){
-                   PersonajePrincipal->derecha();}}*/
-               }
-        if (evento->key()==Qt::Key_L){
-            bandera =true;
-            PersonajePrincipal2->derecha();
-            PersonajePrincipal2->actualizar_sprite_derecha();
 
-        }
-
-        if (evento->key()==Qt::Key_I){
-            if(PersonajePrincipal2->getEnTierra()==true){
-                activaSalto();
-                        }}
-
-        // tecla para disparar
-        if (evento->key()==Qt::Key_K){
-            //crear bala
-            bala * balaa = new bala(bandera, enemigos,moscas);
-            balaa->setPos(PersonajePrincipal2->x(),PersonajePrincipal2->y());//posicion del retangulo
-            scene->addItem(balaa);
-            //qDebug()<<"bala creada";
-        }
-
-    }
 
     for (int i = 0; i<listaFrutaBurbuja.size(); i++) {
         if (PersonajePrincipal->collidesWithItem(listaFrutaBurbuja.at(i))){
@@ -195,6 +175,18 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     }
     if (PersonajePrincipal->collidesWithItem(portalRickMorty)){
         if(Puntos->obtenerPuntos()>=200){
+
+            if(puedoguardar==0)
+            {   cout<<nivelActual;
+                cout<<Puntos->obtenerPuntos();
+                ofstream Fichero;
+                Fichero.open("guardar.txt",ios::out| ios::app);
+                Fichero<<nombre.toStdString()<<" "<<to_string(nivelActual)<<" "<<to_string(Puntos->obtenerPuntos())<<endl;
+                Fichero.close();
+                puedoguardar=0;
+            }
+            puedoguardar=0;
+
             nivelActual +=1;
             scene->removeItem(portalRickMorty);
             segundoNivel();
@@ -203,9 +195,6 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     }
     }
     if(nivelActual == 2){
-        if (PersonajePrincipal->collidesWithItem(naverickmorty)){
-        scene->addItem(portalRickMorty);
-        }
     if (PersonajePrincipal->collidesWithItem(portalRickMorty)){
         if(Puntos->obtenerPuntos()>=500){
          timerMoscas->stop();
@@ -307,6 +296,63 @@ void MainWindow::actualizarMoscas()
 
     }
 
+
+
+    if(moscas.size()==0 && Multijugador==true){
+
+        banderaMulti=true;
+        if(banderaMulti==true){
+            contadorMulti++;
+
+            if(contadorMulti==1){
+
+                puntosJ1=Puntos->obtenerPuntos();
+                qDebug() << puntosJ1;
+                listaPlataformas.clear();
+                listaFrutaBurbuja.clear();
+                timercaida->stop();
+                timerfrutaburbuja->stop();
+                timerMoscas->stop();
+                timer2Moscas->stop();
+                Puntos->reiniciarpuntos();
+                val=0;
+                Mensaje.setText("TURNO DEL JUGADOR 2");
+                Mensaje.setInformativeText("");
+                Mensaje.exec();
+                on_bottonMultijugador_clicked();
+             }
+
+            else if(contadorMulti==2){
+
+                puntosJ2=Puntos->obtenerPuntos();
+                qDebug() << puntosJ2;
+                listaPlataformas.clear();
+                listaFrutaBurbuja.clear();
+                timercaida->stop();
+                timerfrutaburbuja->stop();
+                timerMoscas->stop();
+                timer2Moscas->stop();
+                Puntos->reiniciarpuntos();
+                if(puntosJ1<puntosJ2){
+                    Mensaje.setText("EL GANADOR ES EL JUGADOR 2");
+                    Mensaje.setInformativeText("");
+                    Mensaje.exec();}
+                if(puntosJ1>puntosJ2){
+                    Mensaje.setText("EL GANADOR ES EL JUGADOR 1");
+                    Mensaje.setInformativeText("");
+                    Mensaje.exec();}
+                if(puntosJ1==puntosJ2){
+                    Mensaje.setText("EMPATADOS");
+                    Mensaje.setInformativeText("");
+                    Mensaje.exec();}
+                nivelCasa();
+
+
+            }
+        }
+    }
+
+
 }
 
 void MainWindow::crearMoscas()
@@ -351,14 +397,19 @@ void MainWindow::segundoNivel()
     ui->bottonUsurario->hide();
     ui->pushButton_2->hide();
     ui->lineEdit->hide();
+    ui->eliminarPartida->hide();
+    ui->cargarPartida->hide();
+    ui->radioButton->hide();
+    ui->radioButton_2->hide();
     scene = new QGraphicsScene;
     scene->setSceneRect(0,0,960,519);
     scene->setBackgroundBrush(QImage(":/Imagenes/Escenario2.png"));
+
     ui->graphicsView->setScene(scene);
     listaPlataformas.clear();
     listaFrutaBurbuja.clear();
     enemigos.clear();
-    PersonajePrincipal = new CuerpoPersonajeJugador(90,50,2);
+    PersonajePrincipal = new CuerpoPersonajeJugador(90,50,escogerPersonaje);
     scene->addItem(PersonajePrincipal);
     PersonajePrincipal->setScale(0.4);
     for (int i = 0; i<listaVida.count(); i++){
@@ -381,8 +432,34 @@ void MainWindow::segundoNivel()
     enemigo4= new spritegusano(false, 800,460);scene->addItem(enemigo4);enemigo4->setScale(0.4);enemigos.push_back(enemigo4);
     enemigo5= new spritegusano(false, 650,460);scene->addItem(enemigo5);enemigo5->setScale(0.4);enemigos.push_back(enemigo5);
     enemigo6= new spritegusano(false, 150,460);scene->addItem(enemigo6);enemigo6->setScale(0.4);enemigos.push_back(enemigo6);
-    naverickmorty= new nave(70,430);scene->addItem(naverickmorty);naverickmorty->setScale(0.5);
-    portalRickMorty=new  Portal(800,420,20,1);
+    V_posgusanos.clear();
+    cargarPosgusano(nivelActual);// funcion para cargas las posiciones de los gusanos
+    //naverickmorty= new nave(70,430);scene->addItem(naverickmorty);naverickmorty->setScale(0.5);
+    portalRickMorty=new  Portal(70,430,20,1);
+    scene->addItem(portalRickMorty);
+    timerEnemigos = new QTimer();
+    connect(timerEnemigos,SIGNAL(timeout()),this,SLOT(moveEnemy()));
+    timerEnemigos->start(100);
+    timerfrutaburbuja = new QTimer();
+    connect(timerfrutaburbuja,SIGNAL(timeout()),this,SLOT(actualizar_frutaburbuja()));
+    timerfrutaburbuja->start(150);
+    timerportalRickMorty = new QTimer();
+    connect(timerportalRickMorty,SIGNAL(timeout()),this,SLOT(actualizar_portal()));
+    timerportalRickMorty->start(200);
+    if(listaVida.size()==0){
+    timerVida = new QTimer();
+    connect(timerVida,SIGNAL(timeout()),this,SLOT(actualizar_vida()));
+    timerVida->start(800);
+    timercaida = new QTimer();
+    connect(timercaida,SIGNAL(timeout()),this,SLOT(activaG()));
+    timercaida->start(30);
+    vida1=new Vida(420,30);listaVida.push_back(vida1);scene->addItem(vida1);
+    vida2=new Vida(450,30);listaVida.push_back(vida2);scene->addItem(vida2);
+    vida3=new Vida(480,30);listaVida.push_back(vida3);scene->addItem(vida3);
+    vida4=new Vida(510,30);listaVida.push_back(vida4);scene->addItem(vida4);
+    vida5=new Vida(540,30);listaVida.push_back(vida5);scene->addItem(vida5);
+    }
+
     h_limit=960;//limite de la pantalla horizontal
     v_limit=519;//limite vertical
     timerMoscas=new QTimer();
@@ -440,7 +517,7 @@ void MainWindow::primerNivel()
         //ui->setupUi(this);
         scene = new QGraphicsScene;
         ui->label_2->hide();
-        ui->bottonReiniciar->show();
+        ui->bottonReiniciar->hide();
         ui->graphicsView->setScene(scene);
         ui->pushButton->hide();
         ui->bottonJugar->hide();
@@ -451,12 +528,16 @@ void MainWindow::primerNivel()
         ui->pushButton_2->hide();
         ui->bottonUsurario->hide();
         ui->lineEdit->hide();
+        ui->eliminarPartida->hide();
+        ui->cargarPartida->hide();
+        ui->radioButton->hide();
+        ui->radioButton_2->hide();
 
 
         //ui->bottonUsuario->hide();
         ui->radioButton->hide();
         ui->radioButton_2->hide();
-        PersonajePrincipal = new CuerpoPersonajeJugador(90,50,2);
+        PersonajePrincipal = new CuerpoPersonajeJugador(90,50,escogerPersonaje);
 
         scene->addItem(PersonajePrincipal);
         PersonajePrincipal->setScale(0.4);
@@ -545,7 +626,7 @@ void MainWindow::muerte()
     ui->label_2->hide();
     ui->bottonInstrucciones->hide();
     ui->bottonMultijugador->hide();
-    ui->bottonReiniciar->show();
+    ui->bottonReiniciar->hide();
     //ui->bottonUsuario->hide();
     ui->pushButton->show();
     ui->radioButton->hide();
@@ -553,6 +634,8 @@ void MainWindow::muerte()
     listaVida.clear();
     listaPlataformas.clear();
     listaFrutaBurbuja.clear();
+    scene->removeItem(portalRickMorty);
+    ui->pushButton->hide();
     enemigos.clear();
     moscas.clear();
 
@@ -596,6 +679,7 @@ void MainWindow::moveEnemy()
             qDebug()<<V_posgusanos;
             V_posgusanos.removeAt(i*2);
             qDebug()<<V_posgusanos;
+
             Puntos->incrementar();
             break;
         }
@@ -619,7 +703,7 @@ void MainWindow::on_bottonJugar_clicked()
 {
     //ui->pushButton->show();
     ui->bottonJugar->hide();
-    ui->bottonInstrucciones->show();
+    ui->bottonInstrucciones->hide();
     ui->bottonMultijugador->hide();
     ui->radioButton->hide();
     ui->label->hide();
@@ -649,33 +733,121 @@ void MainWindow::on_bottonInstrucciones_clicked()
 }
 
 
-/*void MainWindow::on_bottonUsuario_clicked()
-{
 
-}*/
 
 void MainWindow::on_bottonMultijugador_clicked()
 {
-    //Multijugador=true;
-    /*ui->label->hide();
-    ui->label_2->hide();
-    ui->label_3->hide();
-    ui->lineEdit->hide();
-    ui->bottonJugar->hide();
-    ui->bottonMultijugador->hide();
-    ui->bottonUsurario->hide();
-    ui->bottonInstrucciones->hide();*/
+    //para el keypress
+        nivelActual=3;
+        banderaMulti=false;
+        if (contadorMulti==0){
+            Mensaje.setText("TURNO DEL JUGADOR 1");
+            Mensaje.setInformativeText("");
+            Mensaje.exec();
+        }
+        Multijugador=true;
+        //esconder botones
+        ui->label->hide();
+        ui->label_2->hide();
+        ui->label_3->hide();
+        ui->lineEdit->hide();
+        ui->bottonJugar->hide();
+        ui->bottonMultijugador->hide();
+        ui->bottonUsurario->hide();
+        ui->bottonInstrucciones->hide();
+        ui->cargarPartida->hide();
+        ui->eliminarPartida->hide();
+        ui->pushButton_2->hide();
+        ui->bottonReiniciar->hide();
+        ui->radioButton->hide();
+        ui->radioButton_2->hide();
+
+        //ui->setupUi(this);
+        //escena
+        scene = new QGraphicsScene;
+        scene->setSceneRect(0,0,960,519);
+        scene->setBackgroundBrush(QImage(":/Imagenes/Escenario2.png"));
+        ui->graphicsView->setScene(scene);
+        //limpear listas
+        listaPlataformas.clear();
+        listaFrutaBurbuja.clear();
+        enemigos.clear();
+        //personaje
+        PersonajePrincipal = new CuerpoPersonajeJugador(500,150,escogerPersonaje2);
+        scene->addItem(PersonajePrincipal);
+        PersonajePrincipal->setScale(0.4);
+        escogerPersonaje2+=1;
+
+
+        //plaformas
+        plataformaInicialPosicion = new Plataforma(300,420);listaPlataformas.push_back(plataformaInicialPosicion);scene->addItem(plataformaInicialPosicion);
+        plataforma2=new Plataforma(500,200);listaPlataformas.push_back(plataforma2);scene->addItem(plataforma2);
+        plataforma3 =new Plataforma(700,420);listaPlataformas.push_back(plataforma3);scene->addItem(plataforma3);
+        //frutas
+        fruta1= new frutaBurbuja(); scene->addItem(fruta1);fruta1->setPos(50,450);listaFrutaBurbuja.push_back(fruta1);
+        fruta2= new frutaBurbuja(); scene->addItem(fruta2);fruta2->setPos(150,450);listaFrutaBurbuja.push_back(fruta2);
+        fruta3= new frutaBurbuja(); scene->addItem(fruta3);fruta3->setPos(250,450);listaFrutaBurbuja.push_back(fruta3);
+        fruta4= new frutaBurbuja(); scene->addItem(fruta4);fruta4->setPos(350,450);listaFrutaBurbuja.push_back(fruta4);
+        fruta5= new frutaBurbuja(); scene->addItem(fruta5);fruta5->setPos(450,450);listaFrutaBurbuja.push_back(fruta5);
+        fruta6= new frutaBurbuja(); scene->addItem(fruta6);fruta6->setPos(550,450);listaFrutaBurbuja.push_back(fruta6);
+        fruta7= new frutaBurbuja(); scene->addItem(fruta7);fruta7->setPos(650,450);listaFrutaBurbuja.push_back(fruta7);
+        fruta8= new frutaBurbuja(); scene->addItem(fruta8);fruta8->setPos(750,450);listaFrutaBurbuja.push_back(fruta8);
+        fruta9= new frutaBurbuja(); scene->addItem(fruta9);fruta9->setPos(850,450);listaFrutaBurbuja.push_back(fruta9);
+        fruta10= new frutaBurbuja(); scene->addItem(fruta10);fruta10->setPos(920,450);listaFrutaBurbuja.push_back(fruta10);
+        //timer frutas
+        timerfrutaburbuja = new QTimer();
+        connect(timerfrutaburbuja,SIGNAL(timeout()),this,SLOT(actualizar_frutaburbuja()));
+        timerfrutaburbuja->start(150);
+
+
+
+        //gravedad
+        timercaida = new QTimer();
+        connect(timercaida,SIGNAL(timeout()),this,SLOT(activaG()));
+        timercaida->start(30);
+
+        // limites de la pantalla
+        h_limit=960;//limite de la pantalla horizontal
+        v_limit=519;//limite vertical
+        //scene->setSceneRect(0,0,h_limit,v_limit);
+        ui->centralwidget->adjustSize();
+        scene->addRect(scene->sceneRect());
+        ui->graphicsView->resize(scene->width(),scene->height());
+        this->resize(ui->graphicsView->width()+100,ui->graphicsView->height()+100);
+
+        //timer de los enemigos  y enemigos (Moscas)
+        moscas.push_back(mosca1 = new spritemoscas(banderaMosca)); scene->addItem(moscas.back());
+        moscas.push_back(mosca2 = new spritemoscas(!banderaMosca)); scene->addItem(moscas.back());
+
+        timerMoscas=new QTimer();
+        timer2Moscas=new QTimer();
+        timerMoscas->start(1000);//timer de aparicion de las moscas
+        timer2Moscas->start(25);//mov de las moscas
+        connect(timerMoscas,SIGNAL(timeout()),this,SLOT(crearMoscas()));
+        connect(timer2Moscas,SIGNAL(timeout()),this,SLOT(actualizarMoscas()));
+        mosca=new spritemoscas(true);// crear la primera moscas para la lista asi se puede activar la de actualizar
+        moscas.push_back(mosca);//agrego mosca en la lista
+
+        //aqui esta el incremento de puntos para las moscas
+        timerEnemigos = new QTimer();
+        timerEnemigos->start(100);
+        connect(timerEnemigos,SIGNAL(timeout()),this,SLOT(moveEnemy()));
+
+        //puntos
+        scene->addItem(Puntos);
 
 
 }
 
 void MainWindow::on_radioButton_2_clicked()
 {
+    escogerPersonaje=1;//Rick
 
 }
 
 void MainWindow::on_radioButton_clicked()
 {
+    escogerPersonaje=2;//Morty
 
 }
 
@@ -723,13 +895,51 @@ void MainWindow::on_lineEdit_windowTitleChanged(const QString &title)
 
 
 void MainWindow::on_bottonUsurario_clicked()
-{
-    ui->bottonMultijugador->hide();
+{   nombre=ui->lineEdit->text();
+    string nombrePos;
+    string nivelPos;
+    string puntosPos;
+
+    ifstream archivo;
+    archivo.open("guardar.txt",ios::out| ios::app);
+    archivo.close();
+    archivo.open("guardar.txt");
+    while(!archivo.eof())
+    {
+        archivo>>nombrePos;
+        archivo>>nivelPos;
+        archivo>>puntosPos;
+        if(nombrePos==nombre.toStdString())
+        {
+            puedoguardar++;
+            qDebug()<<puedoguardar;
+            if(puedoguardar==1)
+            {
+                msgBox.setText(nombre);
+                msgBox.setInformativeText("YA EL USUARIO FUE CREADO ");
+                msgBox.exec();
+            }
+        }
+    }
+    archivo.close();
+
+    ui->label->hide();
     ui->label_2->hide();
-    ui->bottonUsurario->hide();
+    ui->label_3->hide();
     ui->lineEdit->hide();
+    ui->bottonMultijugador->show();
+    ui->bottonUsurario->hide();
+    ui->bottonReiniciar->hide();
+    ui->eliminarPartida->show();
+    ui->cargarPartida->show();
+    ui->pushButton->hide();
     ui->pushButton_2->show();
+    ui->bottonJugar->hide();
+    ui->bottonInstrucciones->hide();
+    ui->radioButton->show();
+    ui->radioButton_2->show();
 }
+
 
 void MainWindow::on_bottonReiniciar_clicked()
 {   //ui->setupUi(this);
@@ -738,6 +948,7 @@ void MainWindow::on_bottonReiniciar_clicked()
     listaVida.clear();
     listaPlataformas.clear();
     listaFrutaBurbuja.clear();
+    V_posgusanos.clear();
     enemigos.clear();
     timerVida->stop();
     timercaida->stop();
@@ -750,14 +961,73 @@ void MainWindow::on_bottonReiniciar_clicked()
       timer2Moscas->stop();
       Puntos->reiniciarpuntos();
     }
-    primerNivel();
+    segundoNivel();
 
 }
 
 void MainWindow::on_pushButton_2_clicked()//un solo jugador
-{
+{   if(escogerPersonaje==1 || escogerPersonaje==2){
     ui->label_2->hide();
     ui->bottonJugar->hide();
-    primerNivel();
+    primerNivel();}
+    else{
+        Mensaje.setText("DEBES ESCOGER UN PERSONAJE PARA JUGAR");
+        Mensaje.setInformativeText("");
+        Mensaje.exec();
+
+    }
+
+}
+
+void MainWindow::on_cargarPartida_clicked()
+{
+    ui->bottonMultijugador->hide();
+    bool existePartida = false;
+
+    timercaida = new QTimer();
+    connect(timercaida,SIGNAL(timeout()),this,SLOT(activaG()));
+    timercaida->start(30);
+
+    if(escogerPersonaje==1 || escogerPersonaje==2){
+        string nombrePos;
+        string nivelPos;
+        string puntosPos;
+        ifstream archivo;
+        archivo.open("guardar.txt",ios::out| ios::app);
+        archivo.close();
+        archivo.open("guardar.txt");
+        while(!archivo.eof())
+        {
+            archivo>>nombrePos;
+            archivo>>nivelPos;
+            archivo>>puntosPos;
+            if(nombrePos==nombre.toStdString())
+            {
+                nivelActual = stoi(nivelPos)+1;
+                Puntos->asignarPuntos(stoi(puntosPos));
+                existePartida=true;
+
+                segundoNivel();
+            }
+            if(nombrePos==nombre.toStdString()){
+
+                Mensaje.setText("DEBES HABER JUGADO EN MODO: 1 JUGADOR");
+                Mensaje.setInformativeText("");
+                Mensaje.exec();
+
+            }
+        }
+        archivo.close();
+    } else{
+        Mensaje.setText("DEBES ESCOGER UN PERSONAJE PARA JUGAR");
+        Mensaje.setInformativeText("");
+        Mensaje.exec();
+
+    }
+
+}
+
+void MainWindow::on_eliminarPartida_clicked()
+{
 
 }
