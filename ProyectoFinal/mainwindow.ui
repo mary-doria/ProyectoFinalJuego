@@ -186,8 +186,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>-10</x>
+      <y>-10</y>
       <width>960</width>
       <height>516</height>
      </rect>
@@ -357,6 +357,28 @@
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="salir">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>10</y>
+      <width>50</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>50</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Imagenes/salir.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>graphicsView</zorder>
    <zorder>label_2</zorder>
    <zorder>label_3</zorder>
@@ -373,6 +395,7 @@
    <zorder>lineEdit</zorder>
    <zorder>eliminarPartida</zorder>
    <zorder>radioButton</zorder>
+   <zorder>salir</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

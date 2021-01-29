@@ -43,6 +43,7 @@ public:
     QPushButton *pushButton_2;
     QPushButton *cargarPartida;
     QPushButton *eliminarPartida;
+    QPushButton *salir;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -95,7 +96,7 @@ public:
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setEnabled(true);
-        label_2->setGeometry(QRect(0, 0, 960, 516));
+        label_2->setGeometry(QRect(-10, -10, 960, 516));
         label_2->setMinimumSize(QSize(960, 516));
         label_2->setMaximumSize(QSize(960, 516));
         label_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/instruccionesImagen.png);"));
@@ -134,6 +135,11 @@ public:
         eliminarPartida->setObjectName(QString::fromUtf8("eliminarPartida"));
         eliminarPartida->setGeometry(QRect(310, 240, 211, 51));
         eliminarPartida->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/eliminarpartida.png);"));
+        salir = new QPushButton(centralwidget);
+        salir->setObjectName(QString::fromUtf8("salir"));
+        salir->setGeometry(QRect(860, 10, 50, 23));
+        salir->setMaximumSize(QSize(50, 16777215));
+        salir->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/salir.png);"));
         MainWindow->setCentralWidget(centralwidget);
         graphicsView->raise();
         label_2->raise();
@@ -151,6 +157,7 @@ public:
         lineEdit->raise();
         eliminarPartida->raise();
         radioButton->raise();
+        salir->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 960, 21));
@@ -185,6 +192,7 @@ public:
         pushButton_2->setText(QString());
         cargarPartida->setText(QString());
         eliminarPartida->setText(QString());
+        salir->setText(QString());
     } // retranslateUi
 
 };

@@ -167,5 +167,6 @@ private slots:
     void on_pushButton_2_clicked();
     void on_cargarPartida_clicked();
     void on_eliminarPartida_clicked();
+    void on_salir_clicked();
 };
 #endif // MAINWINDOW_H

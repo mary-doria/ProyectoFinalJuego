@@ -44,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton->hide();
     ui->pushButton_2->hide();
     ui->bottonJugar->show();
+    ui->salir->hide();
     ui->bottonInstrucciones->show();
     ui->radioButton->hide();
     ui->radioButton_2->hide();
@@ -174,7 +175,7 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     scene->addItem(portalRickMorty);
     }
     if (PersonajePrincipal->collidesWithItem(portalRickMorty)){
-        if(Puntos->obtenerPuntos()>=200){
+        if(Puntos->obtenerPuntos()>=2000){
 
             if(puedoguardar==0)
             {   cout<<nivelActual;
@@ -192,15 +193,17 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
             segundoNivel();
         }
 
+
     }
     }
     if(nivelActual == 2){
     if (PersonajePrincipal->collidesWithItem(portalRickMorty)){
-        if(Puntos->obtenerPuntos()>=500){
+        if(Puntos->obtenerPuntos()>=5000){
          timerMoscas->stop();
          timer2Moscas->stop();
             nivelCasa();
         }
+
 
     }
     }
@@ -397,6 +400,7 @@ void MainWindow::segundoNivel()
     ui->bottonUsurario->hide();
     ui->pushButton_2->hide();
     ui->lineEdit->hide();
+    ui->salir->show();
     ui->eliminarPartida->hide();
     ui->cargarPartida->hide();
     ui->radioButton->hide();
@@ -487,9 +491,11 @@ void MainWindow::nivelCasa()
     ui->label_2->hide();
     ui->bottonInstrucciones->hide();
     ui->bottonMultijugador->hide();
+    ui->bottonReiniciar->hide();
     //ui->bottonUsuario->hide();
     ui->radioButton->hide();
     ui->radioButton_2->hide();
+    ui->salir->show();
     listaVida.clear();
     listaPlataformas.clear();
     listaFrutaBurbuja.clear();
@@ -532,6 +538,7 @@ void MainWindow::primerNivel()
         ui->cargarPartida->hide();
         ui->radioButton->hide();
         ui->radioButton_2->hide();
+        ui->salir->show();
 
 
         //ui->bottonUsuario->hide();
@@ -635,6 +642,12 @@ void MainWindow::muerte()
     listaPlataformas.clear();
     listaFrutaBurbuja.clear();
     scene->removeItem(portalRickMorty);
+    timerVida->stop();
+    timerfrutaburbuja->stop();
+    timersalto->stop();
+    timer2Moscas->stop();
+    timerMoscas->stop();
+    timerportalRickMorty->stop();
     ui->pushButton->hide();
     enemigos.clear();
     moscas.clear();
@@ -1030,4 +1043,59 @@ void MainWindow::on_cargarPartida_clicked()
 void MainWindow::on_eliminarPartida_clicked()
 {
 
+        string line;
+        ifstream fin;
+        ofstream temp;
+        string nombrePos;
+        string nivelPos;
+        string puntosPos;
+        ifstream archivo;
+        archivo.open("guardar.txt");
+        int contLinea=0;
+        bool encontrado=false;
+        while(!archivo.eof())
+        {
+            archivo>>nombrePos;
+            archivo>>nivelPos;
+            archivo>>puntosPos;
+            if(nombrePos==nombre.toStdString())
+            {
+                encontrado=true;
+
+            }
+
+            if(encontrado==false){
+                contLinea+=1;
+            }
+        }
+
+        cout<<"Mausmaus"<<contLinea;
+        archivo.close();
+        fin.open("guardar.txt");
+        temp.open("temp.txt",ios::out| ios::app);
+        int deleteline=0;
+        while (getline(fin,line))
+
+        {
+            if (contLinea != deleteline){
+
+                temp << line << endl;}
+                deleteline+=1;
+                cout<<"zoito"<<contLinea<<deleteline;
+
+        }
+
+        temp.close();
+
+        fin.close();
+        remove("guardar.txt");
+        rename("temp.txt", "guardar.txt");
+}
+
+void MainWindow::on_salir_clicked()
+{
+    Mensaje.setText("HAS DECIDO SALIRTE DEL JUEGO,TU PUNTAJE SERA GUARDADO!");
+    Mensaje.setInformativeText("");
+    Mensaje.exec();
+    QApplication::quit();
 }

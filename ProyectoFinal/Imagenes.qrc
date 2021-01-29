@@ -29,5 +29,6 @@
         <file>Imagenes/registrousuario.png</file>
         <file>Imagenes/cargarpartida.png</file>
         <file>Imagenes/instrucciones.png</file>
+        <file>Imagenes/salir.png</file>
     </qresource>
 </RCC>
