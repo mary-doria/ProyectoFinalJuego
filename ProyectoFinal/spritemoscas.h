@@ -14,22 +14,22 @@ class spritemoscas:public QObject, public QGraphicsItem
 {
     Q_OBJECT
 public:
-    spritemoscas(bool bandera);
-    void actualizarPosyVel();
-    QRectF boundingRect() const;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
-     void set_vel(float vx, float vy, float px, float py);
-     void actual(float v_limit);
-     float getPX() const;
-     float getPY() const;
-     float getMass() const;
-     float getR() const;
-     float getVX() const;
-     float getVY() const;
-     float getE() const;
-     spritemoscas *mosca();
-     QTimer *timer;
-     QPixmap *pixmap;
+    spritemoscas(bool bandera);//constructor de la clase
+    void actualizarPosyVel();//actualizarla posicion y la velocidad de la clase
+    QRectF boundingRect() const;//para dibujar
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;//para dibujar al sprite
+     void set_vel(float vx, float vy, float px, float py);//dar parameros de posicon x,y y de velodad en x y y
+     void actual(float v_limit);//parametros actual
+     float getPX() const;//dar pos x
+     float getPY() const;//dar pos y
+     float getMass() const;//dar masa
+     float getR() const;//radio
+     float getVX() const;//velocidad en x
+     float getVY() const;//velocidad en y
+     float getE() const;//coeficiente
+     spritemoscas *mosca();//puntero de la clase mosca
+     QTimer *timer;//timer de para la clase
+     QPixmap *pixmap;//pixmap para el sprite de las moscas
 private:
      float PX;//pos x
     float PY;//pos y

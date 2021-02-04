@@ -30,5 +30,7 @@
         <file>Imagenes/cargarpartida.png</file>
         <file>Imagenes/instrucciones.png</file>
         <file>Imagenes/salir.png</file>
+        <file>Imagenes/songinicio.mpeg</file>
+        <file>Imagenes/bala.mp3</file>
     </qresource>
 </RCC>

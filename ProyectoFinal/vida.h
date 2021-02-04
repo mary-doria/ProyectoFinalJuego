@@ -12,18 +12,21 @@
 #include <QWidget>
 
 class Vida: public QObject, public QGraphicsItem
-{int posx,posy;
-    QPixmap *pixmapVidaCerveza;
-  private:
-    int dx,dy,ancho,alto;
-  public:
-      Vida(int x,int y);
-      int getPosx() const;
-      void setPosx(int value);
-      int getPosy() const;
-      void setPosy(int value);
-      QRectF boundingRect() const;// para dibujar el cuerpo
-      void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);
+{
+        int posx,posy;//Posicion en x y y de las vidas
+        QPixmap *pixmapVidaCerveza;//Pixmap:Imagen de la vida
+        private://Variables privadas de la clase vida
+        int dx,dy,ancho,alto;//posicion en x y y segun el sistema de coordenadas y ancho y alto de la imagen
+        public:
+        Vida(int x,int y);//Atributos de la clase vida
+        //Posicion en x
+        int getPosx() const;//Retorna un entero de la posicion en x
+        void setPosx(int value);//Actualiza la posicion en x
+        //Posicion en y
+        int getPosy() const;//Retorna un entero de la posicion en y
+        void setPosy(int value);//Actualiza la posicion en y
+        QRectF boundingRect() const;// para dibujar el cuerpo
+        void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);
   };
 
 

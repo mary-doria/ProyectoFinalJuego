@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[27];
-    char stringdata0[554];
+    char stringdata0[548];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,43 +41,42 @@ QT_MOC_LITERAL(6, 66, 15), // "actualizar_vida"
 QT_MOC_LITERAL(7, 82, 17), // "actualizar_portal"
 QT_MOC_LITERAL(8, 100, 11), // "crearMoscas"
 QT_MOC_LITERAL(9, 112, 16), // "actualizarMoscas"
-QT_MOC_LITERAL(10, 129, 22), // "on_bottonJugar_clicked"
-QT_MOC_LITERAL(11, 152, 30), // "on_bottonInstrucciones_clicked"
-QT_MOC_LITERAL(12, 183, 29), // "on_bottonMultijugador_clicked"
-QT_MOC_LITERAL(13, 213, 24), // "on_radioButton_2_clicked"
-QT_MOC_LITERAL(14, 238, 22), // "on_radioButton_clicked"
-QT_MOC_LITERAL(15, 261, 27), // "on_label_windowTitleChanged"
-QT_MOC_LITERAL(16, 289, 5), // "title"
-QT_MOC_LITERAL(17, 295, 29), // "on_label_2_windowTitleChanged"
-QT_MOC_LITERAL(18, 325, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(19, 347, 29), // "on_label_3_windowTitleChanged"
-QT_MOC_LITERAL(20, 377, 30), // "on_lineEdit_windowTitleChanged"
-QT_MOC_LITERAL(21, 408, 25), // "on_bottonUsurario_clicked"
-QT_MOC_LITERAL(22, 434, 26), // "on_bottonReiniciar_clicked"
-QT_MOC_LITERAL(23, 461, 23), // "on_pushButton_2_clicked"
-QT_MOC_LITERAL(24, 485, 24), // "on_cargarPartida_clicked"
-QT_MOC_LITERAL(25, 510, 26), // "on_eliminarPartida_clicked"
-QT_MOC_LITERAL(26, 537, 16) // "on_salir_clicked"
+QT_MOC_LITERAL(10, 129, 27), // "on_label_windowTitleChanged"
+QT_MOC_LITERAL(11, 157, 5), // "title"
+QT_MOC_LITERAL(12, 163, 29), // "on_label_2_windowTitleChanged"
+QT_MOC_LITERAL(13, 193, 30), // "on_lineEdit_windowTitleChanged"
+QT_MOC_LITERAL(14, 224, 22), // "on_bottonJugar_clicked"
+QT_MOC_LITERAL(15, 247, 30), // "on_bottonInstrucciones_clicked"
+QT_MOC_LITERAL(16, 278, 29), // "on_bottonMultijugador_clicked"
+QT_MOC_LITERAL(17, 308, 24), // "on_radioButton_2_clicked"
+QT_MOC_LITERAL(18, 333, 22), // "on_radioButton_clicked"
+QT_MOC_LITERAL(19, 356, 26), // "on_bottonReiniciar_clicked"
+QT_MOC_LITERAL(20, 383, 25), // "on_bottonUsurario_clicked"
+QT_MOC_LITERAL(21, 409, 24), // "on_cargarPartida_clicked"
+QT_MOC_LITERAL(22, 434, 26), // "on_eliminarPartida_clicked"
+QT_MOC_LITERAL(23, 461, 16), // "on_salir_clicked"
+QT_MOC_LITERAL(24, 478, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(25, 500, 23), // "on_pushButton_2_clicked"
+QT_MOC_LITERAL(26, 524, 23) // "on_pushButton_3_clicked"
 
     },
     "MainWindow\0moveEnemy\0\0activaG\0activaSalto\0"
     "actualizar_frutaburbuja\0actualizar_vida\0"
     "actualizar_portal\0crearMoscas\0"
-    "actualizarMoscas\0on_bottonJugar_clicked\0"
+    "actualizarMoscas\0on_label_windowTitleChanged\0"
+    "title\0on_label_2_windowTitleChanged\0"
+    "on_lineEdit_windowTitleChanged\0"
+    "on_bottonJugar_clicked\0"
     "on_bottonInstrucciones_clicked\0"
     "on_bottonMultijugador_clicked\0"
     "on_radioButton_2_clicked\0"
     "on_radioButton_clicked\0"
-    "on_label_windowTitleChanged\0title\0"
-    "on_label_2_windowTitleChanged\0"
-    "on_pushButton_clicked\0"
-    "on_label_3_windowTitleChanged\0"
-    "on_lineEdit_windowTitleChanged\0"
-    "on_bottonUsurario_clicked\0"
     "on_bottonReiniciar_clicked\0"
-    "on_pushButton_2_clicked\0"
+    "on_bottonUsurario_clicked\0"
     "on_cargarPartida_clicked\0"
-    "on_eliminarPartida_clicked\0on_salir_clicked"
+    "on_eliminarPartida_clicked\0on_salir_clicked\0"
+    "on_pushButton_clicked\0on_pushButton_2_clicked\0"
+    "on_pushButton_3_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -103,22 +102,22 @@ static const uint qt_meta_data_MainWindow[] = {
        7,    0,  139,    2, 0x0a /* Public */,
        8,    0,  140,    2, 0x0a /* Public */,
        9,    0,  141,    2, 0x0a /* Public */,
-      10,    0,  142,    2, 0x08 /* Private */,
-      11,    0,  143,    2, 0x08 /* Private */,
-      12,    0,  144,    2, 0x08 /* Private */,
-      13,    0,  145,    2, 0x08 /* Private */,
-      14,    0,  146,    2, 0x08 /* Private */,
-      15,    1,  147,    2, 0x08 /* Private */,
-      17,    1,  150,    2, 0x08 /* Private */,
-      18,    0,  153,    2, 0x08 /* Private */,
-      19,    1,  154,    2, 0x08 /* Private */,
-      20,    1,  157,    2, 0x08 /* Private */,
-      21,    0,  160,    2, 0x08 /* Private */,
-      22,    0,  161,    2, 0x08 /* Private */,
-      23,    0,  162,    2, 0x08 /* Private */,
-      24,    0,  163,    2, 0x08 /* Private */,
-      25,    0,  164,    2, 0x08 /* Private */,
-      26,    0,  165,    2, 0x08 /* Private */,
+      10,    1,  142,    2, 0x08 /* Private */,
+      12,    1,  145,    2, 0x08 /* Private */,
+      13,    1,  148,    2, 0x08 /* Private */,
+      14,    0,  151,    2, 0x08 /* Private */,
+      15,    0,  152,    2, 0x08 /* Private */,
+      16,    0,  153,    2, 0x08 /* Private */,
+      17,    0,  154,    2, 0x08 /* Private */,
+      18,    0,  155,    2, 0x08 /* Private */,
+      19,    0,  156,    2, 0x08 /* Private */,
+      20,    0,  157,    2, 0x08 /* Private */,
+      21,    0,  158,    2, 0x08 /* Private */,
+      22,    0,  159,    2, 0x08 /* Private */,
+      23,    0,  160,    2, 0x08 /* Private */,
+      24,    0,  161,    2, 0x08 /* Private */,
+      25,    0,  162,    2, 0x08 /* Private */,
+      26,    0,  163,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -129,16 +128,16 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   11,
+    QMetaType::Void, QMetaType::QString,   11,
+    QMetaType::Void, QMetaType::QString,   11,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   16,
-    QMetaType::Void, QMetaType::QString,   16,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   16,
-    QMetaType::Void, QMetaType::QString,   16,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -163,22 +162,22 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->actualizar_portal(); break;
         case 6: _t->crearMoscas(); break;
         case 7: _t->actualizarMoscas(); break;
-        case 8: _t->on_bottonJugar_clicked(); break;
-        case 9: _t->on_bottonInstrucciones_clicked(); break;
-        case 10: _t->on_bottonMultijugador_clicked(); break;
-        case 11: _t->on_radioButton_2_clicked(); break;
-        case 12: _t->on_radioButton_clicked(); break;
-        case 13: _t->on_label_windowTitleChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 14: _t->on_label_2_windowTitleChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 15: _t->on_pushButton_clicked(); break;
-        case 16: _t->on_label_3_windowTitleChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 17: _t->on_lineEdit_windowTitleChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 18: _t->on_bottonUsurario_clicked(); break;
-        case 19: _t->on_bottonReiniciar_clicked(); break;
-        case 20: _t->on_pushButton_2_clicked(); break;
-        case 21: _t->on_cargarPartida_clicked(); break;
-        case 22: _t->on_eliminarPartida_clicked(); break;
-        case 23: _t->on_salir_clicked(); break;
+        case 8: _t->on_label_windowTitleChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 9: _t->on_label_2_windowTitleChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 10: _t->on_lineEdit_windowTitleChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 11: _t->on_bottonJugar_clicked(); break;
+        case 12: _t->on_bottonInstrucciones_clicked(); break;
+        case 13: _t->on_bottonMultijugador_clicked(); break;
+        case 14: _t->on_radioButton_2_clicked(); break;
+        case 15: _t->on_radioButton_clicked(); break;
+        case 16: _t->on_bottonReiniciar_clicked(); break;
+        case 17: _t->on_bottonUsurario_clicked(); break;
+        case 18: _t->on_cargarPartida_clicked(); break;
+        case 19: _t->on_eliminarPartida_clicked(); break;
+        case 20: _t->on_salir_clicked(); break;
+        case 21: _t->on_pushButton_clicked(); break;
+        case 22: _t->on_pushButton_2_clicked(); break;
+        case 23: _t->on_pushButton_3_clicked(); break;
         default: ;
         }
     }

@@ -36,7 +36,6 @@ public:
     QLabel *label;
     QLabel *label_2;
     QPushButton *pushButton;
-    QLabel *label_3;
     QPushButton *bottonUsurario;
     QLineEdit *lineEdit;
     QPushButton *bottonReiniciar;
@@ -44,6 +43,7 @@ public:
     QPushButton *cargarPartida;
     QPushButton *eliminarPartida;
     QPushButton *salir;
+    QPushButton *pushButton_3;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -77,16 +77,16 @@ public:
         bottonInstrucciones->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/instrucciones.png);"));
         bottonMultijugador = new QPushButton(centralwidget);
         bottonMultijugador->setObjectName(QString::fromUtf8("bottonMultijugador"));
-        bottonMultijugador->setGeometry(QRect(320, 170, 171, 51));
+        bottonMultijugador->setGeometry(QRect(340, 170, 171, 51));
         bottonMultijugador->setMaximumSize(QSize(16777215, 61));
         bottonMultijugador->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/2jugadores.png);"));
         radioButton = new QRadioButton(centralwidget);
         radioButton->setObjectName(QString::fromUtf8("radioButton"));
-        radioButton->setGeometry(QRect(190, 230, 51, 61));
+        radioButton->setGeometry(QRect(250, 240, 51, 61));
         radioButton->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/IconMorty.png);"));
         radioButton_2 = new QRadioButton(centralwidget);
         radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
-        radioButton_2->setGeometry(QRect(130, 230, 51, 61));
+        radioButton_2->setGeometry(QRect(170, 240, 51, 61));
         radioButton_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/IconRick.png);"));
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
@@ -96,7 +96,7 @@ public:
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setEnabled(true);
-        label_2->setGeometry(QRect(-10, -10, 960, 516));
+        label_2->setGeometry(QRect(0, -10, 960, 516));
         label_2->setMinimumSize(QSize(960, 516));
         label_2->setMaximumSize(QSize(960, 516));
         label_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/instruccionesImagen.png);"));
@@ -105,10 +105,6 @@ public:
         pushButton->setGeometry(QRect(20, 410, 40, 40));
         pushButton->setMaximumSize(QSize(40, 40));
         pushButton->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/Atras.png);"));
-        label_3 = new QLabel(centralwidget);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(220, 80, 341, 321));
-        label_3->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/mortyllorando.gif);"));
         bottonUsurario = new QPushButton(centralwidget);
         bottonUsurario->setObjectName(QString::fromUtf8("bottonUsurario"));
         bottonUsurario->setGeometry(QRect(310, 220, 211, 51));
@@ -124,7 +120,7 @@ public:
         bottonReiniciar->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/ReiniciarP.png);"));
         pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(130, 170, 147, 51));
+        pushButton_2->setGeometry(QRect(160, 170, 147, 51));
         pushButton_2->setMaximumSize(QSize(147, 16777215));
         pushButton_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/1jugador.png);"));
         cargarPartida = new QPushButton(centralwidget);
@@ -133,17 +129,20 @@ public:
         cargarPartida->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/cargarpartida.png);"));
         eliminarPartida = new QPushButton(centralwidget);
         eliminarPartida->setObjectName(QString::fromUtf8("eliminarPartida"));
-        eliminarPartida->setGeometry(QRect(310, 240, 211, 51));
+        eliminarPartida->setGeometry(QRect(320, 250, 211, 51));
         eliminarPartida->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/eliminarpartida.png);"));
         salir = new QPushButton(centralwidget);
         salir->setObjectName(QString::fromUtf8("salir"));
         salir->setGeometry(QRect(860, 10, 50, 23));
         salir->setMaximumSize(QSize(50, 16777215));
         salir->setStyleSheet(QString::fromUtf8("background-image: url(:/Imagenes/salir.png);"));
+        pushButton_3 = new QPushButton(centralwidget);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setGeometry(QRect(20, 430, 31, 31));
+        pushButton_3->setStyleSheet(QString::fromUtf8("border-image: url(:/Imagenes/Sonido.png);"));
         MainWindow->setCentralWidget(centralwidget);
         graphicsView->raise();
         label_2->raise();
-        label_3->raise();
         label->raise();
         bottonReiniciar->raise();
         bottonUsurario->raise();
@@ -152,12 +151,13 @@ public:
         radioButton_2->raise();
         pushButton->raise();
         bottonMultijugador->raise();
-        pushButton_2->raise();
         cargarPartida->raise();
         lineEdit->raise();
         eliminarPartida->raise();
         radioButton->raise();
         salir->raise();
+        pushButton_3->raise();
+        pushButton_2->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 960, 21));
@@ -186,13 +186,13 @@ public:
         label->setText(QString());
         label_2->setText(QString());
         pushButton->setText(QString());
-        label_3->setText(QString());
         bottonUsurario->setText(QString());
         bottonReiniciar->setText(QString());
         pushButton_2->setText(QString());
         cargarPartida->setText(QString());
         eliminarPartida->setText(QString());
         salir->setText(QString());
+        pushButton_3->setText(QString());
     } // retranslateUi
 
 };

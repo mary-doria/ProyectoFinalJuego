@@ -1,12 +1,12 @@
 #include "spritemoscas.h"
 #include <math.h>
-#include <cmath>
+#include <cmath>//libreria mat
 #include <QDebug>
 
-spritemoscas::spritemoscas(bool bandera)
+spritemoscas::spritemoscas(bool bandera)//constructor de la clase
 {
-    alto=115;
-    ancho=100;
+    alto=115;//alto para el sprite
+    ancho=100;//ancho para el sprite
     if(bandera==true){
     PX=950;//pos x
     VX=-20;// velo en x
@@ -24,7 +24,7 @@ spritemoscas::spritemoscas(bool bandera)
     R=10; //radio
 
     VY=25; // velo en y
-    angulo;
+    angulo;//angulo
     AX=0;// acel en x
     AY=0; // acel en y
     g=1; //gravedad
@@ -33,21 +33,21 @@ spritemoscas::spritemoscas(bool bandera)
     V=0; //vector de velocidad;
     dt=0.1; // delta de tiempo
     qDebug()<<"aqui estoy";
-    pixmap=new QPixmap(":/Imagenes/moscas_Izq_Der.png");
-    setScale(0.5);
+    pixmap=new QPixmap(":/Imagenes/moscas_Izq_Der.png");//direccion del sprite
+    setScale(0.5);//escalar las moscas
 
 }
 
-void spritemoscas::actualizarPosyVel()
+void spritemoscas::actualizarPosyVel()//funcion para realizar el calculo de la posicion y la velocidad
 {
-    V = pow(((VX*VX)+(VY*VY)),(1/2));
+    V = pow(((VX*VX)+(VY*VY)),(1/2));//velocidad total
     angulo = atan2(VY,VX);// arcotangente
-    AX= -((K*(V*V)*(R*R))/mass)*cos(angulo);
-    AY= (-((K*(V*V)*(R*R))/mass)*sin(angulo))-g;
-    PX = PX + ((VX*(dt)))+(((AX*(dt*dt)))/2);
-    PY = PY + ((VY*(dt)))+(((AY*(dt*dt)))/2);
-    VX = VX + AX*dt;
-    VY = VY + AY*dt;
+    AX= -((K*(V*V)*(R*R))/mass)*cos(angulo);//aceleracion en X
+    AY= (-((K*(V*V)*(R*R))/mass)*sin(angulo))-g;//aceleración en Y
+    PX = PX + ((VX*(dt)))+(((AX*(dt*dt)))/2);//pos en X
+    PY = PY + ((VY*(dt)))+(((AY*(dt*dt)))/2);//pos en Y
+    VX = VX + AX*dt;//velocidad en X
+    VY = VY + AY*dt;//velocidad en Y
 }
 QRectF spritemoscas::boundingRect() const
 {
@@ -63,16 +63,16 @@ void spritemoscas::paint(QPainter *painter, const QStyleOptionGraphicsItem *opti
 
 void spritemoscas::set_vel(float vx, float vy, float px, float py)
 {
-    VX=vx;
-    VY=vy;
-    PX=px;
-    PY=py;
+    VX=vx;//le asigno la velocidad calculada a Velocidad en x
+    VY=vy;//le asigno la velocidad calculada a Velocidad en y
+    PX=px;//le asigno la posicion calculada en X
+    PY=py;//le asigno la posicion calculada en Y
 }
 
 void spritemoscas::actual(float v_limit)
 {
-    this->actualizarPosyVel();
-    setPos(this->getPX(),v_limit-this->getPY());
+    this->actualizarPosyVel();//actualizo la pisicion y la velocidad del objeto
+    setPos(this->getPX(),v_limit-this->getPY());//le asigno la posicion en X y Y al objeto
 }
 
 float spritemoscas::getPX() const

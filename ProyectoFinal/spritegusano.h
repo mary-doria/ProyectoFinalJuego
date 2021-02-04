@@ -16,22 +16,22 @@ class spritegusano : public QObject, public QGraphicsItem
 
 public:
     explicit spritegusano(QObject *parent = nullptr);
-    spritegusano(bool _bande, int x, int y);
+    spritegusano(bool _bande, int x, int y);//constructor de la clase
 
-    QTimer *timer;
-    QPixmap *pixmap;
+    QTimer *timer;//timer para la el mov. del sprite
+    QPixmap *pixmap;//pixmal para el sprite
 
-    float columna, fila;
-    float ancho,alto;
+    float columna, fila;//fila y columna que usaremos en el sprite
+    float ancho,alto;//fila y columna para el sprite
     //aplicamos la funcion de los fantasmas del packman
     bool bande;// variable para el cambio de direccion
     int posx, posy;// variables x y y para las posiciones iniciales
 
 
-    int getPosx() const;
-    void setPosx(int px);
-    int getPosy() const;
-    void setPosy(int py);
+    int getPosx() const;//posicion actual x
+    void setPosx(int px);//posicion del cuerpo en x
+    int getPosy() const;//posicion actual y
+    void setPosy(int py);//posicion del cuerpo en y
     void left(int velocidad);// mov izqueirda
     void right(int velocidad);// mov derecha
 
