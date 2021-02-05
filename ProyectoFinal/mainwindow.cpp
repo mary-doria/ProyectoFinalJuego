@@ -178,7 +178,7 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     scene->addItem(portalRickMorty);//Condicion 1 para que el personaje pase del nivel 1 a 2
     }
     if (PersonajePrincipal->collidesWithItem(portalRickMorty)){
-        if(Puntos->obtenerPuntos()>=300){//Condicion 2 para que el personaje pase del nivel 1 a 2
+        if(Puntos->obtenerPuntos()>=2000){//Condicion 2 para que el personaje pase del nivel 1 a 2
     //Se guarda automaticamente el puntaje luego de que se supero los 2000 puntos esto para cargar partida
             if(puedoguardar==0)
             {   //cout<<nivelActual<<"Aqui";
@@ -204,7 +204,7 @@ void MainWindow::keyPressEvent(QKeyEvent *evento)
     }
     if(nivelActual == 2){
     if (PersonajePrincipal->collidesWithItem(portalRickMorty)){
-        if(Puntos->obtenerPuntos()>=1000){//Condicion para que pueda ganar el jugador
+        if(Puntos->obtenerPuntos()>=5000){//Condicion para que pueda ganar el jugador
          timerMoscas->stop();//Se para la creacion de moscas
          timer2Moscas->stop();//Se para el tiempo de aparicion
             nivelCasa();//Gano el usuario
