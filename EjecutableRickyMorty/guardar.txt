@@ -1,0 +1,9 @@
+juan 1 2000
+zoito 1 2500
+shs 1 2000
+pollo 1 2500
+mariana 1 2200
+NOMBRE 1 2000
+mary 1 2300
+marydoria 1 2100
+MaryDoria 1 1200
